@@ -1,0 +1,19 @@
+Program:
+  neonode
+
+Description:
+  Generator for Neonode projects
+
+Usage:
+  neonode --init
+  neonode --update
+  neonode --create model
+  neonode --create controller
+
+Options:
+  -v --version                          Show Neonode's version
+  -h --help                             Show this screen.
+  -u --update                           Updates the Neonode core in an existing project.
+  --init                                Starts the project creation process.
+  --create model                        Starts the model generator
+  --create controller                   Starts the controller generator

@@ -1,0 +1,46 @@
+.theme_light {
+  background-color: @embed_light_bg;
+
+  .Loading {
+    background-color: @embed_light_bg;
+    color: @embed_dark_bg;
+  }
+
+  .main-header {
+    background: #fff;
+    box-shadow: 0 -1px 0 0 #fff;
+  }
+
+  .voice-background-cover::after {background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, @embed_light_bg);}
+
+  .voice-title {color: #2E3233;}
+  &.theme_bg-true .voice-title {
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,.35);
+  }
+
+  .header-meta {
+    &::before {background-image: linear-gradient(#fff 20%, rgba(255,255,255,0));}
+    &::after {background-image: linear-gradient(rgba(255,255,255,0), #fff 80%);}
+  }
+
+  .header-meta-voice-title {
+    color: #2E3233;
+  }
+
+  .header-switch-view-cards-button {
+    stroke: @color-neutral-dark;
+    &:hover:enabled {stroke: @color-neutral-x-dark;}
+    &:active, &.active, &.active:hover {stroke: @color-neutral-light;}
+  }
+
+  .header-open-voice-button-container {
+    border-color: @color-neutral-x-light;
+  }
+
+  .cv-post-detail__header {
+    background: #fff;
+    border-color: rgba(0, 0, 0, 0.2);
+  }
+  .pd-header__title { color: #2E3233; }
+}

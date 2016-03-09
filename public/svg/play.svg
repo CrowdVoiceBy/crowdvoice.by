@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="40px" viewBox="0 0 32 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>icon (play)</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="rgb(0,0,0)" fill-rule="evenodd" sketch:type="MSPage">
+        <g sketch:type="MSArtboardGroup" transform="translate(-1340.000000, -988.000000)" fill="#000000">
+            <g sketch:type="MSLayerGroup" transform="translate(100.000000, 781.000000)">
+                <g transform="translate(1099.000000, 70.000000)" sketch:type="MSShapeGroup">
+                    <g transform="translate(2.000000, 22.000000)">
+                        <path d="M139,115 L139,155 L171,135 L139,115 Z"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

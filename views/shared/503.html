@@ -1,0 +1,27 @@
+<style>
+  body {
+    background: url(/img/system-status/naranja-3.jpg);
+    background-repeat: no-repeat;
+    background-position: 100% -30px;
+    background-size: 145px 301px;
+  }
+</style>
+
+<div class="message-wrapper">
+  <h1 class="message__title">503</h1>
+
+  <% if (message) { %>
+    <h2 class="message__text"><%= message %></h2>
+  <% } else { %>
+    <h2 class="message__text">
+      Looks like we’re having some server issues.
+    </h2>
+  <% } %>
+
+  <hr/>
+
+  <p class="message__text-small">
+    Go back to the previous page and try again.<br/>
+    If you think something is broken, please report a problem.
+  </p>
+</div>

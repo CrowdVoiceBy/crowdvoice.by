@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>icon (facebook)</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="rgb(0,0,0)" fill-rule="evenodd" sketch:type="MSPage">
+        <g sketch:type="MSArtboardGroup" transform="translate(-960.000000, -4121.000000)">
+            <g sketch:type="MSLayerGroup" transform="translate(200.000000, 4082.000000)">
+                <g transform="translate(601.000000, 33.000000)" sketch:type="MSShapeGroup">
+                    <path d="M171,6 C164.383,6 159,11.383 159,18 C159,24.617 164.383,30 171,30 C177.617,30 183,24.617 183,18 C183,11.383 177.617,6 171,6 L171,6 Z M174.595,17.5 L172.5,17.5 L172.5,24.5 L169.5,24.5 L169.5,17.5 L167.5,17.5 L167.5,15.5 L169.5,15.5 L169.5,14.336 C169.5,13.236 169.852,11.517 172.149,11.517 L174.5,11.524 L174.5,13.83 L173.092,13.83 C172.848,13.83 172.5,13.954 172.5,14.477 L172.5,15.5 L174.839,15.5 L174.595,17.5 L174.595,17.5 Z"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

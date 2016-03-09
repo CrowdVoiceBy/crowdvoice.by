@@ -1,0 +1,19 @@
+<main role="main" class="cv-main-content my-voices-page -rel">
+  <section class="page-heading">
+    <h1 class="page-heading__title -m0 -inline-block">My Voices</h1>
+    <div class="profile-menu -row -rel"></div>
+  </section>
+
+  <section class="profile-body profile-menu-content -rel"></section>
+</main>
+
+<script>
+  var App = new CV.App().setup();
+  App.addInteractiveSidebar();
+
+  var MyVoices = new CV.Views.MyVoices({
+    el : document.querySelector('.cv-main-content'),
+    voices : <%= JSON.stringify(voices) %>,
+    voicesLength : <%= JSON.stringify(voicesLength) %>
+  });
+</script>

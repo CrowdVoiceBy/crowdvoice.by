@@ -1,0 +1,24 @@
+<main role="main" class="cv-main-content search-page -rel">
+  <section class="profile-voices-intro">
+    <h1 class="profile-heading -inline-block -font-bold -m0">
+      <%= totals %> <span class="-font-normal">results for <i>“<%= searchQuery %>”</i></span>
+    </h1>
+
+    <article role="article" class="profile-menu -row -rel">
+      <div class="profile-tabs">
+      </div>
+    </article>
+  </section>
+
+  <section class="profile-body profile-menu-content -rel">
+  </section>
+</main>
+
+<script>
+  var App = new CV.App().setup();
+  App.addInteractiveSidebar();
+
+  new CV.Views.SearchView({
+    searchResults : <%= JSON.stringify(searchResults) %>
+  });
+</script>

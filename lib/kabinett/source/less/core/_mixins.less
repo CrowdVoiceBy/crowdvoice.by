@@ -1,0 +1,19 @@
+/**
+  Kabinett – Module Core Mixins
+*/
+
+.mixin-color(@color, @name) {
+  .-color-@{name} {
+    color: @color !important;
+    fill: @color !important;
+  }
+
+  .-color-bg-@{name} {
+    background-color: @color !important;
+  }
+
+  .-color-border-@{name} {
+    border-color: @color !important;
+  }
+}
+

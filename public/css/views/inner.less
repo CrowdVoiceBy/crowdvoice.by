@@ -1,0 +1,100 @@
+.page-inner {
+  .app-wrapper > .yield {
+    padding-top: @cv-header-height;
+  }
+
+  .cv-main-content {
+    padding: 0 40px 0 40px;
+  }
+
+  .cv-main-profile-edit {
+    padding: 0 0px 0 60px;
+  }
+
+  .cv-main-profile {
+    padding: 0;
+  }
+}
+
+/* generic page headings */
+.page-heading {
+  padding-top: 35px;
+}
+
+.page-heading__title {
+  // color: purple;
+  font-size: 30px;
+  line-height: 40px;
+  margin-bottom: 10px;
+}
+
+.discover-category-list-heading{
+	border-bottom: 1px solid @color-menu-border;
+	height: 18px;
+	span{
+		background: @color-white;
+		padding: 0px 10px;
+	}
+}
+
+.onboarding-message{
+	font-weight: bold;
+	text-align: center;
+	padding-top: 100px;
+}
+
+.discover-page,
+.topics-page,
+.profile-page {
+	.discover-voices-container,
+	.discover-people-container,
+	.discover-updated-container,
+	.discover-organizations-container,
+	.profile-voices-container,
+	.profile-followers-container,
+	.drafts-container,
+	.unlisted-container,
+	.published-container,
+	.recommended-container{
+		margin: 0px -15px 0px;
+		.cv-voice-cover{
+			display: inline-block;
+			padding: 0px 15px 40px;
+		}
+		.widget-card{
+			display: inline-block;
+			padding: 25px 15px 40px;
+		}
+	}
+	.profile-following-container{
+		.entities-followed,
+		.voices-followed{
+			margin: 0px -15px 0px;
+			.cv-voice-cover{
+				display: inline-block;
+				padding: 0px 15px 40px;
+			}
+			.widget-card{
+				display: inline-block;
+				padding: 25px 15px 40px;
+			}
+		}
+	}
+}
+
+.browse-page .rs-item,
+.topics-page .rs-item {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  float: initial;
+
+}
+.topics-page{
+	&.category-list{
+		background: @color-strip-background;
+		padding: 20px 40px 10px 40px;
+		box-shadow: inset 0px -6px 5px -5px @color-shadow-select-body;
+		position: relative;
+		z-index: 1;
+	}
+}

@@ -1,0 +1,25 @@
+.ui-tab {
+  padding: 15px 7px;
+  cursor: pointer;
+  line-height: 1;
+  margin: 0px 15px 0 0;
+  color: @color-neutral-xx-mid;
+
+  &:hover {
+    color: @color-neutral-x-dark;
+  }
+
+  &.active {
+    color: @color-primary;
+  }
+}
+
+.ui-tab-indicator {
+  position: absolute;
+  height: 3px;
+  bottom: -1px;
+  background: @color-primary;
+  transition-property: transform, width;
+  transition-duration: 100ms;
+  transition-timing-function: ease-in-out;
+}

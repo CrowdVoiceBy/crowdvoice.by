@@ -1,0 +1,35 @@
+<div class="readable">
+  <% if (post.image.exists('big')) { %>
+  <div class="post-show__bg-image -img-cover -rel -has-image" style="background-image: url('<%= post.image.url('big') %>');">
+  <% } else { %>
+  <div class="post-show__bg-image -img-cover -rel">
+  <% } %>
+    <div class="post-show__bg-image-inner -rel">
+      <p class="post-show__meta -inline-block">
+          <time></time>
+          <span class="post-show__meta-source"></span>
+      </p>
+      <h1 class="post-show__title -m0"><%= post.title %></h1>
+      <div class="post-show__actions">
+        <div class="post-show__actions-saved -inline-block">
+          <svg class="-s16"><use xlink:href="#svg-save-outline"></use></svg>
+          <span data-saved></span>
+        </div>
+        <div class="cv-button-group multiple"></div>
+        <div class="-inline-block -ml1">
+          <a class="actions-view-original-btn cv-button tiny" target="_blank">View Original</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="post-show__description"></div>
+</div>
+
+<script>
+  var App = new CV.App();
+  var Post = new CV.Views.PostShow({
+    el : document.querySelector('.readable'),
+    post : <%= JSON.stringify(post) %>,
+    readablePost : <%= JSON.stringify(readablePost) %>
+  });
+</script>

@@ -1,0 +1,79 @@
+.cv-search-overlay {
+  z-index: 3;
+  display: none;
+  position: fixed;
+  background-color: rgba(255,255,255,0.98);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 40px;
+
+  &.active {
+    display: block;
+  }
+}
+
+.cv-search-overlay__close {
+  top: 20px;
+  right: 27px;
+}
+
+.cv-search-overlay__header {
+  min-height: 58px;
+
+  .header-title {
+    line-height: 60px;
+  }
+}
+
+.cv-search-overlay__input {
+  .input-search-icon {
+    z-index: 1;
+    top: 26px;
+    left: 2px;
+  }
+
+  .cv-loading {
+    visibility: hidden;
+
+    &.active {
+      visibility: visible;
+    }
+  }
+
+  .ui-input {
+    font-size: 2em;
+    height: 70px;
+    padding-left: 1.5em;
+    border-width: 0 0 1px 0;
+    box-shadow: none;
+    background-color: transparent;
+  }
+}
+
+.cv-search-overlay__results {
+  overflow: auto;
+  height: e('calc(100vh - 130px)');
+
+  .search-results {
+    padding: 0 20px 20px 0;
+  }
+}
+
+.search-results-title {
+  font-size: 11px;
+  width: 1px;
+  padding: 50px 40px 0 0;
+  text-align: right;
+}
+
+.search-results-items {
+  padding: 40px 0 10px 0px;
+
+  > .cv-voice-cover,
+  > .card-mini {
+    padding: 10px 0;
+    border-bottom: 1px solid @color-neutral-x-light;
+  }
+}

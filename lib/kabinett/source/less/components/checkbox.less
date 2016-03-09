@@ -1,0 +1,58 @@
+/**
+  Checkbox Component
+  .{{ns}}-checkbox
+
+  @example
+    <div class="{{ns}}-checkbox">
+      <label>
+        <input class="{{ns}}-checkbox-checkbox" type="checkbox">
+        <span class="{{ns}}-checkbox-element"></span>
+        <span class="{{ns}}-checkbox-label">Label</span>
+      </label>
+    </div>
+*/
+
+@{ns}-checkbox {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+
+  cursor: pointer;
+
+  label {
+    display: block;
+  }
+
+  &-checkbox {
+    display: none;
+
+    &:checked + @{ns}-checkbox-element > svg {
+      display: block;
+    }
+  }
+
+  &-element {
+    display: inline-block;
+    vertical-align: top;
+    width: @checkbox-size;
+    height: @checkbox-size;
+    margin-right: .7em;
+    border: 1px solid;
+
+    border-color: currentColor;
+    border-radius: 2px;
+
+    > svg {
+      display: none;
+      margin: 2px 0 0 2px;
+      stroke-width: 2;
+      stroke: currentColor;
+      fill: currentColor;
+    }
+  }
+
+  &-label {
+    font-size: 1rem;
+    line-height: @checkbox-size;
+  }
+}

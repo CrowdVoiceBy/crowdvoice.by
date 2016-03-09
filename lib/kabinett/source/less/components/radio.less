@@ -1,0 +1,58 @@
+/**
+  Radio Component
+  .{{ns}}-radio
+
+  @example
+    <div class="{{ns}}-radio">
+      <label>
+        <input class="{{ns}}-radio-radio" type="radio">
+        <span class="{{ns}}-radio-element"></span>
+        <span class="{{ns}}-radio-label">Label</span>
+      </label>
+    </div>
+*/
+
+@{ns}-radio {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+
+  cursor: pointer;
+
+  label {
+    display: block;
+  }
+
+  &-radio {
+    display: none;
+
+    &:checked + @{ns}-radio-element > svg {
+      display: block;
+    }
+  }
+
+  &-element {
+    display: inline-block;
+    vertical-align: top;
+    width: @radio-size;
+    height: @radio-size;
+    margin-right: .7em;
+    border: 1px solid;
+
+    border-color: currentColor;
+    border-radius: 50%;
+
+    > svg {
+      display: none;
+      margin: 2px 0 0 2px;
+      stroke-width: 1;
+      stroke: currentColor;
+      fill: currentColor;
+    }
+  }
+
+  &-label {
+    font-size: 1rem;
+    line-height: @checkbox-size;
+  }
+}

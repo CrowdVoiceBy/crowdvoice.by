@@ -1,0 +1,150 @@
+/* =========================================================================== *
+ *  home page
+ * =========================================================================== */
+.page-home .cv-main-sidebar {
+  .sidebar-nav {padding-top: 25px;}
+  .cv-main-logo {display: none;}
+}
+
+/* =========================================================================== *
+ *  globally shared
+ * =========================================================================== */
+.cv-main-sidebar {
+  position: fixed;
+  top: 0;
+  left: -(@cv-sidebar-width - @cv-sidebar-collapsed-width);
+  bottom: 0;
+  overflow: hidden;
+  z-index: 3;
+  width: @cv-sidebar-width;
+  background-color: @color-neutral-xxx-dark;
+  transform: translateZ(0);
+  transition: transform 500ms @ease-out;
+}
+
+.cv-main-sidebar.-is-expanded {
+  transform: translateX(@cv-sidebar-width - @cv-sidebar-collapsed-width) translateZ(0);
+
+  .sidebar-nav {transform: translateX(0)}
+
+  .sidebar-heading,
+  .sidebar-link-label {opacity: 1}
+}
+
+.sidebar-nav {
+  height: 100%;
+  transform: translateX(@cv-sidebar-width - @cv-sidebar-collapsed-width);
+  transition: transform 500ms @ease-out;
+}
+
+.cv-main-sidebar .cv-main-logo {
+  margin-bottom: 22px;
+  background-color: @color-black;
+
+  .logo-type-cv {color: @color-white}
+  .logo-type-by {color: @color-grey}
+}
+
+.sidebar-link,
+.sidebar-heading {padding-left: 1.5em}
+
+.sidebar-heading,
+.sidebar-link-label {
+  opacity: 0;
+  transition: opacity 240ms ease;
+}
+
+.sidebar-link {
+  position: relative;
+  display: block;
+  height: 36px;
+  padding-top: 10px;
+  white-space: nowrap;
+  &:extend(.-tdn);
+  transition: color 240ms ease;
+  will-change: transform;
+
+  color: @color-neutral-light;
+
+  &:hover {
+    background-color: fade(@color-primary, 5%);
+    &::before {transform: translateX(0)}
+
+    .sidebar-link-svg {animation: ui-zoomit 300ms ease}
+  }
+
+  &.active {
+    color: @color-white;
+    background-color: @color-primary;
+    .sidebar-link-svg {fill: @color-white}
+  }
+}
+
+.sidebar-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 6px;
+  height: 100%;
+  background-color: @color-primary;
+  transform: translateX(-6px);
+  transition: transform 124ms ease;
+}
+
+.sidebar-link-svg {
+  width: 16px;
+  height: 16px;
+  fill: @color-neutral-x-mid;
+  transition: fill 240ms ease;
+}
+
+.sidebar-link-label {
+  padding-left: .5em;
+  line-height: 1.25em;
+}
+
+.sidebar-heading {
+  font-size: 10px;
+  margin-top: 2em;
+  .-font-semi-bold;
+  color: @color-neutral-dark;
+}
+
+.sidebar-link-help-support {
+  position: absolute;
+  left: 0;
+  bottom: 15px;
+  width: 100%;
+}
+
+/* read/unread messages */
+.sidebar-link-messages {
+  .read {display: block}
+  .unread {display: none}
+
+  &.active {
+    .sidebar-link-badge {border-color: @color-primary}
+  }
+
+  &.-has-messages {
+    .unread {display: block}
+    .read {display: none}
+
+    .sidebar-link-badge {
+      transform: scale(1);
+      transition: none;
+    }
+  }
+}
+
+.sidebar-link-badge {
+  left: 31px;
+  top: 0;
+  border-color: @color-neutral-xxx-dark;
+  transform: scale(0);
+  transition: transform 300ms ease;
+
+  &.-updated {animation: ui-zoomitbig 300ms ease;}
+}
+

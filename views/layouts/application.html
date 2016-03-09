@@ -1,0 +1,173 @@
+<!--
+    Version : <%= CONFIG.gitRevision %>
+-->
+
+<!doctype html>
+<% if (typeof pageName !== "undefined") { %>
+<html lang="en" class="<%= pageName %>">
+<% } else { %>
+<html lang="en" class="page-inner">
+<% } %>
+<head>
+  <meta charset="UTF-8">
+  <meta content="authenticity_token" name="csrf-param" />
+  <meta content="<%= csrfToken %>" name="csrf-token" />
+  <title>CrowdVoice.by – A new way to organize information and strengthen movements that matter to you</title>
+  <meta name="description" content="A new way to organize information and strengthen movements that matter to you">
+  <%= renderPartial('shared/favicon.html') %>
+  <script type="text/javascript">
+  window.currentPerson = <%= JSON.stringify(currentPerson) %>;
+  </script>
+  <script src="/socket.io/socket.io.js?version=<%= CONFIG.gitRevision %>"></script>
+  <script src="/dist/bundle.js?version=<%= CONFIG.gitRevision %>"></script>
+</head>
+<body>
+  <%= renderPartial('shared/sprite-logo.svg') %>
+  <%= renderPartial('shared/svg/sprite.svg') %>
+  <div class="app-wrapper">
+    <% if ((typeof pageName === "undefined") || (pageName && pageName !== 'page-home')) { %>
+      <header class="cv-main-header -color-bg-white -clearfix">
+        <div class="-float-left -full-height">
+          <a class="cv-main-logo -inline-block -tdn" href="/">
+            <svg class="cv-main-logo__svg">
+              <use xlink:href="#svg-logo"></use>
+            </svg>
+            <span class="cv-main-logo-type -inline-block">
+              <b>CrowdVoice by</b>
+              <% if (currentPerson === null) { %>
+                <span>&hellip;</span>
+              <% } %>
+            </span>
+          </a>
+          <div class="header-login-actions -inline-block -full-height"></div>
+        </div>
+        <div class="-float-right -full-height -text-right">
+          <div class="header-actions"></div>
+        </div>
+      </header>
+    <% } %>
+
+    <aside role="complementary" class="cv-main-sidebar">
+      <nav role="navigation" class="sidebar-nav">
+        <a class="cv-main-logo -block -tdn" href="/">
+          <svg class="cv-main-logo__svg">
+            <use xlink:href="#svg-logo"></use>
+          </svg>
+          <span class="cv-main-logo-type -inline-block">
+            <b class="logo-type-cv">CrowdVoice by</b>
+            <% if (currentPerson === null) { %>
+              <span>&hellip;</span>
+            <% } %>
+          </span>
+        </a>
+
+        <% if (currentPerson) { %>
+          <a href="/<%= currentPerson.profileName %>/home/" class="sidebar-link">
+            <svg class="sidebar-link-svg"><use xlink:href="#svg-activity"></use></svg>
+            <span class="sidebar-link-label">My Home</span>
+          </a>
+        <% } else { %>
+          <a href="/" class="sidebar-link">
+            <svg class="sidebar-link-svg"><use xlink:href="#svg-home"></use></svg>
+            <span class="sidebar-link-label">Home</span>
+          </a>
+        <% } %>
+
+        <a href="/page/about/" class="sidebar-link">
+          <svg class="sidebar-link-svg"><use xlink:href="#svg-info"></use></svg>
+          <span class="sidebar-link-label">About</span>
+        </a>
+
+        <% if (currentPerson) { %>
+          <h4 class="sidebar-heading -upper">My Stuff</h4>
+          <a href="/<%= currentPerson.profileName %>/myvoices/" class="sidebar-link">
+            <svg class="sidebar-link-svg"><use xlink:href="#svg-my-voices"></use></svg>
+            <span class="sidebar-link-label">My Voices</span>
+          </a>
+          <a href="/<%= currentPerson.profileName %>/savedPosts/" class="sidebar-link">
+            <svg class="sidebar-link-svg"><use xlink:href="#svg-saved-posts"></use></svg>
+            <span class="sidebar-link-label">Saved Posts</span>
+          </a>
+          <a href="/<%= currentPerson.profileName %>/messages/" class="sidebar-link sidebar-link-messages -rel">
+            <span class="sidebar-link-badge ui-badge -abs">0</span>
+            <div class="read">
+              <svg class="sidebar-link-svg"><use xlink:href="#svg-messages-read"></use></svg>
+              <span class="sidebar-link-label">Messages</span>
+            </div>
+            <div class="unread">
+              <svg class="sidebar-link-svg"><use xlink:href="#svg-messages-unread"></use></svg>
+              <span class="sidebar-link-label">Messages</span>
+            </div>
+          </a>
+        <% } %>
+
+        <h4 class="sidebar-heading -upper">Discover</h4>
+        <a href="/discover/trending/" class="sidebar-link">
+          <svg class="sidebar-link-svg"><use xlink:href="#svg-trending"></use></svg>
+          <span class="sidebar-link-label">Trending</span>
+        </a>
+        <a href="/discover/new/" class="sidebar-link">
+          <svg class="sidebar-link-svg"><use xlink:href="#svg-new"></use></svg>
+          <span class="sidebar-link-label">New</span>
+        </a>
+
+        <% if (currentPerson) { %>
+          <a href="/discover/recommended/" class="sidebar-link">
+            <svg class="sidebar-link-svg"><use xlink:href="#svg-thumbs-up"></use></svg>
+            <span class="sidebar-link-label">Recommended</span>
+          </a>
+        <% } %>
+
+        <a href="/discover/browse/" class="sidebar-link">
+          <svg class="sidebar-link-svg"><use xlink:href="#svg-browse"></use></svg>
+          <span class="sidebar-link-label">Browse</span>
+        </a>
+        <a href="#" class="sidebar-link sidebar-link-help-support">
+          <svg class="sidebar-link-svg"><use xlink:href="#svg-help"></use></svg>
+          <span class="sidebar-link-label">Help/Support</span>
+        </a>
+      </nav>
+    </aside>
+
+    <div class="yield -rel">
+      <%= yield %>
+    </div>
+  </div>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+
+    <!-- Start of StatCounter Code for Default Guide -->
+    <script type="text/javascript">
+    var sc_project=10825689;
+    var sc_invisible=1;
+    var sc_security="8ec62beb";
+    var scJsHost = (("https:" == document.location.protocol) ?
+    "https://secure." : "http://www.");
+    document.write("<sc"+"ript type='text/javascript' src='" +
+    scJsHost+
+    "statcounter.com/counter/counter.js'></"+"script>");
+    </script>
+    <noscript><div class="statcounter"><a title="website
+    statistics" href="http://statcounter.com/free-web-stats/"
+    target="_blank"><img class="statcounter"
+    src="http://c.statcounter.com/10825689/0/8ec62beb/1/"
+    alt="website statistics"></a></div></noscript>
+    <!-- End of StatCounter Code for Default Guide -->
+</body>
+</html>

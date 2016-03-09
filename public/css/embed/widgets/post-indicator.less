@@ -1,0 +1,20 @@
+.cv-voice-posts-layer__ticks {
+  position: absolute;
+  top: 3em;
+  right: 0;
+  bottom: 0;
+  width: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  pointer-events: none;
+
+  .posts-layer:first-child & {
+    top: 0;
+  }
+}
+
+.cv-voice-tick-indicator {
+  position: inherit;
+  width: 100%;
+  pointer-events: auto;
+}

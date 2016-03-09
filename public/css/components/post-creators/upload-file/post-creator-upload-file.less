@@ -1,0 +1,58 @@
+/* ============================================================================
+ * Upload File
+ * ========================================================================= */
+.post-creator-upload-file {
+  .input-error-message {
+    top: 70px;
+    left: 70px;
+  }
+
+  .post-card {
+    display: block;
+    width: 300px;
+    margin: 0 auto;
+    transform: scale(1);
+  }
+
+  &.is-success {
+    .cv-post-creator__header {
+      transform: translateY(-100%);
+    }
+
+    .post-card {
+      transform: scale(0);
+    }
+  }
+
+  .cv-post-creator__content {
+    overflow: auto;
+    padding-bottom: 3em;
+  }
+}
+
+.upload-file-msg-uploading,
+.upload-file-msg-error,
+.upload-file-msg-uploaded-image {
+  display: none;
+  font-size: 14px;
+  padding: 17px 15px 0 15px;
+
+  &.active {
+    display: block;
+  }
+}
+
+.upload-file-msg-error svg,
+.upload-file-msg-uploaded-image svg {
+  margin: 2px 10px 0 0;
+}
+
+.upload-file-post-button {
+  padding: 1rem 1.25rem 0;
+  border-left-width: 1px;
+}
+
+.upload-file-msg-text {
+  display: inline-block;
+  margin: 2px 15px 0 0;
+}

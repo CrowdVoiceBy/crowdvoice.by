@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="authenticity_token" name="csrf-param" />
+  <meta content="<%= csrfToken %>" name="csrf-token" />
+  <title>Crowdvoice.by – A new way to organize information and strengthen movements that matter to you</title>
+  <meta name="description" content="A new way to organize information and strengthen movements that matter to you">
+  <link rel="icon" type="image/gif" href="/img/favicon.png" />
+  <script type="text/javascript">
+  window.currentPerson = <%= JSON.stringify(currentPerson) %>;
+  </script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/dist/bundle.js"></script>
+</head>
+
+<% if (typeof pageName !== "undefined") { %>
+<body class="<%= pageName %>">
+<% } else { %>
+<body class="page-inner">
+<% } %>
+
+  <%= renderPartial('shared/sprite-logo.svg') %>
+  <%= renderPartial('shared/svg/sprite.svg') %>
+
+  <header class="cv-main-header -color-bg-white -is-admin -clearfix">
+    <div class="-float-left">
+      <a class="cv-main-logo -inline-block -tdn" href="/">
+        <svg class="cv-main-logo__svg">
+          <use xlink:href="#svg-logo"></use>
+        </svg>
+        <span class="cv-main-logo-type -inline-block">
+          <b>Crowdvoice by</b>
+          <% if (currentPerson === null) { %>
+            <span>&hellip;</span>
+          <% } %>
+        </span>
+      </a>
+
+      <div class="header-login-actions -inline-block"></div>
+    </div>
+
+    <div class="-float-right -text-right">
+      <div class="header-actions"></div>
+    </div>
+  </header>
+
+  <style media="screen">
+      .page-inner > .cv-main-sidebar .cv-main-logo-type,
+      .page-inner > .cv-main-sidebar .sidebar-heading,
+      .page-inner > .cv-main-sidebar .sidebar-link-label {
+          opacity : 1;
+      }
+
+      .page-inner > .cv-main-sidebar .cv-main-logo-type {
+        transform: translateX(0);
+      }
+
+      .cv-main-header .cv-main-logo {
+        display: none;
+      }
+  </style>
+
+  <aside role="complementary" class="cv-main-sidebar" style="height:100vh;float:left;left:0;">
+    <nav role="navigation" class="sidebar-nav" style="transform:translateX(0);">
+      <a class="cv-main-logo -block -tdn" href="/">
+        <svg class="cv-main-logo__svg">
+          <use xlink:href="#svg-logo"></use>
+        </svg>
+        <span class="cv-main-logo-type -inline-block">
+          <b class="logo-type-cv">Crowdvoice by</b>
+          <% if (currentPerson === null) { %>
+            <span>&hellip;</span>
+          <% } %>
+        </span>
+      </a>
+
+
+      <a href="/admin/people" class="sidebar-link">
+        <span class="sidebar-link-label">People</span>
+      </a>
+      <a href="/admin/organizations" class="sidebar-link">
+        <span class="sidebar-link-label">Organizations</span>
+      </a>
+      <a href="/admin/users" class="sidebar-link">
+        <span class="sidebar-link-label">Users</span>
+      </a>
+      <a href="/admin/voices" class="sidebar-link">
+        <span class="sidebar-link-label">Voices</span>
+      </a>
+      <a href="/admin/topics" class="sidebar-link">
+        <span class="sidebar-link-label">Topics</span>
+      </a>
+      <a href="/admin/featured/people" class="sidebar-link">
+        <span class="sidebar-link-label">Featured People</span>
+      </a>
+      <a href="/admin/featured/organizations" class="sidebar-link">
+        <span class="sidebar-link-label">Featured Organizations</span>
+      </a>
+      <a href="/admin/featured/voices" class="sidebar-link">
+        <span class="sidebar-link-label">Featured Voices</span>
+      </a>
+      <a href="/admin/topvoices" class="sidebar-link">
+        <span class="sidebar-link-label">Top Voices</span>
+      </a>
+    </nav>
+  </aside>
+
+  <div class="yield -is-admin -rel">
+    <div class="admin-container">
+      <%= yield %>
+    </div>
+  </div>
+  <!-- Start of StatCounter Code for Default Guide -->
+    <script type="text/javascript">
+    var sc_project=10825689;
+    var sc_invisible=1;
+    var sc_security="8ec62beb";
+    var scJsHost = (("https:" == document.location.protocol) ?
+    "https://secure." : "http://www.");
+    document.write("<sc"+"ript type='text/javascript' src='" +
+    scJsHost+
+    "statcounter.com/counter/counter.js'></"+"script>");
+    </script>
+    <noscript><div class="statcounter"><a title="website
+    statistics" href="http://statcounter.com/free-web-stats/"
+    target="_blank"><img class="statcounter"
+    src="http://c.statcounter.com/10825689/0/8ec62beb/1/"
+    alt="website statistics"></a></div></noscript>
+    <!-- End of StatCounter Code for Default Guide -->
+
+</body>
+</html>

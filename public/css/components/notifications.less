@@ -1,0 +1,56 @@
+.cv-notifications {
+  z-index: 1;
+  position: fixed;
+  top: 6em;
+  right: 1em;
+  will-change: transform;
+  overflow-y: auto;
+  padding: 0 5px;
+  display: none;
+
+  .cv-notification {
+    width: 400px;
+    margin-bottom: 1rem;
+  }
+}
+
+.cv-notification {
+  position: relative;
+  border: 1px solid rgba(0,0,0,0.2);
+  background: @color-white;
+  border-radius: 4px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cv-notification__info {
+  padding: 10px;
+  margin-right: 41px;
+
+  &.-is-link:hover {
+    border-radius: 4px 4px;
+  }
+
+  &:hover {
+    box-shadow: 0 0 0 1px @color-primary;
+    border-radius: 4px 0 0 4px;
+  }
+}
+
+.cv-notification__close {
+  top: 0;
+  right: 0;
+  width: 40px;
+  border-left: 1px solid @color-neutral-x-light;
+
+  > svg {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover {
+    box-shadow: 0 0 0 1px @color-primary;
+    border-radius: 0 4px 4px 0;
+  }
+}

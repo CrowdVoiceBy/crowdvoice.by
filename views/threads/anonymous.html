@@ -1,0 +1,22 @@
+<main role="main" class="cv-main-content -rel">
+  <section class="profile-onboarding -rel">
+    <h1>Sorry, you can't message anonymously.</h1>
+    <p>When Anonymous Mode is turned on, all actions that might expose your identity are disabled. In order to ensure this, protect you and to prevent abuse, messaging has been disabled as well. To enable it <a href="/switchPerson">turn Anonymous Mode off.</a></p>
+    <br>
+  </section>
+</main>
+
+<script>
+  var App = new CV.App().setup();
+  App.addInteractiveSidebar();
+
+  var okButton = new CV.UI.Button({
+      name : 'buttonOk',
+      className : 'primary',
+      data : {value : 'Ok'}
+  }).render(document.querySelector('.profile-onboarding'));
+
+  okButton.element.on('click', function(){
+    window.location.href = '/';
+  });
+</script>

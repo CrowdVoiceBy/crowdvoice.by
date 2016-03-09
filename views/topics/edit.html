@@ -1,0 +1,15 @@
+<h1>Edit Topic</h1>
+<form action="/topic/<%= topic.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+    <input name="_csrf" type="hidden" value="<%= csrfToken %>" />
+
+    <p>
+        Name: <input type="text" name="name" value="<%= topic.name %>" />
+    </p>
+
+    <p>
+        Image: <input type="file" name="image" />
+        Previous: <img with="36" height="36" src="<%= topic.image.url('icon') %>" />
+    </p>
+
+    <input type="submit" value="Update" \>
+</form>

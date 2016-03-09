@@ -1,0 +1,28 @@
+@{ns}-vertical-list {
+  &.hoverable @{ns}-vertical-list-item {
+    cursor: pointer;
+    &:hover {
+      background-color: fade(@color-primary, 5%);
+      color: @color-neutral-x-dark;
+    }
+  }
+}
+
+@{ns}-vertical-list-item {
+  line-height: 1;
+  padding: .75em 1.5em .75em 1em;
+  color: @color-neutral-dark;
+
+  &.active {
+    background-color: fade(@color-primary, 5%);
+  }
+
+  &.-has-anchor {
+    padding: 0;
+
+    > a {
+      display: block;
+      padding: .75em 1.5em .75em 1em;
+    }
+  }
+}

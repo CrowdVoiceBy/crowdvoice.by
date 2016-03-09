@@ -1,0 +1,20 @@
+<main role="main" class="cv-main-content people-feed-page -rel">
+  <section class="page-heading cv-items-list">
+    <h2 class="-inline-block -m0">Feed view for: </h2>
+    <div class="js-people-feed-dropdown -inline-block">
+      <span class="h2"><%= entity.name %></span>
+    </div>
+  </section>
+  <section class="profile-body -rel"></section>
+</main>
+
+<script>
+  var App = new CV.App().setup();
+  App.addInteractiveSidebar();
+  var Feed = new CV.Views.PeopleFeed({
+    el: document.querySelector('.cv-main-content'),
+    dropdownContainer: document.querySelector('.js-people-feed-dropdown'),
+    entity: <%= JSON.stringify(entity) %>,
+    totalFeedItems: <%= JSON.stringify(totalFeedItems) %>
+  });
+</script>

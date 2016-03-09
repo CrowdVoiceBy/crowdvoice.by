@@ -1,0 +1,23 @@
+.cv-input-clearable {}
+
+.cv-input-clearable__clear {
+  font-size: 16px;
+  top: 50%;
+  right: 1em;
+  width: 1em;
+  height: 1em;
+  margin-top: -8px;
+  transform: scale(0);
+  fill: @color-grey-light;
+  transition-property: transform, fill;
+  transition-duration: 260ms, 100ms;
+  transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550), linear;
+
+  &:hover {
+    fill: @color-grey;
+  }
+
+  &.active {
+    transform: scale(1);
+  }
+}

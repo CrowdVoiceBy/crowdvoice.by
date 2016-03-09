@@ -1,0 +1,78 @@
+<main role="main" class="feed-main-content -rel">
+  <div class="feed-top-voice"></div>
+
+  <div class="-rel">
+    <div class="feed-notifications-sidebar" data-feed-sidebar>
+      <div class="gm-scrollbar -vertical"><div class="thumb"></div></div>
+      <div class="gm-scrollbar -horizontal"><div class="thumb"></div></div>
+      <div class="feed-notifications-sidebar__inner gm-scroll-view">
+        <div class="feed__heading-wrapper cv-items-list">
+          <h3 class="profile-heading -inline-block -font-bold -m0">My Home</h3>
+          <div class="feed__account-dropdown -ml1 profile-select-options -inline-block"></div>
+        </div>
+        <div class="profile-sidebar -rel -pt2"></div>
+      </div>
+    </div>
+
+    <div class="feed-contents">
+      <div class="feed__featured-voices">
+        <div class="feed__heading-wrapper cv-items-list">
+          <h3 class="-float-left -font-bold -m0">Featured Voices</h3>
+          <a class="feed__heading-button cv-button micro" href="/discover/browse/#voices">Explore All</a>
+        </div>
+        <div class="feed__featured-voices-list -rel -pt3"></div>
+      </div>
+
+      <div class="feed__recommended">
+        <div class="feed__recommended-voices">
+          <div class="feed__heading-wrapper cv-items-list">
+            <h3 class="-float-left -font-bold -m0">Recommended Voices</h3>
+            <a class="feed__heading-button cv-button micro" href="/discover/recommended/">Explore All</a>
+          </div>
+          <div class="feed__recommended-voices-list -rel -pt2"></div>
+        </div>
+
+        <div class="feed__recommended-users">
+          <div class="feed__heading-wrapper cv-items-list">
+            <h3 class="-float-left -font-bold -m0">Recommended Users</h3>
+            <a class="feed__heading-button cv-button micro" href="/discover/recommended/">Explore All</a>
+          </div>
+          <div class="feed__recommended-users-list -rel -pt2"></div>
+        </div>
+      </div>
+
+      <div class="feed__discover">
+        <div class="feed__heading-wrapper">
+          <h3 class="-font-bold -m0 -line-through -text-center">
+            <span class="-line-through-label">Discover</span>
+          </h3>
+        </div>
+        <div class="feed__discover-row -row -pt3 -pb3">
+          <div class="feed__discover-cover trending -col-4"></div>
+          <div class="feed__discover-cover newest -col-4"></div>
+          <div class="feed__discover-cover browse -col-4"></div>
+        </div>
+        <p class="feed__discover-phrase -pt3 -pb3 -text-center">-Access to information is key to social change-</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  var App = new CV.App().setup();
+  App.addInteractiveSidebar();
+
+  var feedConfig = {
+    el: document.querySelector('.feed-main-content'),
+    feedItems: <%= JSON.stringify(feed) %>,
+    topVoice: <%= JSON.stringify(topVoice) %>,
+    ENV: "<%= CONFIG.environment %>",
+    organization: null
+  };
+
+  <% if (typeof organization !== "undefined") { %>
+    feedConfig.organization = <%= JSON.stringify(organization) %>
+  <% } %>
+
+  var Feed = new CV.Views.Feed(feedConfig);
+</script>

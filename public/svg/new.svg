@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4 (15588) - http://www.bohemiancoding.com/sketch -->
+    <title>icon (new)</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="rgb(0,0,0)" fill-rule="evenodd" sketch:type="MSPage">
+        <g sketch:type="MSArtboardGroup" transform="translate(-137.000000, -1166.000000)" fill="rgb(0,0,0)">
+            <g sketch:type="MSLayerGroup" transform="translate(100.000000, 835.000000)">
+                <g transform="translate(15.000000, 74.000000)" sketch:type="MSShapeGroup">
+                    <g transform="translate(10.000000, 115.000000)">
+                        <g transform="translate(0.000000, 77.000000)">
+                            <path d="M28,72.9961777 L26.2254545,70.8709986 L26.4727273,68.0578118 L23.8472727,67.4309603 L22.4727273,65 L20,66.1161013 L17.5272727,65 L16.1527273,67.4309603 L13.5272727,68.0501672 L13.7745455,70.863354 L12,72.9961777 L13.7745455,75.1213569 L13.5272727,77.9421882 L16.1527273,78.5690397 L17.5272727,81 L20,79.8762542 L22.4727273,80.9923555 L23.8472727,78.5613951 L26.4727273,77.9345437 L26.2254545,75.1213569 L28,72.9961777 L28,72.9961777 Z M20.7272727,76.8184424 L19.2727273,76.8184424 L19.2727273,75.2895366 L20.7272727,75.2895366 L20.7272727,76.8184424 L20.7272727,76.8184424 Z M20.7272727,73.7606307 L19.2727273,73.7606307 L19.2727273,69.173913 L20.7272727,69.173913 L20.7272727,73.7606307 L20.7272727,73.7606307 Z"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

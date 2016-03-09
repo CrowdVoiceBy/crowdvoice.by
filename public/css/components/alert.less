@@ -1,0 +1,74 @@
+/* default : info (blue) */
+.cv-alert {
+  position: relative;
+  border: 1px solid @color-info;
+  color: @color-info-dark;
+  background: tint(@color-info, 93%);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+
+  &.shake {
+    animation: ui-shake 1s;
+  }
+}
+
+.cv-alert__info {
+  padding: 12px 20px;
+  margin-right: 41px;
+  fill: @color-info-dark;
+  span{
+    display: inline-block;
+  }
+}
+
+.cv-alert__info-svg {
+  margin: 4px 10px 0 0;
+  fill: inherit;
+}
+
+.cv-alert__close {
+  top: 0;
+  right: 0;
+  width: 40px;
+  border-left: 1px solid rgba(0,0,0,0.1);
+
+  > svg {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* positive */
+.cv-alert.-positive {
+  border-color: @color-positive;
+  color: @color-positive-dark;
+  background: tint(@color-positive, 93%);
+
+  .cv-alert__info {
+    fill: @color-positive-dark;
+  }
+}
+
+/* warning */
+.cv-alert.-warning {
+  border-color: @color-warning;
+  color: @color-warning-dark;
+  background: tint(@color-warning, 95%);
+
+  .cv-alert__info {
+    fill: @color-warning-dark;
+  }
+}
+
+/* negative */
+.cv-alert.-negative {
+  border-color: @color-negative;
+  color: @color-negative-dark;
+  background: tint(@color-negative, 93%);
+
+  .cv-alert__info {
+    fill: @color-negative-dark;
+  }
+}

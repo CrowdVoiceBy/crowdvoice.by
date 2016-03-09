@@ -1,0 +1,49 @@
+/**
+  Input Element
+  .{{ns}}-input
+  .{{ns}}-textarea
+
+  @example
+    <input type="..." class="{{ns}}-input"/>
+    <textarea class="{{ns}}-textarea"></textarea>
+*/
+
+@{ns}-input,
+@{ns}-textarea {
+  font-size: @btn-default-font-size;
+  display: inline-block;
+  vertical-align: top;
+  height: @btn-default-height;
+  padding: 0 1em;
+  border: 1px solid;
+
+  border-color: currentColor;
+  border-radius: @btn-default-radius;
+  outline: none;
+
+
+  /** ===== MODIFIERS ===== */
+  &.error,
+  @{ns}-input-wrapper.error & {
+    background-color: lighten(@color-danger, 40%);
+    border-color: @color-danger;
+  }
+}
+
+@{ns}-textarea {
+  height: auto !important;
+  padding-top: .3em;
+  padding-bottom: .5em;
+}
+
+/** ===== WRAPPER ====== **/
+@{ns}-input-wrapper {
+  position: relative;
+}
+
+/** ===== GROUP ====== **/
+@{ns}-input-group {
+  @{ns}-input-auto {
+    overflow: hidden;
+  }
+}

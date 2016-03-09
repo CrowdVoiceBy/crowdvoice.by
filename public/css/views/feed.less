@@ -1,0 +1,149 @@
+.page-feed {}
+.feed-main-content {}
+
+/******************************************************************************
+  TOP VOICE
+ *****************************************************************************/
+.feed-top-voice {
+  height: 400px;
+  background-color: @color-black;
+}
+
+.feed-contents {
+  padding: 0 40px 140px;
+  margin-right: 310px;
+}
+
+.feed__heading-wrapper {
+  padding-top: 40px;
+}
+
+.feed__heading-button.cv-button {
+  margin: 2px 0 0 20px;
+  padding-left: 9px;
+  padding-right: 9px;
+}
+
+.feed__featured-voices-list,
+.feed__recommended-voices-list,
+.feed__recommended-users-list {
+  min-height: 170px;
+}
+
+/******************************************************************************
+  FEATURED VOICES
+ *****************************************************************************/
+
+/******************************************************************************
+  RECOMMENDED
+ *****************************************************************************/
+.feed__recommended {
+  .recommended-section-heading {
+    font-size: 12px;
+    border-top-width: 0;
+    padding: 0;
+    color: @color-neutral-mid;
+    font-style: italic;
+
+    > a {color: inherit}
+  }
+}
+
+.feed__recommended-users-list {
+  .data-container {margin: 0 -10px;}
+
+  .widget-card {
+    width: 33.333%;
+    padding: 0 10px;
+  }
+}
+
+/******************************************************************************
+  DISCVOVER
+ *****************************************************************************/
+.feed__discover-row {
+  max-width: 1220px;
+  margin: 0 auto;
+}
+
+.feed__discover-cover {
+  padding: 0 5px;
+}
+
+.feed__discover-phrase {
+  font-size: 17px;
+  color: #B3B3B3;
+  font-style: italic;
+}
+
+/******************************************************************************
+  SIDEBAR: FEED LISt
+ *****************************************************************************/
+.feed-notifications-sidebar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  overflow: auto;
+  width: 310px;
+  height: e('calc(100vh - 64px)');
+  background-color: @color-neutral-xx-light;
+
+  &.-is-fixed {
+    position: fixed;
+    top: 64px;
+    right: 0;
+  }
+}
+
+.feed-notifications-sidebar__inner {
+  padding: 0 20px 20px;
+}
+
+.feed__account-dropdown {
+  .dropdown-feed-accounts .ui-vertical-list-item {
+    line-height: inherit;
+  }
+}
+
+.feed__list {
+  .cv-feed-item {
+    position: relative;
+    margin: 9px 0 25px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 26px;
+      left: 8px;
+      bottom: 0;
+      width: 1px;
+      background-color: @color-neutral-x-light;
+    }
+  }
+
+  .main-avatar {
+    width: 16px;
+    height: 16px;
+  }
+
+  .main-text {
+    margin: -3px 0 0 26px;
+  }
+
+  .cv-feed-item__info-extra {
+    margin: 0 0 0 26px;
+  }
+
+  .cv-feed-item__time {
+    margin: 5px 0 0 26px;
+    font-size: 11px;
+  }
+}
+
+.feed__list-onboarding {
+  padding: 10px 0;
+  border-top: 1px solid @color-neutral-x-light;
+  color: @color-neutral-x-mid;
+  font-style: italic;
+}
+

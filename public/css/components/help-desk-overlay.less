@@ -1,0 +1,60 @@
+.help-desk-background{
+	position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 150ms;
+  transition-timing-function: ease;
+  visibility: hidden;
+  &.active{
+    opacity: 1;
+    visibility: visible;
+    z-index:3;
+  }
+}
+.help-desk-overlay{
+	position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 150ms;
+  transition-timing-function: ease;
+  visibility: hidden;
+  &.active{
+    opacity: 1;
+    visibility: visible;
+    z-index:3;
+  }
+  .header{
+    position: relative;
+    margin-bottom: 30px;
+  }
+	.title{
+	 margin: 11px 0px 11px 30px;
+	 color: #454B4D;
+	 font-size: 30px;
+	 font-weight: normal;
+	 padding: 0px 10px;
+	}
+	.line{
+    width: 100%;
+    background: #ccc;
+    height: 1px;
+    left: 0px;
+    top: 36px;
+	}
+	.ui-close-button{
+		position: absolute;
+	  right: 30px;
+	  top: 15px;
+	  padding: 0 10px;
+	}
+}

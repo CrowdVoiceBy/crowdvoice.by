@@ -1,0 +1,151 @@
+
+.page-inner .cv-main-content.page-about{
+	padding: 0;
+}
+
+.page-about{
+  .normal-text {
+    font-size: 16px;
+  }
+
+	h1, h2, h3, h6{
+		margin: 0;
+	}
+	h1{
+		font-size: 112px;
+		line-height: 112px;
+		letter-spacing: -4px;
+	}
+	h2{
+		font-size: 48px;
+		line-height: 65px;
+		letter-spacing: -1.5px;
+	}
+	h3{
+		font-size: 40px;
+		letter-spacing: -1px;
+	}
+	h5{
+		font-size: 30px;
+		line-height: 40px;
+	}
+	h6{
+		font-size: 18px;
+		line-height: 27px;
+		text-transform: uppercase;
+	}
+	h6:after{
+		content: "";
+		background: @color-neutral-x-mid;
+		width: 224px;
+		height: 1px;
+		display: block;
+		margin: 15px auto 35px auto;
+		opacity: .3;
+	}
+	img.partner{
+		/*border: 1px solid #ebebeb;*/
+		border-radius: 2px;
+	}
+	.arrow-bg{
+		div{height: 65px;}
+		.center{
+    		background: transparent url('/img/page-about-arrow-bg.png') bottom center no-repeat;
+		}
+
+		.side{
+    		background: transparent url('/img/page-about-arrow-bg-side.png') bottom left repeat-x;
+		}
+	}
+
+}
+
+@media only screen and (min-width: 2410px){
+	.arrow-bg{
+		.center{
+		  background-size: 100% !important;
+		  background-position-y: 30px !important;
+		}
+	}
+}
+
+.page-container.grey{
+	background: @color-neutral-xx-light;
+}
+.page-container.light{
+	background: @color-white;
+}
+
+.page-container{
+	position: relative;
+	.page-content{
+    max-width: 710px;
+		margin: 0 auto;
+		padding: 80px 15px;
+	}
+
+	.voice-left{
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin-top: -88px;
+	}
+	.voice-right{
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		margin-right: 25px;
+		margin-bottom: 20px;
+
+	}
+	&.bg-images{
+    	background-color: transparent;
+    	background-image: url('/img/page-about-voices-left.png'), url('/img/page-about-voices-right.png');
+		background-position: left center, right center;
+		background-repeat: no-repeat, no-repeat;
+	}
+}
+.page-container.no-pad{
+	padding: 10px 0px;
+}
+
+.page-container.main{
+  background: transparent url('/img/about-page/gradient.jpg') top left no-repeat;
+  background-size: cover;
+  color: @color-white;
+
+	.page-content{
+    max-width: 840px;
+		padding: 200px 20px 80px 20px;
+	}
+
+	h5{
+		color: @color-white;
+		font-weight: bold;
+		  text-shadow: 0px 1px 1px @color-transparent-border-dark;
+	}
+	h6{
+		color: @color-white;
+	}
+	h6:after{
+		background-color: @color-white;
+		margin-bottom: 25px;
+	}
+}
+
+.about-donate-button {
+  padding: 0 5rem;
+}
+
+/*****  button *****/
+
+.cv-button.medium{
+	padding: 10px 35px;
+	font-size: 18px;
+	height: 46px;
+}
+.cv-button.big{
+	padding: 10px 45px;
+	font-size: 18px;
+	height: 52px;
+}

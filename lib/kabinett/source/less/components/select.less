@@ -1,0 +1,62 @@
+/**
+  Select Component
+  .{{ns}}-select
+
+  @example
+    <div class="{{ns}}-select">
+      <svg class="{{ns}}-select-svg">
+        <use xlink:href="..."></use>
+      </svg>
+      <select class="{{ns}}-select-select">...</select>
+    </div>
+*/
+
+@{ns}-select {
+  font-size: @btn-default-font-size;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  height: @btn-default-height;
+  border: 1px solid;
+
+  border-color: currentColor;
+  border-radius: @btn-default-radius;
+  cursor: pointer;
+
+  &-svg {
+    position: absolute;
+    width: .75em;
+    height: .75em;
+    top: 50%;
+    right: .7em;
+    transform: translateY(-50%);
+
+    fill: currentColor;
+    pointer-events: none;
+  }
+
+  &-select {
+    height: 100%;
+    width: 100%;
+    padding: 0 3em 0 1em;
+    cursor: pointer;
+
+    border: none;
+    box-shadow: none;
+    background: none;
+    outline: none;
+  }
+
+
+
+  /** ===== MODIFIERS ===== */
+
+  &@{-}separator::before {
+    content: '';
+    position: absolute;
+    right: 2em;
+    width: 1px;
+    height: 100%;
+    background-color: currentColor;
+  }
+}

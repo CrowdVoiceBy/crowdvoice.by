@@ -1,0 +1,67 @@
+<% var doerInfo = params.follower; %>
+<% var voiceDate = new Date();  %>
+<% var monthNames = ["January", "February", "March","April", "May", "June", "July","August", "September", "October","November", "December"];%>
+<% var day = voiceDate.getDate(); %>
+<% var monthIndex = voiceDate.getMonth(); %>
+<% var year = voiceDate.getFullYear(); var doerImage; %>
+<div style="margin:0 auto;">
+  	<table bgcolor="#F7F9FA" style="width:100%;padding:30px;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+	    <tr>
+		    <td>
+		        <table align="center" border="0" cellspacing="0" cellpadding="0" style="max-width:550px;">
+			        <tr>
+			            <td style="text-align:center;">
+			              	<p style="font-size:36px;color:#454B4D;margin-bottom:30px;">CrowdVoice.by</p>
+			                <p style="font-size:12px;color:#A1B0B3;margin-bottom:30px;"><%= monthNames[monthIndex] + ' ' + day +', ' + year %></p>
+			            </td>
+			        </tr>
+		          	<tr>
+			            <td style="box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);-webkit-box-shadow:0px 2px 4px 0px rgba(0, 0, 0, 0.5); -moz-box-shadow:0px 2px 4px 0px rgba(0, 0, 0, 0.5); background-color: #FFFFFF; color: #4C4B49; border-radius: 0px; border-top:10px solid; border-top-color:#FF9400;">
+			              	<table width="100%" cellspacing="0" cellpadding="0" border="0" style="padding: 65px 50px 20px 50px;">
+			        			<tbody>
+			        				<tr>
+			        				    <td>
+			        				      	<div>
+			        				        	<p style="font-size:18px;color:black;font-weight:300;">Hello <%= params.receiver.entity.name %>, you have a new follower!</p>
+			        				      	</div>
+			        				    </td>
+			        				</tr>
+			        			</tbody>
+			        		</table>
+			        		<table width="100%" cellspacing="0" cellpadding="0" border="0" style="padding:0px 45px 60px 50px;">
+			        			<tbody>
+			        				<tr style="background-color:#F7F9FA; height:98px; border-radius:5px;">
+			        				    <td style="text-align:center; width:75px; padding-left:5px;">
+			                      			<% if(doerInfo.images.card.url.search('entity-placeholder') !== -1 ){ doerImage = CONFIG.siteUrl[application.env] + doerInfo.images.card.url; } else { doerImage = doerInfo.images.card.url; } %>
+			        				     	<img width="36" height="36" style="border-radius:5px; margin-right:5px;"src="<%= doerImage %>"/>
+			        				    </td>
+			        				    <td style="padding-right:10px;">
+			        				      	<a href="<%= CONFIG.siteUrl[application.env] +'/'+ doerInfo.profileName%>" target="_blank" style="font-size:13px;color:#4D4D4D;text-align:left;font-weight:bold;"><%= doerInfo.name %></a>
+			        				    </td>
+			        				</tr>
+			        			</tbody>
+			        		</table>
+			            </td>
+		          	</tr>
+		        </table>
+		    </td>
+	    </tr>
+	    <tr>
+	      <td>
+	        <div style="padding: 40px 0 0 0; color: #66635c;text-align:center;">
+		          <a target="_blank" href="https://twitter.com/CrowdVoice" style="padding: 0px 10px;text-decoration:none;vertical-align:super;">
+		            <img src="<%= CONFIG.siteUrl[application.env] %>/img/icons/icon-circle-twitter.png"/>
+		          </a>
+		          <a target="_blank" href="<%= CONFIG.siteUrl[application.env] %>" style="padding: 0px 10px;text-decoration:none;vertical-align: middle;">
+		            <img src="<%= CONFIG.siteUrl[application.env] %>/img/icons/icon-logo-cv.png"/>
+		          </a>
+		          <a target="_blank" href="https://www.facebook.com/crowdvoice" style="padding: 0px 10px;text-decoration:none;vertical-align:super;">
+		            <img src="<%= CONFIG.siteUrl[application.env] %>/img/icons/icon-circle-facebook.png"/>
+		          </a>
+		          <p style="font-size:12px;color:A1B0B3;">© Majal, <%= year %>. All Rights Reserved</p>
+		          <p style="font-size:12px;color:A1B0B3;"><a style="color:#4d4d4d;" href="<%= CONFIG.siteUrl[application.env] + '/deactivateEmailSetting?s=selfNewEntityFollower&u=' + params.uuid %>">Unsubscribe</a> from these emails.</p>
+	        </div>
+	      </td>
+	    </tr>
+  	</table>
+</div>

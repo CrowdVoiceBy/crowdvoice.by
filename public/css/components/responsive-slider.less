@@ -1,0 +1,68 @@
+.widget-responsive-slider {
+  position: relative;
+  white-space: nowrap;
+}
+
+.rs-list-wrapper {
+  overflow: hidden;
+}
+.rs-list {
+  font-size: 0;
+  transform: translateX(0%);
+  transition: transform 240ms ease;
+}
+
+.rs-item {
+  font-size: 1rem;
+  display: inline-block;
+  width: 100%;
+}
+
+.rs-arrow {
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  margin-top: -8px;
+  width: 10px;
+  height: 20px;
+  display: none;
+  color: @color-primary;
+  fill: @color-primary;
+  outline: none;
+  cursor: pointer;
+}
+.rs-next {right: -1rem}
+.rs-prev {left: -1rem}
+.rs-arrow.active {display: block}
+.rs-arrow-svg {
+  width: 100%;
+  height: 100%;
+}
+.rs-arrow.disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+
+.rs-dots {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.rs-dots > button {
+  border: 0;
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  border: 1px solid @color-neutral-light;
+  background-color: @color-neutral-xx-light;
+  border-radius: 50%;
+  box-shadow: inset 0 2px 0 fade(@color-black, 5%);
+  outline: none;
+  cursor: pointer;
+}
+
+.rs-dots > button.active {
+  border-color: @color-primary-dark;
+  background-color: @color-primary;
+  box-shadow: none;
+}

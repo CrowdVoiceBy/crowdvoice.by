@@ -1,0 +1,62 @@
+
+<div class="notifications">
+
+</div>
+
+<div class="admin-users-list">
+
+	<% users.forEach(function(user){ %>
+
+		<% if (!user.deleted) { %>
+
+			<div class="admin-user ">
+
+					<div class="admin-info">
+						<article class="cv-voice-cover mini -clearfix widget " role="article">
+							<a class="author-anchor" href="#" title="profile">
+								<span class="author-username"><%= user.email %></span>
+							</a>
+						</article>
+					</div>
+
+					<div class="admin-actions">
+
+						<a href="/admin/users/<%= user.id %>/edit"><button class="cv-button tiny">Edit</button></a>
+						<a >
+							<form class="form-profile" action="/admin/users/<%= user.id %>?_method=DELETE" method="POST" enctype="multipart/form-data">
+	      						<input type="hidden" name="_csrf" value="<%= csrfToken %>">
+								<button class="cv-button tiny">Delete</button>
+							</form>
+						</a>
+
+					</div>
+
+			</div>
+
+		<% } %>
+
+	<% }); %>
+
+
+</div>
+
+<script>
+	var users = <%= JSON.stringify(users) %>;
+	console.log(users[0]);
+	var headerEl = document.querySelector('header .header-actions');
+	headerEl.innerHTML = '<h2>Users List</h2>';
+
+	var flash = <%= JSON.stringify(flash) %>;
+	console.log(flash);
+  if (flash.success){
+
+  	var nEl= document.querySelector('.notifications');
+		nEl.innerHTML = '<p>' + flash.success + '</p>';
+
+  	nEl.style.display = 'block';
+  	setTimeout(function(){
+  		$(nEl).fadeOut(500);
+  	}, 2000);
+	}
+
+</script>

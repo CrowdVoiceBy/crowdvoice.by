@@ -1,0 +1,112 @@
+@import (inline) "../../../../node_modules/medium-editor/dist/css/medium-editor.css";
+@import (inline) "../../../../node_modules/medium-editor/dist/css/themes/default.css";
+
+.cv-post-creator {
+  z-index: 3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,.85);
+
+  .ui-close-button {
+    transform: translate(0,-100%);
+    transition: transform 300ms cubic-bezier(0.22, 0.61, 0.36, 1) 340ms;
+  }
+
+  &.active {
+    .cv-post-creator__header,
+    .ui-close-button {
+      transform: translate(0,0);
+    }
+  }
+
+  &.disable .cv-post-creator__disable {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* error state */
+  .-on-error {
+    display: none;
+  }
+
+  &.has-error .-on-error {
+    display: block;
+  }
+}
+
+.cv-post-creator__disable {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  visibility: hidden;
+  background-color: rgba(255,255,255,0.2);
+  transition: all 300ms ease;
+}
+
+.article.active{
+    opacity: 1;
+    visibility: visible;
+    .hidden{
+      opacity: 0;
+      visibility: hidden;
+    }
+}
+
+.cv-post-creator__header {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 50px;
+  right: 50px;
+  height: 60px;
+  background-color: @color-white;
+  border-radius: 0 0 3px 3px;
+  transform: translate(0,-100%);
+  transition: transform 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940) 200ms;
+}
+
+.cv-post-creator__content {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 100px 50px 0;
+}
+
+.cv-post-creator__uploading-template,
+.cv-post-creator__error-template,
+.cv-post-creator__success-template {
+  display: none;
+  visibility: hidden;
+  width: 340px;
+  height: 400px;
+  margin: 5rem auto;
+  border: 1px dashed #929292;
+  background-color: rgba(255,255,255,.2);
+  opacity: 0;
+  transform: scale(0);
+  transition: all 400ms ease;
+
+  &.active {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .center-icon {
+    font-size: 56px;
+    top: 50%;
+    left: 50%;
+    margin: -28px 0 0 -28px;
+    width: 1em;
+    height: 1em;
+  }
+}

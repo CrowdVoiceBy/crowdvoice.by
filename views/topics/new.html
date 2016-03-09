@@ -1,0 +1,14 @@
+<h1>Create Topic</h1>
+<form action="/topics" method="POST" enctype="multipart/form-data">
+    <input name="_csrf" type="hidden" value="<%= csrfToken %>" />
+
+    <p>
+        Name: <input type="text" name="name" />
+    </p>
+
+    <p>
+        Image: <input type="file" name="image" />
+    </p>
+
+    <input type="submit" value="Create" \>
+</form>

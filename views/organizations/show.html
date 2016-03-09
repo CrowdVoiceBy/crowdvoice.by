@@ -1,0 +1,54 @@
+<main role="main" class="cv-main-profile profile-user profile-page -rel">
+  <section class="profile-intro -rel">
+    <% if (organization.background.exists('big')){ %>
+      <div class="profile-background-cover -img-cover" style="background-image: url(<%= organization.background.url('big') %>);"></div>
+    <% }else{ %>
+      <div class="profile-background-cover -colored-background"></div>
+    <% } %>
+
+    <% if (organization.image.exists('medium')){ %>
+      <img class="profile-image -color-bg-neutral-x-light" src="<%= organization.image.url('medium') %>" alt="<%= organization.profileName %>’s profile image" width="160" height="160"/>
+    <% }else{ %>
+      <img class="profile-image" src="/img/entity-placeholder/image_medium.png" alt="<%= organization.profileName %>’s profile image" width="160" height="160"/>
+    <% } %>
+
+    <div class="pan-separator -rel">
+      <div class="profile-tw">@<%= organization.profileName %></div>
+      <h1 class="profile-heading -font-bold -m0"><%= organization.name %> </h1>
+      <p class="profile-description"><%= organization.description %></p>
+
+      <div class="profile-card-activity">
+        <% if (organization.location){ %>
+          <div class="profile-card-activity-repost -inline-block -mr1">
+            <svg class="profile-card-activity-svg"><use xlink:href="#svg-location"></use></svg>
+            <span class="profile-card-activity-label"><%= organization.location %></span>
+          </div>
+        <% } %>
+        <div class="profile-card-activity-saved -inline-block  -mr1 -ml1">
+          <svg class="profile-card-activity-svg"><use xlink:href="#svg-clock"></use></svg>
+          <span class="profile-card-activity-label user-date"></span>
+          <script>
+            var userDate = moment(new Date('<%= organization.createdAt %>').toISOString()).format('MMMM, YYYY');
+            $('.user-date').text('Joined ' + userDate );
+          </script>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article role="article" class="stats profile-stats profile-menu bg-fix -row -rel">
+    <div class="profile__actions -float-right"></div>
+  </article>
+
+  <section class="profile-content-body profile-menu-content -rel"></section>
+</main>
+
+<script>
+  var App = new CV.App().setup();
+  App.addInteractiveSidebar();
+
+  var UserProfile = new CV.Views.OrganizationProfile({
+    el : document.querySelector('.profile-page'),
+    entity : <%= JSON.stringify(organization) %>
+  });
+</script>

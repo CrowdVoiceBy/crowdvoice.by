@@ -1,0 +1,28 @@
+<script>
+	var user = <%= JSON.stringify(user) %>;
+	console.log(user);
+	var headerEl = document.querySelector('header .header-actions');
+	headerEl.innerHTML = '<h2>Edit User</h2>';
+</script>
+
+<h3>Currently editing the <strong><a><%= user.email %></a></strong> username.email</h3>
+<hr>
+<div class="form-container">
+   <div class="form-notifications-profile"></div>
+   <form class="form-profile" action="/admin/users/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+      <div class="-width-50">
+         <div class="-col-12 placeholder-main">
+            <div class="form-field">
+               <label>Email<span></span></label>
+               <div class="cv-input small -w-50 form-lastname">
+                  <input type="text" name="email" value="<%= user.email %>">
+               </div>
+            </div>
+         </div>
+      </div>
+      <br>
+      <div class="-col-12 placeholder-send"><button class="cv-button primary small">Save Changes</button></div>
+      <br>
+   </form>
+</div>

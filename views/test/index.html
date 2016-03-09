@@ -1,0 +1,753 @@
+<div class="kabinett-test">
+
+<section class="typography">
+  <header>
+    <h1>Typography</h1>
+  </header>
+  <article class="body">
+    <h1>Kabinet.h1</h1>
+    <h2>Kabinet.h2</h2>
+    <h3>Kabinet.h3</h3>
+    <h4>Kabinet.h4</h4>
+    <h5>Kabinet.h5</h5>
+    <h6>Kabinet.h6</h6>
+  </article>
+</section>
+
+<section class="utilities">
+  <header>
+    <h1>Utilities</h1>
+  </header>
+
+  <article>
+    <header>
+      <h2 class="-font-semi-bold">Structure</h2>
+    </header>
+    <article>
+      <code>.-block</code>
+      <code>.-inline</code>
+      <code>.-inline-block</code>
+
+      <code>.-rel</code>
+      <code>.-abs</code>
+      <code>.-fixed</code>
+
+      <code>.-float-left</code>
+      <code>.-float-right</code>
+      <code>.-clearfix</code>
+
+      <code>.-mt0</code>
+      <code>.-mr0</code>
+      <code>.-ml0</code>
+      <code>.-mb0</code>
+
+      <code>.-mt1</code>
+      <code>.-mr1</code>
+      <code>.-ml1</code>
+      <code>.-mb1</code>
+
+      <code>.-mt2</code>
+      <code>.-mr2</code>
+      <code>.-ml2</code>
+      <code>.-mb2</code>
+
+      <code>.-p1</code>
+      <code>.-p2</code>
+      <code>.-p3</code>
+      <code>.-p4</code>
+      <code>.-p5</code>
+
+      <code>.-full-width</code>
+      <code>.-fit</code>
+
+      <code>.-list-horizontal</code>
+    </article>
+  </article>
+
+  <article>
+    <header>
+      <h2 class="-font-semi-bold">Presentation</h2>
+      <article>
+        <code>.-upper</code>
+        <code>.-lower</code>
+        <code>.-text-left</code>
+        <code>.-text-center</code>
+        <code>.-text-right</code>
+        <code>.-muted</code>
+        <code>.-rounded</code>
+        <code>.-inner-shadow-t</code>
+        <code>.-inner-shadow-b</code>
+        <code>.-list-clean</code>
+      </article>
+    </header>
+  </article>
+
+  <article>
+    <header>
+      <h2 class="-font-semi-bold">Typography</h2>
+    </header>
+    <article>
+      <code>.-font-thin</code>
+      <code>.-font-extra-light</code>
+      <code>.-font-light</code>
+      <code>.-font-normal</code>
+      <code>.-font-semi-bold</code>
+      <code>.-font-bold</code>
+      <code>.-font-ultra-bold</code>
+    </article>
+  </article>
+
+  <article>
+    <header>
+      <h2 class="-font-semi-bold">Elements</h2>
+    </header>
+    <article>
+      <code>.-sm</code>
+      <code>.-md</code>
+      <code>.-lg</code>
+      <code>.-xl</code>
+    </article>
+  </article>
+</section>
+
+<section class="elements">
+  <header>
+    <h1>UI Elements</h1>
+  </header>
+
+  <article class="button">
+    <header>
+      <h2 class="-font-semi-bold">Button</h2>
+    </header>
+    <article>
+      <p>
+        <button class="ui-btn">Button</button>
+        <a role="button" tabindex="0" class="ui-btn">Anchor Button</a>
+        <input class="ui-btn" type="submit" value="Submit Button"/>
+        <input class="ui-btn" type="button" value="Input Button"/>
+        <code>ui-btn</code>
+      </p>
+
+      <div class="hide">
+        <h5><span class="text -upper">Colored Buttons</span></h5>
+        <p>
+          <button class="ui-btn -color-bg-primary -color-white">Primary Button</button>
+          <button class="ui-btn -color-bg-danger -color-white">Danger Button</button>
+          <button class="ui-btn -color-bg-info -color-white">Info Button</button>
+          <button class="ui-btn -color-bg-success -color-white">Success Button</button>
+          <button class="ui-btn -color-bg-warning -color-white">Warning Button</button>
+        </p>
+
+        <h5 class="-upper">Outline Buttons</h5>
+        <p>
+          <button class="ui-btn -color-primary -outline -sm">Primary Button</button>
+          <button class="ui-btn -color-danger -outline -md">Danger Button</button>
+          <button class="ui-btn -color-info -outline -lg">Info Button</button>
+          <button class="ui-btn -color-success -outline -xl">Success Button</button>
+          <button class="ui-btn -color-warning -outline">Warning Button</button>
+        </p>
+      </div>
+
+      <div class="hide">
+        <h3>modifiers</h3>
+        <h5 class="-upper">Shadow Buttons</h5>
+        <p>
+          <button class="ui-btn -shadow">Shadow Button</button>
+          <a role="button" tabindex="0" class="ui-btn -shadow">Shadow Anchor Button</a>
+          <code>ui-btn -shadow</code>
+        </p>
+
+        <h5 class="-upper">Rounded Buttons</h5>
+        <p>
+          <button class="ui-btn -rounded">Rounded Button</button>
+          <a role="button" tabindex="0" class="ui-btn -rounded">Rounded Anchor Button</a>
+          <code>ui-btn -rounded</code>
+        </p>
+      </div>
+
+      <h3>sizes (extended by utilities/elements)</h3>
+      <p>
+        <button class="ui-btn -sm">sm</button>
+        <button class="ui-btn -md">md</button>
+        <button class="ui-btn -lg">lg</button>
+        <button class="ui-btn -xl">xl</button>
+      </p>
+
+    </article>
+  </article>
+
+  <article class="select hie">
+    <header>
+      <h2 class="-font-semi-bold">Select</h2>
+    </header>
+    <article>
+      <div class="ui-select">
+        <svg class="ui-select-svg">
+          <use xlink:href="#svg-arrow-up-down"/>
+        </svg>
+        <select class="ui-select-select">
+          <option value="">Option I</option>
+          <option value="">Option II</option>
+          <option value="">Option III</option>
+        </select>
+      </div>
+
+      <div class="hide">
+        <h5 class="-upper">Colored Examples</h5>
+        <div class="ui-select -color-bg-primary -color-white">
+          <svg class="ui-select-svg">
+            <use xlink:href="#svg-arrow-up-down"/>
+          </svg>
+          <select class="ui-select-select">
+            <option value="">Option I</option>
+            <option value="">Option II</option>
+            <option value="">Option III</option>
+          </select>
+        </div>
+        <div class="ui-select -color-bg-emerald -color-white">
+          <svg class="ui-select-svg">
+            <use xlink:href="#svg-arrow-up-down"/>
+          </svg>
+          <select class="ui-select-select">
+            <option value="">Option I</option>
+            <option value="">Option II</option>
+            <option value="">Option III</option>
+          </select>
+        </div>
+        <div class="ui-select -color-bg-amethyst -color-white">
+          <svg class="ui-select-svg">
+            <use xlink:href="#svg-arrow-up-down"/>
+          </svg>
+          <select class="ui-select-select">
+            <option value="">Option I</option>
+            <option value="">Option II</option>
+            <option value="">Option III</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="-hide">
+        <h5 class="-upper">Stroked Example</h5>
+        <div class="ui-select -color-primary">
+          <svg>
+            <use xlink:href="#svg-arrow-up-down"/>
+          </svg>
+          <select class="ui-select-select">
+            <option value="">Option I</option>
+            <option value="">Option II</option>
+            <option value="">Option III</option>
+          </select>
+        </div>
+        <div class="ui-select -color-emerald">
+          <svg>
+            <use xlink:href="#svg-arrow-up-down"/>
+          </svg>
+          <select class="ui-select-select">
+            <option value="">Option I</option>
+            <option value="">Option II</option>
+            <option value="">Option III</option>
+          </select>
+        </div>
+        <div class="ui-select -color-amethyst">
+          <svg>
+            <use xlink:href="#svg-arrow-up-down"/>
+          </svg>
+          <select class="ui-select-select">
+            <option value="">Option I</option>
+            <option value="">Option II</option>
+            <option value="">Option III</option>
+          </select>
+        </div>
+      </div>
+
+      <h3>modifiers</h3>
+
+      <h5 class="-upper">Separator</h5>
+      <div class="ui-select -separator">
+        <svg class="ui-select-svg">
+          <use xlink:href="#svg-arrow-up-down"/>
+        </svg>
+        <select class="ui-select-select">
+          <option value="">Option I</option>
+          <option value="">Option II</option>
+          <option value="">Option III</option>
+        </select>
+      </div>
+
+      <h3>sizes (extended by utilities/elements)</h3>
+      <div class="ui-select -sm">
+        <svg class="ui-select-svg">
+          <use xlink:href="#svg-arrow-up-down"/>
+        </svg>
+        <select class="ui-select-select">
+          <option value="">sm</option>
+          <option value="">sm II</option>
+          <option value="">sm III</option>
+        </select>
+      </div>
+
+      <div class="ui-select -md">
+        <svg class="ui-select-svg">
+          <use xlink:href="#svg-arrow-up-down"/>
+        </svg>
+        <select class="ui-select-select">
+          <option value="">md</option>
+          <option value="">md II</option>
+          <option value="">md III</option>
+        </select>
+      </div>
+
+      <div class="ui-select -lg">
+        <svg class="ui-select-svg">
+          <use xlink:href="#svg-arrow-up-down"/>
+        </svg>
+        <select class="ui-select-select">
+          <option value="">lg</option>
+          <option value="">lg II</option>
+          <option value="">lg III</option>
+        </select>
+      </div>
+
+      <div class="ui-select -xl">
+        <svg class="ui-select-svg">
+          <use xlink:href="#svg-arrow-up-down"/>
+        </svg>
+        <select class="ui-select-select">
+          <option value="">xl</option>
+          <option value="">xl II</option>
+          <option value="">xl III</option>
+        </select>
+      </div>
+
+    </article>
+  </article>
+
+  <article class="input">
+    <header>
+      <h2 class="-font-semi-bold">Input</h2>
+    </header>
+    <article>
+      <p>
+        <input type="text" class="ui-input" value="Input">
+      </p>
+
+      <div class="hide">
+        <h5 class="-upper">COLORED INPUT EXAMPLE</h5>
+        <p>
+          <input type="text" class="ui-input -sm -color-bg-primary -color-white" value="Input">
+          <input type="text" class="ui-input -sm -color-primary" value="Input">
+          <input type="text" class="ui-input -sm -color-bg-white -color-border-info -color-info -shadow -rounded" value="Input">
+          <input type="text" class="ui-input -sm -color-bg-success -color-white -shadow" value="Input">
+        </p>
+      </div>
+
+      <div class="hide">
+        <h3>modifiers</h3>
+        <input type="text" class="ui-input -shadow" value="Input Shadowed">
+        <input type="text" class="ui-input error" value="Input Error">
+        <input type="text" class="ui-input -rounded" value="Input Rounded">
+      </div>
+
+      <div>
+        <h3>sizes (extended by utilities/elements)</h3>
+        <input type="text" class="ui-input -sm" value="sm" size="2">
+        <input type="text" class="ui-input -md" value="md" size="2">
+        <input type="text" class="ui-input -lg" value="lg" size="2">
+        <input type="text" class="ui-input -xl" value="xl" size="2">
+      </div>
+    </article>
+  </article>
+
+  <article class="checkbox">
+    <header>
+      <h2 class="-font-semi-bold">Checkbox</h2>
+    </header>
+    <article>
+      <div class="ui-checkbox">
+        <label>
+          <input type="checkbox" class="ui-checkbox-checkbox"/>
+          <span class="ui-checkbox-element"></span>
+        </label>
+      </div>
+      <div class="ui-checkbox">
+        <label>
+          <input type="checkbox" class="ui-checkbox-checkbox" checked/>
+          <span class="ui-checkbox-element"></span>
+        </label>
+      </div>
+      <div class="ui-checkbox">
+        <label>
+          <input type="checkbox" class="ui-checkbox-checkbox"/>
+          <span class="ui-checkbox-element"></span>
+          <span class="ui-checkbox-label">Label</span>
+        </label>
+      </div>
+
+      <div class="hide">
+        <div class="ui-checkbox">
+          <label>
+            <input type="checkbox" class="ui-checkbox-checkbox"/>
+            <span class="ui-checkbox-element -color-bg-primary -color-white"></span>
+          </label>
+        </div>
+        <div class="ui-checkbox">
+          <label>
+            <input type="checkbox" class="ui-checkbox-checkbox"/>
+            <span class="ui-checkbox-element -color-bg-danger -color-white"></span>
+          </label>
+        </div>
+        <div class="ui-checkbox">
+          <label>
+            <input type="checkbox" class="ui-checkbox-checkbox"/>
+            <span class="ui-checkbox-element -color-bg-info -color-white"></span>
+          </label>
+        </div>
+        <div class="ui-checkbox">
+          <label>
+            <input type="checkbox" class="ui-checkbox-checkbox"/>
+            <span class="ui-checkbox-element -color-bg-success -color-white"></span>
+          </label>
+        </div>
+        <div class="ui-checkbox">
+          <label>
+            <input type="checkbox" class="ui-checkbox-checkbox" checked/>
+            <span class="ui-checkbox-element -color-bg-grey -color-white"></span>
+          </label>
+        </div>
+        <div class="ui-checkbox">
+          <label>
+            <input type="checkbox" class="ui-checkbox-checkbox" checked/>
+            <span class="ui-checkbox-element -color-bg-grey-light -color-white"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="hide">
+        <div class="ui-checkbox">
+          <label>
+            <input type="checkbox" class="ui-checkbox-checkbox"/>
+            <span class="ui-checkbox-element -color-primary"></span>
+          </label>
+        </div>
+        <div class="ui-checkbox">
+          <label>
+            <input type="checkbox" class="ui-checkbox-checkbox"/>
+            <span class="ui-checkbox-element -color-danger"></span>
+          </label>
+        </div>
+        <div class="ui-checkbox">
+          <label>
+            <input type="checkbox" class="ui-checkbox-checkbox"/>
+            <span class="ui-checkbox-element -color-info"></span>
+          </label>
+        </div>
+        <div class="ui-checkbox">
+          <label>
+            <input type="checkbox" class="ui-checkbox-checkbox"/>
+            <span class="ui-checkbox-element -color-success"></span>
+          </label>
+        </div>
+        <div class="ui-checkbox">
+          <label>
+            <input type="checkbox" class="ui-checkbox-checkbox" checked/>
+            <span class="ui-checkbox-element -color-grey"></span>
+          </label>
+        </div>
+        <div class="ui-checkbox">
+          <label>
+            <input type="checkbox" class="ui-checkbox-checkbox" checked/>
+            <span class="ui-checkbox-element -color-grey-light"></span>
+          </label>
+        </div>
+      </div>
+
+    </article>
+  </article>
+
+  <article class="radio">
+    <header>
+      <h2 class="-font-semi-bold">Radio</h2>
+    </header>
+    <article>
+      <div class="ui-radio">
+        <label>
+          <input class="ui-radio-radio" type="radio" name="radio-test" checked/>
+          <span class="ui-radio-element"></span>
+        </label>
+      </div>
+
+      <div class="ui-radio">
+        <label>
+          <input class="ui-radio-radio" type="radio" name="radio-test"/>
+          <span class="ui-radio-element"></span>
+        </label>
+      </div>
+
+      <div class="ui-radio">
+        <label>
+          <input class="ui-radio-radio" type="radio" name="radio-test"/>
+          <span class="ui-radio-element"></span>
+          <span class="ui-radio-label">Label</span>
+        </label>
+      </div>
+
+      <div class="hide">
+        <div class="ui-radio">
+          <label>
+            <input class="ui-radio-radio" type="radio" name="radio-test2"/>
+            <span class="ui-radio-element -color-bg-primary -color-white"></span>
+          </label>
+        </div>
+        <div class="ui-radio">
+          <label>
+            <input class="ui-radio-radio" type="radio" name="radio-test2" checked/>
+            <span class="ui-radio-element -color-bg-danger -color-white"></span>
+          </label>
+        </div>
+        <div class="ui-radio">
+          <label>
+            <input class="ui-radio-radio" type="radio" name="radio-test2"/>
+            <span class="ui-radio-element -color-bg-info -color-white"></span>
+          </label>
+        </div>
+        <div class="ui-radio">
+          <label>
+            <input class="ui-radio-radio" type="radio" name="radio-test2"/>
+            <span class="ui-radio-element -color-bg-success -color-white"></span>
+          </label>
+        </div>
+        <div class="ui-radio">
+          <label>
+            <input class="ui-radio-radio" type="radio" name="radio-test2"/>
+            <span class="ui-radio-element -color-bg-warning -color-white"></span>
+          </label>
+        </div>
+        <div class="ui-radio">
+          <label>
+            <input class="ui-radio-radio" type="radio" name="radio-test2"/>
+            <span class="ui-radio-element -color-bg-grey -color-white"></span>
+          </label>
+        </div>
+        <div class="ui-radio">
+          <label>
+            <input class="ui-radio-radio" type="radio" name="radio-test2"/>
+            <span class="ui-radio-element -color-bg-grey-light -color-white"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="hide">
+        <div class="ui-radio">
+          <label>
+            <input class="ui-radio-radio" type="radio" name="radio-test3"/>
+            <span class="ui-radio-element -color-primary"></span>
+          </label>
+        </div>
+        <div class="ui-radio">
+          <label>
+            <input class="ui-radio-radio" type="radio" name="radio-test3"/>
+            <span class="ui-radio-element -color-danger"></span>
+          </label>
+        </div>
+        <div class="ui-radio">
+          <label>
+            <input class="ui-radio-radio" type="radio" name="radio-test3" checked/>
+            <span class="ui-radio-element -color-info"></span>
+          </label>
+        </div>
+        <div class="ui-radio">
+          <label>
+            <input class="ui-radio-radio" type="radio" name="radio-test3"/>
+            <span class="ui-radio-element -color-success"></span>
+          </label>
+        </div>
+        <div class="ui-radio">
+          <label>
+            <input class="ui-radio-radio" type="radio" name="radio-test3"/>
+            <span class="ui-radio-element -color-warning"></span>
+          </label>
+        </div>
+        <div class="ui-radio">
+          <label>
+            <input class="ui-radio-radio" type="radio" name="radio-test3"/>
+            <span class="ui-radio-element -color-grey"></span>
+          </label>
+        </div>
+        <div class="ui-radio">
+          <label>
+            <input class="ui-radio-radio" type="radio" name="radio-test3"/>
+            <span class="ui-radio-element -color-grey-light"></span>
+          </label>
+        </div>
+      </div>
+
+    </article>
+  </article>
+
+  <article class="table">
+    <header>
+      <h2 class="-font-semi-bold">Table</h2>
+      <article>
+        <table class="ui-table">
+          <thead>
+            <tr>
+              <th>Table Heading 1</th>
+              <th>Table Heading 2</th>
+              <th>Table Heading 3</th>
+              <th>Table Heading 4</th>
+              <th>Table Heading 5</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th>Table Footer 1</th>
+              <th>Table Footer 2</th>
+              <th>Table Footer 3</th>
+              <th>Table Footer 4</th>
+              <th>Table Footer 5</th>
+            </tr>
+          </tfoot>
+          <tbody>
+            <tr>
+              <td>Table Cell 1</td>
+              <td>Table Cell 2</td>
+              <td>Table Cell 3</td>
+              <td>Table Cell 4</td>
+              <td>Table Cell 5</td>
+            </tr>
+            <tr>
+              <td>Table Cell 1</td>
+              <td>Table Cell 2</td>
+              <td>Table Cell 3</td>
+              <td>Table Cell 4</td>
+              <td>Table Cell 5</td>
+            </tr>
+            <tr>
+              <td>Table Cell 1</td>
+              <td>Table Cell 2</td>
+              <td>Table Cell 3</td>
+              <td>Table Cell 4</td>
+              <td>Table Cell 5</td>
+            </tr>
+            <tr>
+              <td>Table Cell 1</td>
+              <td>Table Cell 2</td>
+              <td>Table Cell 3</td>
+              <td>Table Cell 4</td>
+              <td>Table Cell 5</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+    </header>
+  </article>
+
+  <article class="spinner">
+    <header>
+      <h2 class="-font-semi-bold">Spinner</h2>
+      <article>
+        <div class="ui-spinner">
+          <svg>
+            <use xlink:href="#svg-spinner"/>
+          </svg>
+        </div>
+        <div class="ui-spinner">
+          <div class="quarter"></div>
+        </div>
+      </article>
+    </header>
+  </article>
+
+  <article class="tooltip">
+    <header>
+      <h2 class="-font-semi-bold">Tooltip</h2>
+      <article>
+        <div>
+          <span class="ui-tooltip">Tooltip Default</span>
+
+          <div class="ui-tooltip">
+            <div class="h5 -font-bold -color-white">Multiline</div>
+            <p>Lorem ipsum dolor sit amet</p>
+            <p>Incidunt eos, voluptates nobis obcaecati magnam</p>
+          </div>
+        </div>
+
+        <h3>modifiers</h3>
+        <h5 class="-upper">-top, -right, -bottom, -left</h5>
+        <div class="-mb1">
+          <span class="ui-tooltip -top -mr1">Tooltip Top</span>
+          <span class="ui-tooltip -right -mr1">Tooltip Right</span>
+          <span class="ui-tooltip -bottom -mr1">Tooltip Bottom</span>
+          <span class="ui-tooltip -left">Tooltip Left</span>
+        </div>
+
+        <div class="ui-tooltip -top -p1 -mb1 -mr1">
+          <div class="h5 -font-bold -color-white">Multiline</div>
+          <p>Lorem ipsum dolor sit amet</p>
+          <p>Incidunt eos, voluptates nobis obcaecati magnam</p>
+        </div>
+
+        <div class="ui-tooltip -right -p1 -mb1 -mr1">
+          <div class="h5 -font-bold -color-white">Multiline</div>
+          <p>Lorem ipsum dolor sit amet</p>
+          <p>Incidunt eos, voluptates nobis obcaecati magnam</p>
+        </div>
+
+        <div class="ui-tooltip -bottom -p1 -mb1 -mr1">
+          <div class="h5 -font-bold -color-white">Multiline</div>
+          <p>Lorem ipsum dolor sit amet</p>
+          <p>Incidunt eos, voluptates nobis obcaecati magnam</p>
+        </div>
+
+        <div class="ui-tooltip -left -p1 -mb1">
+          <div class="h5 -font-bold -color-white">Multiline</div>
+          <p>Lorem ipsum dolor sit amet</p>
+          <p>Incidunt eos, voluptates nobis obcaecati magnam</p>
+        </div>
+
+        <div class="hide">
+          <p>
+            <span class="ui-tooltip -color-bg-grey -color-border-grey -color-white">Tooltip Default</span>
+            <span class="ui-tooltip -color-bg-grey -color-border-grey -color-white -top">Tooltip Top</span>
+            <span class="ui-tooltip -color-bg-grey -color-border-grey -color-white -right">Tooltip Right</span>
+            <span class="ui-tooltip -color-bg-grey -color-border-grey -color-white -bottom">Tooltip Bottom</span>
+            <span class="ui-tooltip -color-bg-grey -color-border-grey -color-white -left">Tooltip Left</span>
+          </p>
+
+          <p>
+            Lorem <a href="" class="ui-has-tooltip">top <span class="ui-tooltip -top">Tooltip Top</span></a>
+            ipsum <a href="" class="ui-has-tooltip">bottom <span class="ui-tooltip -bottom">Tooltip Bottom</span></a>
+            dolor <a href="" class="ui-has-tooltip">right <span class="ui-tooltip -right">Tooltip Right</span></a>
+            sit <a href="" class="ui-has-tooltip">left <span class="ui-tooltip -left">Tooltip Left</span></a>
+            amet.
+          </p>
+
+          <p>
+            <span class="demo-tooltip-square-box ui-has-tooltip">
+              <span class="text">TOP</span>
+              <span class="ui-tooltip -top">Tooltip Top</span>
+            </span>
+
+            <span class="demo-tooltip-square-box ui-has-tooltip">
+              <span class="text">BOTTOM</span>
+              <span class="ui-tooltip -bottom">Tooltip Bottom</span>
+            </span>
+
+            <span class="demo-tooltip-square-box ui-has-tooltip">
+              <span class="text">RIGHT</span>
+              <span class="ui-tooltip -right">Tooltip Right</span>
+            </span>
+
+            <span class="demo-tooltip-square-box ui-has-tooltip">
+              <span class="text">LEFT</span>
+              <span class="ui-tooltip -left">Tooltip Left</span>
+            </span>
+          </p>
+        </div>
+
+      </article>
+    </header>
+  </article>
+
+</section>
+</div>

@@ -1,0 +1,112 @@
+.cv-voice-timeline-feedback-hitpoint {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 16px;
+  overflow: hidden;
+  transform: translateZ(0);
+
+  &:hover,
+  &.active {
+    .cv-voice-timeline-feedback-wrapper {transform: translate(0, 0);}
+    .cv-voice-timeline-feedback {border-radius: 8px 0 0 8px;}
+    .cv-voice-timeline-clock {transform: scale(1);}
+  }
+
+  &.disable {
+    pointer-events: none;
+
+    .cv-voice-timeline-feedback {
+      opacity: 0;
+    }
+  }
+}
+
+.cv-voice-timeline-feedback-wrapper {
+  height: 16px;
+  background-color: rgba(0,0,0,.2);
+  transform: translate(0, -13px);
+  transition: transform 200ms ease;
+}
+
+.cv-voice-timeline-feedback {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 16px;
+  padding: 1px;
+  background-color: @color-primary;
+  border-radius: 0;
+  transition: top 200ms ease, border-radius 200ms linear, transform 300ms ease-in-out;
+  will-change: transform;
+}
+
+.cv-voice-timeline-clock {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  border: 2px solid @color-white;
+  border-radius: 50%;
+  transform: scale(0);
+  transform-origin: 0 100%;
+  transition: transform 200ms ease;
+}
+
+.timeline-clock-h,
+.timeline-clock-m {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1px;
+  height: 4px;
+  transform-origin: 50% 0;
+  background-color: @color-white;
+}
+
+.timeline-clock-h {
+  transform: rotateZ(180deg);
+}
+
+.timeline-clock-m {
+  transform: rotateZ(-90deg);
+}
+
+.voice-timeline-popover {
+  width: 330px;
+  top: 10px;
+
+  .ui-popover__arrow {display: none}
+
+  .ui-popover-body {
+    height: 330px;
+    overflow: auto;
+  }
+}
+
+.voice-timeline-popover_label {
+  font-size: 10px;
+  padding: .5em 1em .5em 2em;
+}
+
+.voice-timeline-popover_option {
+  position: relative;
+  padding-left: 3.5em;
+
+  &.active .option-svg {
+    display: block;
+  }
+
+  .option-svg {
+    display: none;
+    width: 11px;
+    height: 11px;
+    left: 27px;
+    top: 13px;
+  }
+
+  .cv-caption {
+    margin-left: 6px;
+  }
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="14px" height="10px" viewBox="0 0 14 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>icon (checkmark)</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="rgb(0,0,0)" fill-rule="evenodd" sketch:type="MSPage">
+        <g sketch:type="MSArtboardGroup" transform="translate(-1283.000000, -2233.000000)" fill="rgb(0,0,0)">
+            <g sketch:type="MSLayerGroup" transform="translate(1252.000000, 2046.000000)">
+                <g transform="translate(0.000000, 57.000000)" sketch:type="MSShapeGroup">
+                    <g transform="translate(1.000000, 114.000000)">
+                        <path d="M43.8765915,16.1234085 C43.7943194,16.0411363 43.6937642,16 43.5749266,16 C43.456089,16 43.350963,16.0411363 43.2595496,16.1234085 L34.7992164,24.5837417 L30.7404504,20.5386873 C30.6581783,20.4564152 30.5553377,20.4152793 30.4319292,20.4152793 C30.3085207,20.4152793 30.2056806,20.4564152 30.1234085,20.5386873 C30.0411358,20.62096 30,20.7238001 30,20.8472085 C30,20.970617 30.0411358,21.0734576 30.1234085,21.1557297 L34.4701273,25.5024485 L34.4701273,25.5093048 C34.4701273,25.5138752 34.4746981,25.5161606 34.4838394,25.5161606 L34.4838394,25.5161606 C34.5661115,25.5984328 34.6666667,25.6395691 34.7855043,25.6395691 C34.9043419,25.6395691 35.0094679,25.5984328 35.1008813,25.5161606 L43.8765915,16.7404504 C43.9588637,16.649037 44,16.543911 44,16.4250734 C44,16.3062358 43.9588637,16.2056806 43.8765915,16.1234085 L43.8765915,16.1234085 Z"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

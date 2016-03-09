@@ -1,0 +1,32 @@
+/**
+  Spinner Component
+  .{{ns}}-spinner
+
+  @example
+    <div class="{{ns}}-spinner">
+      <svg>
+        <use xlink:href="#svg-spinner"></use>
+      </svg>
+    </div>
+*/
+
+@{ns}-spinner {
+  display: inline-block;
+
+  svg {
+    width: 100px;
+    height: 100px;
+  }
+
+  .quarter {
+    width: 50px;
+    height: 50px;
+    border: 3px solid fade(@color-grey-dark, 10);
+    border-top-color: @color-primary;
+    border-radius: 50%;
+  }
+
+  &.active {
+    animation: ui-rotate 1s steps(14) infinite;
+  }
+}

@@ -1,0 +1,34 @@
+<main role="main" class="cv-main-content -rel">
+  <div class="voice-background-cover"></div>
+
+  <section class="voice-intro -rel">
+    <h1 class="voice-heading -font-bold -color-white -m0"><%= voice.title %></h1>
+    <div class="voice-info__author -inline-block -clickable">
+      <img class="-rounded" width="18" height="18" src="<%= voice.owner.images.small.url %>">
+      <span class="voice-info__author-name -inline-block">
+        by <%= voice.owner.name %>
+      </span>
+    </div>
+    <button class="voice-about-show-btn cv-button micro -m0">About</button>
+  </section>
+</main>
+
+<script>
+  var App = new CV.App().setup();
+  App.addInteractiveSidebar();
+  App.socketStart();
+
+  App.appendChild(new CV.VoiceView({
+    name: 'Voice',
+    data: <%= JSON.stringify(voice) %>,
+    _socket: App.getSocket(),
+    backgroundElement: document.querySelector('.voice-background-cover'),
+    aboutBoxButtonElement: document.querySelector('.voice-about-show-btn'),
+    scrollableArea: window,
+    pagesForMonths: <%= JSON.stringify(pagesForMonths) %>,
+    allowPosting: <%= allowPosting %>,
+    allowPostEditing: <%= allowPostEditing %>,
+    relatedVoices: <%= JSON.stringify(relatedVoices) %>,
+    contributors: <%= JSON.stringify(contributors) %>
+  }));
+</script>

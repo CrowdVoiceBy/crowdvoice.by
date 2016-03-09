@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="16px" height="15px" viewBox="0 0 16 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.2 (15857) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g sketch:type="MSArtboardGroup" transform="translate(-1073.000000, -118.000000)">
+            <g sketch:type="MSLayerGroup" transform="translate(900.000000, 100.000000)">
+                <g sketch:type="MSShapeGroup">
+                    <g transform="translate(168.000000, 14.000000)">
+                        <g transform="translate(5.000000, 5.000000)">
+                            <path d="M8.58325195,5.58227539 L14.531897,5.58227539 L14.531897,13.3932688 L8.41103033,13.3932688 L8.58325195,5.58227539 Z"></path>
+                            <path d="M8.51586915,0.543701172 L14.6016847,0.543701172 L14.6016847,3.55424809 L8.51586915,3.55424809 L8.51586915,0.543701172 Z"></path>
+                            <path d="M0.603637695,0.466552734 L6.57704449,0.466552734 L6.57704454,8.601116 L0.603637695,8.60111618 L0.603637695,0.466552734 Z"></path>
+                            <path d="M0.527099609,10.5681152 L6.49023438,10.5681152 L6.49023438,13.4885254 L0.527099609,13.4885254 L0.527099609,10.5681152 Z"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

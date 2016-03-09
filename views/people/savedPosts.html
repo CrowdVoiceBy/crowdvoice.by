@@ -1,0 +1,13 @@
+<main role="main" class="cv-main-content -rel">
+</main>
+
+<script>
+  var App = new CV.App().setup();
+  App.addInteractiveSidebar();
+
+  App.appendChild(new CV.SavedPosts({
+    name : 'savedPosts',
+    posts : <%= JSON.stringify(savedPosts) %>,
+    container : document.querySelector('.cv-main-content')
+  }));
+</script>

@@ -1,0 +1,71 @@
+<header class="main-header -clearfix">
+  <div class="header-right-wrapper -float-right"></div>
+  <div class="header-left-wrapper -overflow-hidden">
+    <a href="<%= CONFIG.environment === 'development' ? CONFIG.siteUrl.development : CONFIG.siteUrl.production %>" target="_blank" title="CrowdVoice.by" class="header-logo-wrapper -inline-block">
+      <svg class="header-logo__svg">
+        <use xlink:href="#svg-logo"></use>
+      </svg>
+    </a>
+    <div class="header-meta -inline-block -overflow-hidden">
+      <div class="header-meta__inner">
+        <div class="header-meta__stats">
+          <span class="header-stat -inline"><span data-total-posts>0</span> posts</span>
+          <span class="header-stat -inline"><%= voice.locationName ? voice.locationName : '' %></span>
+        </div>
+        <div class="header-meta__voice-data">
+          <p class="header-meta-voice-title -font-bold"><%= voice.title %></p>
+          <p class="header-meta-voice-author">by <%= voice.owner.name %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="main -rel">
+  <div class="voice-background-cover -abs -abs-full-before -abs-full-after"></div>
+
+  <section class="voice-intro -rel">
+    <h1 class="voice-title -font-bold"><%= voice.title %></h1>
+    <div class="-inline-block -clickable">
+      <img class="-rounded" width="18" height="18" src="<%= voice.owner.images.small.url %>">
+      <span class="voice-info__author-name -inline-block">
+        by <%= voice.owner.name %>
+      </span>
+    </div>
+  </section>
+
+  <section class="description-container -rel"></section>
+  <section class="posts-container -rel"></section>
+</main>
+
+<div class="Loading -dn">
+  <div class="-table -full-width -full-height">
+    <div class="-table-cell -vam -tac">
+      <svg class="header-logo__svg">
+        <use xlink:href="#svg-logo"></use>
+      </svg>
+      <p class="-font-bold">CrowdVoice.by</p>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  window.App = new CV.App().socketStart();
+
+  window.Embed = new CV.Embeddable({
+    voiceData : <%= JSON.stringify(voice) %>,
+    reqQuery : <%= JSON.stringify(params) %>,
+    firstPostDate : <%= JSON.stringify(firstPostDate) %>,
+    lastPostDate : <%= JSON.stringify(lastPostDate) %>,
+    postsCount : <%= JSON.stringify(postsCount) %>,
+    pagesForMonths: <%= JSON.stringify(pagesForMonths) %>,
+    socket : App.getSocket()
+  });
+
+  setTimeout(function() {
+    window.scrollTo(0,0);
+    Embed.run();
+  }, 200);
+});
+</script>

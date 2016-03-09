@@ -1,0 +1,17 @@
+.cv-tags {
+  font-size: 11px;
+  min-height: 17px;
+  margin-bottom: 5px;
+
+  &-list-item:not(:last-child)::after {
+    color: @color-neutral-mid;
+    content: ',';
+    margin-right: .25rem;
+  }
+
+  &-tag {
+    color: @color-neutral-mid;
+    &:extend(.-tdn);
+    &:hover {opacity: .7}
+  }
+}

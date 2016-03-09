@@ -1,0 +1,47 @@
+@import (inline) '../../../node_modules/rome/dist/rome.css';
+
+.rd-container {
+  border-color: @color-grey-light;
+  border-radius: 0 0 4px 4px;
+}
+
+.rd-month-label {
+  white-space: nowrap;
+  padding: 0 0 .6em;
+}
+
+.rd-day-head {
+  font-size: 10px;
+  padding: .8em .5em;
+  text-transform: uppercase;
+  color: @color-grey-light;
+  background-color: @color-grey-lighter;
+}
+
+.rd-day-body {
+  font-size: 10px;
+  padding: .5em 1em;
+}
+
+.rd-day-next-month,
+.rd-day-prev-month {
+  color: @color-grey-light;
+}
+
+.rd-day-selected {
+  border-radius: 3px;
+  background-color: @color-primary;
+  color: @color-white;
+}
+
+.rd-time-selected {
+  border-radius: 3px;
+  background-color: @color-grey-light;
+  color: @color-white;
+}
+
+.rd-time-option:hover {
+  color: initial;
+  background-color: @color-grey-lighter;
+}
+

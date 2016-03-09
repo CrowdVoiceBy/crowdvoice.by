@@ -1,0 +1,107 @@
+/* font */
+.-font-thin {font-weight: 100}
+.-font-extra-light {font-weight: 200}
+.-font-light {font-weight: 300}
+.-font-normal {font-weight: 400}
+.-font-semi-bold {font-weight: 600}
+.-font-bold {font-weight: 700}
+.-font-ultra-bold {font-weight: 900}
+
+/* display */
+.-block {display: block}
+.-inline-block {display: inline-block}
+.-table {display: table}
+.-table-cell {display: table-cell}
+.-dn {display: none}
+
+.-abs {position: absolute}
+.-rel {position: relative}
+
+.-abs-full {
+  &:extend(.-abs);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.-abs-full-before::before {
+  content: '';
+  &:extend(.-abs-full);
+}
+
+.-abs-full-after::after {
+  content: '';
+  &:extend(.-abs-full);
+}
+
+.-float-left {float: left}
+.-float-right {float: right}
+.-clearfix::after {
+  content: '';
+  clear: both;
+  display: table;
+}
+
+.-overflow-hidden {overflow: hidden}
+
+.-full-width {width: 100%}
+.-full-height {height: 100%}
+.-fit {max-width: 100%}
+
+/* icon size modifiers */
+@icon-sizes: 8, 10, 14, 16, 20;
+.createiconsizes(@i:1) when(@i <= length(@icon-sizes)) {
+  @value: extract(@icon-sizes, @i);
+  &@{value} {
+    width: unit(@value, px);
+    height: unit(@value, px);
+  }
+  .createiconsizes((@i + 1));
+}
+.-s {.createiconsizes();}
+
+.-mr1 {margin-right: 1em}
+.-mb1 {margin-bottom: 1em}
+
+.-pt2 {padding-top: 2em}
+
+/* presentation */
+.-rounded {border-radius: 50%}
+.-vam {vertical-align: middle}
+.-tac, .-text-center {text-align: center}
+
+.-clickable {
+  -webkit-touch-callout: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+.-list-clean {list-style: none}
+
+.-img-cover,
+.-img-contain {background-position: 50% 50%}
+
+.-img-cover {background-size: cover}
+.-img-contain {background-size: contain}
+
+.-line-through {
+  position: relative;
+  background-color: @color-white;
+
+  &:before {
+    content: '';
+    height: 1px;
+    right: 0;
+    position: absolute;
+    background-color: @color-neutral-x-light;
+    top: 50%;
+    left: 0;
+  }
+}
+
+.-line-through-label {
+  position: relative;
+  background-color: inherit;
+  padding: 0 .5em;
+}

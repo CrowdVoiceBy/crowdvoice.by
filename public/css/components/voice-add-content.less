@@ -1,0 +1,66 @@
+.voice-add-content {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  transform: translateZ(0);
+  padding: 12px;
+  background-color: rgba(0,0,0,0.05);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.voice-add-post-button {
+  font-size: 3rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+
+  &.active .voice-add-post-button-svg {
+    transform: rotate3d(0, 0, 1, -135deg);
+  }
+}
+
+.voice-add-post-button-svg {
+  width: 28px;
+  height: 28px;
+  top: 13px;
+  left: 13px;
+  transition: transform 600ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  transform: rotate3d(0, 0, 0, 0);
+}
+
+.voice-add-content-bubble {
+  padding: 10px 0;
+
+  &.-top-right .ui-popover__arrow {
+    right: 43px;
+  }
+}
+
+.voice-add-content__option {
+  white-space: nowrap;
+  line-height: 16px;
+  padding-right: 3em;
+}
+
+.voice-add-content__option-svg {
+  margin-right: 10px;
+}
+
+.voice-add-content__option-label {
+}
+
+.voice-add-content__option-tooltip {
+  margin-left: 6px;
+
+  .ui-tooltip {
+    pointer-events: none;
+    width: 200px;
+    white-space: initial;
+    line-height: initial;
+
+    &.-top-right {right: -10px;}
+
+    &::after {right: 10px;}
+  }
+}

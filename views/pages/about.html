@@ -1,0 +1,78 @@
+<main role="main" class="cv-main-content page-about -rel">
+
+    <div class="page-container main -text-center">
+      <div class="page-content">
+        <h6 class="-font-normal">Who we are</h6>
+        <h5>We're a group of human rights activists frustrated with the inadequate and often overpriced tools needed to make our causes accessible and engaging. Knowing that thousands of stories were going unheard, we were determined to give them a voice.</h5>
+        <div class="arrow"></div>
+      </div>
+      <div class="arrow-bg -clear-after">
+        <div class="-col-4 side">
+        </div>
+        <div class="-col-4 center">
+          <img src="/img/page-about-arrow.png">
+        </div>
+        <div class="-col-4 side">
+        </div>
+      </div>
+    </div>
+
+    <div class="page-container grey -text-center">
+      <div class="page-content">
+        <h2>The result is CrowdVoice.by</h2>
+        <h5 class="-font-light">An interactive platform where anyone can broadcast and visualize a message, raise awareness, and invite change.</h5>
+      </div>
+    </div>
+
+    <div class="page-container light -text-center">
+      <div class="page-content">
+        <h6>Why we're needed</h6>
+        <p class="normal-text">Today’s digital media is cluttered and volatile, so we’re here to make sorting and preserving information easy. CrowdVoice.by gives you the tools to organize, share, and galvanize your cause, or simply archive content for future research and education. It's never been easier to connect to what matters.</p>
+        <br><br><br><br><br>
+        <h6>Community Oriented</h6>
+        <p class="normal-text">CrowdVoice.by is built to streamline the crowdsourcing of information, while allowing you to moderate content to best reflect your cause. We believe information advocacy works best with the involvement of networked communities. In other words, you, the people you know, the people they know, and so on. This core ethos carries over into our software.
+          <br>
+          <a target="_blank" href="https://github.com/CrowdVoiceBy/crowdvoice.by" class="-ctu -ctu-primary -font-bold">CrowdVoice.by is an open source project.</a>
+        </p>
+        <br><br>
+
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+	        <input type="hidden" name="cmd" value="_s-xclick">
+	        <input type="hidden" name="hosted_button_id" value="764RF7SPDQ8ZG">
+	        <input class="about-donate-button cv-button -upper" value="Donate !" type="submit" src="http://crowdvoice.by/change" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+	        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+
+
+      </div>
+      <img class="voice-left" src="/img/page-about-voice-left.png">
+      <img class="voice-right" src="/img/page-about-voice-right.png">
+    </div>
+
+    <div class="page-container grey -text-center">
+      <div class="page-content">
+        <h6>Our partners</h6>
+        <p class="normal-text">CrowdVoice.by is honored to have partnered with the following organizations.</p>
+        <br>
+        <img class="partner" src="/img/sample/partners/shuttleworth.png">
+      </div>
+    </div>
+
+    <div class="page-container light bg-images -text-center">
+      <div class="page-content">
+        <h3 class="-font-light">Create, curate, amplify and...</h3>
+        <h1>CrowdVoice</h1>
+        <% if (currentPerson === null) { %>
+          <a href="/signup" class="cv-button primary large" style="display: inline-block; padding-top: 16px; margin: 70px 0 20px;">Sign Up Here!</a>
+        <% } %>
+      </div>
+    </div>
+
+    <%= renderPartial('shared/footer.html') %>
+
+</main>
+
+<script>
+  var App = new CV.App().setup();
+  App.addInteractiveSidebar();
+</script>

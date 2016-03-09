@@ -1,0 +1,336 @@
+<div class="search-voices">
+</div>
+
+
+<br class="-clear-after">
+
+<div class="topvoice-container" id="pos-container" >
+
+	<form class="admin-user" id="voice-video" onsubmit="return false;">
+		<div class="upload-video-voices">
+		</div>
+		<div class="upload-image-voices">
+		</div>
+		<div class="video-text-voices">
+		</div>
+		<div class="video-url-voices">
+		</div>
+		<div class="video-description-voices">
+		</div>
+        <div class="video-alert-voices">
+        </div>
+        <br>
+        <div class="video-submit-voices">
+        </div>
+	</form>
+
+</div>
+
+<script>
+    var videoFile = null;
+    var imageFile = null;
+    var sourceTitle = null;
+    var sourceUrl = null;
+    var description = null;
+    var voiceId = null;
+	var headerEl = document.querySelector('header .header-actions');
+	headerEl.innerHTML = '<h2>Top voice</h2>';
+
+	/*************************************************************************************************
+	* Search Voice Input Widgets
+	*************************************************************************************************/
+
+	var searchInput = new CV.InputButton({
+		style     : 'primary',
+		placeholder : 'Search voice...',
+		title     : "Search Voice",
+		buttonLabel : "Select this voice"
+	}).render($('.search-voices'));
+
+	searchInput.disableButton();
+
+	searchInput.inputEl.find('input').on('keyup', function(e){
+
+		if (e.keyCode == 27) {
+			searchInput.reset();
+		}
+
+	    var searchStr = $(this).val().toLowerCase();
+	    var inputSearch = $(this);
+
+	    if (searchStr == ""){
+	      searchInput.element.find('.search-results').hide();
+	      return false;
+	    }
+
+	    $.ajax({
+	      type: "POST",
+	      url:'/admin/featured/voices/search',
+	      headers: { 'csrf-token': $('meta[name="csrf-token"]').attr('content') },
+	      data : {query : searchStr},
+	      success: function(data) {
+
+	        if (data['voices'].length > 0){
+
+	          searchInput.element.find('.search-results').show();
+	          showUsers(data['voices']);
+
+	        } else {
+
+	          searchInput.element.find('.search-results').hide();
+	          if ( inputSearch.val() != "" ){
+	            searchInput.disableButton();
+	          }
+
+	        }
+          }
+	    });
+
+	});
+
+	searchInput.buttonEl.on('click', function(){
+		voiceId = selectedVoice.id;
+        voiceVideo.enableButton();
+        voiceImage.enableButton();
+        $(inputUrl).removeAttr('disabled');
+        $(inputText).removeAttr('disabled');
+	});
+
+	/*************************************************************************************************
+	* Form Data Input Widgets
+	*************************************************************************************************/
+	var voiceVideo = new CV.InputButton({
+		style     : 'primary',
+		placeholder : 'Upload video...',
+		title     : "Add voice video *",
+		buttonLabel : "Search video file"
+	}).render($('.upload-video-voices'));
+	var voiceVideoInput = voiceVideo.el.querySelector('input');
+
+	voiceVideoInput.setAttribute('type', 'file');
+	voiceVideoInput.setAttribute('hidden', 'true');
+	voiceVideoInput.setAttribute('accept', 'video/*');
+    
+	voiceVideo.buttonEl.on('click', function(){ $(voiceVideoInput).click();} );
+	voiceVideo.disableButton();
+
+	$(voiceVideoInput).on('change', function(){
+		var element = document.createElement('p');
+		element.innerText = voiceVideoInput.files[0].name;
+		var labelContainer = voiceVideo.el.querySelector('.cv-input');
+		labelContainer.appendChild(element);
+        checkInputs();
+	});
+
+	var voiceImage = new CV.InputButton({
+		style     : 'primary',
+		placeholder : 'Upload image...',
+		title     : "Add voice image",
+		buttonLabel : "Search image file"
+	}).render($('.upload-image-voices'));
+	var voiceImageInput = voiceImage.el.querySelector('input');
+
+	voiceImageInput.setAttribute('type', 'file');
+	voiceImageInput.setAttribute('hidden', 'true');
+	voiceImageInput.setAttribute('accept', 'image/*');
+	
+	voiceImage.buttonEl.on('click', function(){ $(voiceImageInput).click();} );
+    voiceImage.disableButton();
+	
+	$(voiceImageInput).on('change', function(){
+		var element = document.createElement('p');
+		element.innerText = voiceImageInput.files[0].name;
+		var labelContainer = voiceImage.el.querySelector('.cv-input');
+		labelContainer.appendChild(element);
+        checkInputs();
+	});
+
+	// Voice text input
+	var voiceText = new CV.UI.Input({
+		name : 'voiceText',
+        data: {
+            label : 'Video source title *',
+            inputClassName : '-lg -block',
+            attr : {
+                required : 'required'
+            }
+        }
+	}).render($('.video-text-voices'));
+	var inputText = voiceText.el.querySelector('input');
+    inputText.setAttribute('disabled', true);
+
+    $(inputText).on('keyup', function(){
+        checkInputs();
+    });
+
+	// Voice url input
+	var voiceUrl = new CV.UI.Input({
+		name : 'voiceUrl',
+        data: {
+            label : 'Video source url *',
+            inputClassName : '-lg -block',
+            attr : {
+                required : 'required'
+            }
+        }
+	}).render($('.video-url-voices'));
+	var inputUrl = voiceUrl.el.querySelector('input');
+	inputUrl.setAttribute('type', 'url');
+    inputUrl.setAttribute('disabled', true);
+
+    $(inputUrl).on('keyup', function(){
+        checkInputs();
+    });
+
+	// Description textarea
+	var voiceDescription = new CV.UI.Input({
+		style     : 'primary',
+		data : {
+            isTextArea : true,
+            label : 'Description',
+            hint : '',
+            inputClassName : '-lg -block',
+            attr : {
+                rows : 3,
+                maxlength: this.MAX_DESCRIPTION_LENGTH
+            }
+        }
+	}).render($('.video-description-voices'));
+	var descriptionInput = voiceDescription.el.querySelector('textarea');
+
+	// Submit button
+	var submitButton = new CV.UI.Button({
+		name: 'submitButton',
+		className : 'primary',
+		data : {
+			value : 'Submit video'
+		}
+	}).render($('.video-submit-voices'));
+    submitButton.disable();
+
+
+	/*************************************************************************************************
+	* Submit Event
+	*************************************************************************************************/
+    function checkInputs(){
+        videoFile = voiceVideoInput.files[0];
+        imageFile = voiceImageInput.files[0];
+        sourceTitle = inputText.value;
+        sourceUrl = inputUrl.value;
+        description = descriptionInput.value;
+
+        if(videoFile && sourceTitle && sourceUrl && voiceId && imageFile){
+            submitButton.enable();
+            $(inputUrl).removeAttr('disabled');
+            $(inputText).removeAttr('disabled');
+        }else{
+            submitButton.disable();
+        }
+    }
+
+
+    $(submitButton.el).on('click', function(e){ 
+        e.preventDefault();
+        
+        var videoFile = voiceVideoInput.files[0];
+        var imageFile = voiceImageInput.files[0];
+        var sourceTitle = inputText.value;
+        var sourceUrl = inputUrl.value;
+        var description = descriptionInput.value;
+        var formData = new FormData();
+
+        formData.append('video', videoFile);
+        formData.append('poster', imageFile);
+        formData.append('voiceId', voiceId);
+        formData.append('sourceText', sourceTitle);
+        formData.append('sourceUrl', sourceUrl);
+        formData.append('description', description);
+
+        if(videoFile && sourceTitle && sourceUrl && voiceId && imageFile){ 
+            $.ajax({
+              type: "POST",
+              url:'/admin/topVoices',
+              headers: { 'csrf-token': $('meta[name="csrf-token"]').attr('content') },
+              processData: false,
+              cache: false,
+              contentType: false,
+              data : formData,
+              success: function(data){
+                if(data.status === "processing"){
+                    var alertRow = new CV.Alert({
+                      name : 'myAlert',
+                      text : 'Your video is being processed! It will be ready in about 5 minutes.'
+                     }).render($('.video-alert-voices'));
+
+                    $(submitButton.el).text('Uploaded');
+                    $(submitButton.el).css('background-color', '#58cc52');
+                    $(submitButton.el).css('border-color', '#fbfefb');
+                    submitButton.disable();
+                }
+              },
+              error: function(err, data){
+                console.log(err);
+                console.log(data);
+              }
+            });
+        } else {
+            console.log('Empty');
+        }
+
+    });
+		
+
+	/*************************************************************************************************
+	* Search helper functions
+	*************************************************************************************************/
+	var voiceElBase = $('<div class="person" id=""></div>');
+
+	// Display users on search dropdown
+	function showUsers(persons){
+
+	    searchInput.element.find('.search-results').empty();
+
+		var entityIds = getFeaturedIds();
+
+	    persons.forEach(function(person){
+
+
+			if(entityIds.indexOf(person.id) != -1){
+				return false;
+			}
+
+	      	var voiceEl = voiceElBase.clone();
+	      	voiceEl.attr('id', person.id);
+
+	  		voiceEl.text(person.title);
+
+	     	voiceEl.on('click', function(){
+	        	setselectedVoice(person);
+	      	});
+
+	      	searchInput.element.find('.search-results').append(voiceEl);
+
+	    });
+
+	}
+
+	function setselectedVoice(voice){
+		searchInput.enableButton();
+		selectedVoice = voice;
+		voiceId = selectedVoice.id
+		searchInput.inputEl.find('input').val( searchInput.element.find('.search-results').find('#'+selectedVoice.id).text());
+		searchInput.element.find('.search-results').empty();
+		searchInput.element.find('.search-results').hide();
+	}
+
+	function getFeaturedIds () {
+		var nodes = document.querySelectorAll('.admin-user:not(.gu-mirror)');
+		var voiceIds = [];
+
+		Array.prototype.forEach.call(nodes, function( node ){
+			voiceIds.push(node.id);
+		});
+
+		return voiceIds;
+	}
+</script>

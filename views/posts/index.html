@@ -1,0 +1,9 @@
+<% posts.forEach(function (post) { %>
+  <p>
+      <form action="/post/<%= post.id %>/save_post" method="POST">
+          <%= post.title %>
+          <input type="submit" value="save" \>
+          <input name="_csrf" type="hidden" value="<%= csrfToken %>" \>
+      </form>
+  </p>
+<% }); %>

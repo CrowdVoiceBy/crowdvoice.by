@@ -1,0 +1,91 @@
+<script>
+	var person = <%= JSON.stringify(person) %>;
+	console.log(person);
+	var headerEl = document.querySelector('header .header-actions');
+	headerEl.innerHTML = '<h2>Edit User</h2>';
+</script>
+
+<h3>Currently editing the <strong><a href="/<%= person.profileName %>" target="_blank"><%= person.name %></a></strong> profile.</h3>
+<hr>
+<div class="form-container">
+   <div class="form-notifications-profile"></div>
+   <form class="form-profile" action="/admin/people/<%= person.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+      <div class="placeholder-images">
+         <div class="form-field -inline-block">
+            <label>Picture</label>
+            <div class="form-profile-image">
+               <div class="image-align">
+                  <img src="<%= person.images.card.url %>">
+               </div>
+            </div>
+         </div>
+         <div class="form-field -inline-block -rel form-field-image">
+            <p class="image-input-label">Replace</p>
+            <input type="file" name="image" class="image-input image-upload image-upload-profile cv-button tiny" \="">
+            <label><span>JPG, GIF or PNG</span></label>
+         </div>
+         <div class="form-field -inline-block">
+            <label>Background</label>
+            <div class="form-profile-background">
+               <div class="image-align">
+                  <img src="<%= person.backgrounds.card.url %>">
+               </div>
+            </div>
+         </div>
+         <div class="form-field -inline-block -rel form-field-image">
+            <p class="image-input-label">Replace</p>
+            <input type="file" name="background" class="image-input image-upload image-upload-background cv-button tiny" \="">
+            <label><span>JPG, GIF or PNG</span></label>
+         </div>
+      </div>
+      <br><br>
+      <div class="-width-50">
+         <div class="-col-12 placeholder-main">
+            <div class="form-field">
+               <label>Name<span></span></label>
+               <div class="cv-input small -w-50 form-name">
+                  <svg class="search-svg">
+                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-search"></use>
+                  </svg>
+                  <input type="text" name="name" value="<%= person.name %>">
+               </div>
+            </div>
+            <div class="form-field">
+               <label>Profile Name<span></span></label>
+               <div class="cv-input small -w-50 form-profile">
+                  <svg class="search-svg">
+                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-search"></use>
+                  </svg>
+                  <input type="text" placeholder="http://www.crowdvoice.by/@" name="profileName" value="<%= person.profileName %>">
+               </div>
+            </div>
+            <div class="form-field">
+               <label>Bio<span>140 characters max</span></label>
+               <div class="cv-input form-description is-area">
+                  <svg class="search-svg">
+                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-search"></use>
+                  </svg>
+                  <textarea class="-admin-textarea" rows="3" cols="" name="description"><%= person.description %></textarea>
+               </div>
+            </div>
+         </div>
+         <div class="">
+            <div class="-col-8 -pr1 placeholder-location">
+               <div class="form-field">
+                  <label>Location<span></span></label>
+                  <div class="cv-input small form-location">
+                     <svg class="search-svg">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-search"></use>
+                     </svg>
+                     <input type="text" name="location" value="<%= person.location %>">
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <br>
+      <div class="-col-12 placeholder-send"><button class="cv-button primary small">Save Changes</button></div>
+      <br>
+   </form>
+</div>

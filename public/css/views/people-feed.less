@@ -1,0 +1,47 @@
+.page-people-feed {
+  background-color: @color-neutral-xx-light;
+  background-image: url('/img/page-about-voices-right.png');
+  background-position: 100% 64px;
+  background-repeat: no-repeat;
+}
+
+.people-feed-page {
+  min-height: 100vh;
+  width: 80%;
+
+  > .profile-body {
+    background: inherit;
+
+    > .cv-feed-item {
+      background: @color-white;
+      padding: 20px 15px;
+      border-radius: 3px;
+      margin-bottom: 1em;
+      border: 1px solid @color-neutral-x-light;
+
+      > .cv-feed-item__time {
+        font-size: 11px;
+        margin-left: 38px;
+      }
+    }
+  }
+}
+
+.js-people-feed-dropdown {
+  padding-left: .5em;
+}
+.people-feed-dropdown {
+  .ui-dropdown-arrow {
+    position: absolute;
+    top: 50%;
+    right: 1.5em;
+    margin-top: -5px;
+    fill: @color-neutral-dark;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .people-feed-page {
+    width: 100%;
+  }
+}

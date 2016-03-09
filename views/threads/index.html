@@ -1,0 +1,102 @@
+<main role="main" class="-rel -overflow-hidden -full-height threads-page">
+<section class="messages-main -full-height">
+  <div class="messages-body -full-height">
+    <div class="empty-threads-element -table -full-width -full-height -hide">
+      <div class="-table-cell -vam -text-center">
+        <div class="empty-threads-element-message">
+          <h1>You have no messages</h1>
+          <p class="-color-neutral-mid" style="font-size: 12px;">To contact a user, message them on their profile card when rolling over their avatar or message them from their profile page. You can also <a href="#" class="js-empty-threads-new-message">compose a new message here</a> and search for the user you wish to contact.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="default-thread-element -table -full-width -full-height">
+      <div class="-table-cell -vam -text-center">
+        <p class="-color-neutral-mid" style="font-size: 12px;">Select a conversation from the list to start messaging.</p>
+      </div>
+    </div>
+
+    <div class="new-thread-message-element -rel -full-height -hide">
+      <header class="new-thread-message-element__header -color-bg-white">
+        <div class="new-thread-message-element__header__label -float-left">
+          New message from <span class="js-m-new__label-sender -font-bold -ellipsis -inline-block" style="max-width: 130px;">Myself</span> to:
+        </div>
+        <div class="new-thread-message-element__header__search-input"></div>
+      </header>
+      <footer class="new-thread-message-element__footer -abs">
+        <div class="ui-form-field ui-input-button -rel widget -m0">
+          <div class="-clearfix -rel">
+            <button class="cv-button -float-right -m0 -btlr0 -bblr0 primary small disable" disabled="true">Reply</button>
+            <div class="ui-form-field -overflow-hidden -mb -mb0">
+              <div class="ui-input-wrapper">
+                <input class="ui-input -block -btrr0 -bbrr0" placeholder="Message..." disabled="true">
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <div class="selected-thread-element -rel -full-height -hide">
+      <header class="selected-thread-element__header">
+        <p class="selected-thread-element__header__conversation-title -ellipsis">Conversation with...</p>
+        <div class="selected-thread-element__header__delete-action-icon delete-thread">
+          <svg class="selected-thread-element__header__delete-thread-svg -s16">
+            <use xlink:href="#svg-trash"></use>
+          </svg>
+        </div>
+      </header>
+      <div class="selected-thread-element__messages-list-wrapper -abs">
+        <div class="selected-thread-element__messages-list-scroll -full-height">
+          <div class="gm-scrollbar -vertical">
+            <div class="thumb"></div>
+          </div>
+          <div class="gm-scrollbar -horizontal">
+            <div class="thumb"></div>
+          </div>
+          <div class="gm-scroll-view -full-height">
+            <div class="selected-thread-element__messages-list">
+              <div class="messages-container-list__inner -full-width"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="selected-thread-element__footer -abs"></footer>
+    </div>
+  </div>
+
+  <div class="messages-sidebar -full-height -rel">
+    <div class="messages-sidebar-header -clear-after">
+      <div class="messages-new -float-right -pl1"></div>
+      <div class="messages-search -overflow-hidden"></div>
+    </div>
+    <div class="messages-list">
+      <div class="gm-scrollbar -vertical">
+        <div class="thumb"></div>
+      </div>
+      <div class="gm-scrollbar -horizontal">
+        <div class="thumb"></div>
+      </div>
+      <div class="gm-scroll-view">
+        <div class="messages-list__inner">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+</main>
+
+<script>
+var App = new CV.App().setup();
+App.addInteractiveSidebar();
+
+var viewContainer = document.querySelector('.threads-page');
+var ThreadsView = new CV.Views.Threads({
+  el: viewContainer,
+  threads: <%= JSON.stringify(threads) %>,
+  sidebarUIContainer: viewContainer.querySelector('.messages-sidebar') ,
+  mainUIContainer: viewContainer.querySelector('.messages-body')
+}).setup();
+viewContainer = null;
+</script>

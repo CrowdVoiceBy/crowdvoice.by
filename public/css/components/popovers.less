@@ -1,0 +1,61 @@
+.share-popover {
+  .ui-popover-body {
+    padding-top: 5px;
+  }
+
+  .share-popover-email-box {
+    padding: 0 1em;
+    border-top: 1px solid @color-neutral-x-light;
+
+    > svg {
+      margin-top: 12px;
+    }
+
+    .cv-input {
+      border: 0;
+      box-shadow: none;
+    }
+
+    .cv-button {
+      margin: 10px 0 0 0;
+    }
+  }
+}
+
+.notifications-popover {
+  width: 520px;
+}
+.notifications-popover__header {
+  font-size: 11px;
+  padding: 10px 15px;
+  border-bottom: 1px solid @color-neutral-x-light;
+  color: @color-neutral-dark;
+}
+.notifications-popover__header-settings {
+  fill: @color-neutral-xx-mid;
+  &:hover .notifications-popover__header-settings-svg {
+    transform: rotate3d(0, 0, 1, 45deg);
+  }
+}
+.notifications-popover__header-settings-svg {
+  transition: transform 600ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  transform: rotate3d(0, 0, 0, 0);
+}
+
+.notifications-popover__list {
+  min-height: 80px;
+  max-height: 420px;
+  overflow: auto;
+}
+
+.notifications-popover__footer {
+  margin: 0 -2px -1px -1px;
+  .cv-button {height: 30px;}
+}
+.cv-notification-popover-item {
+  padding: 20px 15px;
+  border-bottom: 1px solid @color-neutral-x-light;
+  &:last-child {border-bottom: none}
+  &:hover {background-color: fadeout(@color-primary, 98%);}
+  &.-is-unread {background-color: fadeout(@color-primary, 97%);}
+}

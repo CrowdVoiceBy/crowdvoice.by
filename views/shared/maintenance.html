@@ -1,0 +1,27 @@
+<style>
+  body {
+    background: url(/img/system-status/wave-1.jpg);
+    background-repeat: no-repeat;
+    background-position: 100% -30px;
+    background-size: 298px 333px;
+  }
+</style>
+
+<div class="message-wrapper">
+  <h1 class="message__title">Maintenance</h1>
+
+  <% if (message) { %>
+    <h2 class="message__text"><%= message %></h2>
+  <% } else { %>
+    <h2 class="message__text">
+      We’re undergoing a bit of scheduled maintenance.
+    </h2>
+  <% } %>
+
+  <hr/>
+
+  <p class="message__text-small">
+    We’re sorry for the inconvenience this may cause.<br/>
+    We’ll be back up and running as fast as possible
+  </p>
+</div>

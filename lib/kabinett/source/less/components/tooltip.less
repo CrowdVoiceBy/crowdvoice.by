@@ -1,0 +1,137 @@
+/**
+  Modules::Elements::Tooltip
+  .{{ns}}-tootlip
+
+  @example
+    <span class="{{ui}}-tooltip">...</span>
+
+    // option show on :hover
+    <div class="{{ns}}-has-tooltip">
+      ...
+      <span class="{{ui}}-tooltip">...</span>
+    </div>
+*/
+
+@{ns}-tooltip {
+  font-size: @tooltip-font-size;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  z-index: 1;
+  padding: .25em 1em;
+  border: 1px solid;
+
+  color: @tooltip-text-color;
+  background-color: @tooltip-background-color;
+  border-color: @root-text-color;
+  border-radius: @tooltip-radius;
+
+  &::after {
+    content: '';
+    position: absolute;
+    border-width: @tooltip-arrow-size;
+    border-style: solid;
+    border-color: transparent;
+  }
+
+
+
+  /** ===== MODIFIERS ===== */
+
+  &@{-}top::after {
+    top: 100%;
+    left: 50%;
+    margin-left: unit(-@tooltip-arrow-size, px);
+    border-top-color: inherit;
+  }
+
+  &@{-}top-right::after {
+    top: 100%;
+    margin-left: unit(-@tooltip-arrow-size, px);
+    border-top-color: inherit;
+  }
+
+  &@{-}right::after {
+    right: 100%;
+    top: 50%;
+    margin-top: unit(-@tooltip-arrow-size, px);
+    border-right-color: inherit;
+  }
+
+  &@{-}left::after {
+    left: 100%;
+    top: 50%;
+    margin-top: unit(-@tooltip-arrow-size, px);
+    border-left-color: inherit;
+  }
+
+  &@{-}bottom::after {
+    bottom: 100%;
+    left: 50%;
+    margin-left: unit(-@tooltip-arrow-size, px);
+    border-bottom-color: inherit;
+  }
+
+  &@{-}bottom-right::after {
+    bottom: 100%;
+    margin-left: unit(-@tooltip-arrow-size, px);
+    border-bottom-color: inherit;
+  }
+}
+
+
+
+// show on parent:hover (css)
+// parent-class-selector
+
+@{ns}-has-tooltip {
+  position: relative;
+
+  @{ns}-tooltip {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    transition: all 140ms ease-out;
+
+    &@{-}top {
+      left: 50%;
+      bottom: 100%;
+      transform: translate(-50%, -10px);
+    }
+
+    &@{-}top-right {
+      right: 0;
+      bottom: 100%;
+      transform: translate(0, -10px);
+    }
+
+    &@{-}right {
+      top: 50%;
+      left: 100%;
+      transform: translate(10px, -50%);
+    }
+
+    &@{-}bottom {
+      left: 50%;
+      top: 100%;
+      transform: translate(-50%, 10px);
+    }
+
+    &@{-}bottom-right {
+      right: 0;
+      top: 100%;
+      transform: translate(0, 10px);
+    }
+
+    &@{-}left {
+      top: 50%;
+      right: 100%;
+      transform: translate(-10px, -50%);
+    }
+  }
+
+  &:hover @{ns}-tooltip {
+    opacity: 1;
+    visibility: visible;
+  }
+}

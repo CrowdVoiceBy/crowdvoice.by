@@ -1,0 +1,20 @@
+<div class="edit-voice"></div>
+
+<script>
+  var voice = <%= JSON.stringify(voice) %>;
+  var App = new CV.App();
+  var editVoiceEl = $('.edit-voice');
+
+  App.showVoiceEditModal({
+    ownerEntity: voice.owner,
+    voiceEntity: voice,
+    renderTo: editVoiceEl,
+    isAdmin: true
+  });
+
+  if (editVoiceEl.find('> .cv-modal-container').length > 0 ){
+    $('.edit-voice .cv-modal').css('width', '100%');
+    $('.edit-voice .cv-modal-container, .edit-voice .cv-modal-container > .cv-modal__inner').css('position', 'initial');
+    $('.edit-voice .cv-modal__backdrop, .edit-voice .ui-close-button').css('display', 'none');
+  }
+</script>

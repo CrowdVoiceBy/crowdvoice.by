@@ -1,0 +1,28 @@
+.cv-list-results {
+  &.active {display: block}
+  z-index: 1;
+  display: none;
+  position: absolute;
+  border: 1px solid @color-neutral-light;
+  border-top: 0px;
+  background-color: @color-white;
+  width: 100%;
+  border-radius: 3px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  list-style: none;
+}
+
+.cv-list-results__item {
+  cursor: pointer;
+  color: @color-neutral-dark;
+  padding: 5px 5px 5px 15px;
+  border-bottom: 1px solid @color-neutral-x-light;
+
+  &:hover,
+  &.active {
+    color: @color-neutral-dark;
+    background: @color-neutral-xx-light;
+  }
+
+  &:last-child{border-bottom: none}
+}

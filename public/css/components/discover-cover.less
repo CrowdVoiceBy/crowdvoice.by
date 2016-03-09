@@ -1,0 +1,57 @@
+.discover-cover {
+  border-radius: 5px;
+}
+
+.discover-cover:hover {
+  .discover-cover__bg-image {
+    transform: scale(1.1);
+    transition-duration: 300ms;
+    transition-timing-function: ease;
+  }
+
+  svg {opacity: 1}
+}
+
+.discover-cover__wrapper {
+  padding-bottom: 64%;
+  overflow: hidden;
+  border-radius: inherit;
+  transform: translateZ(0);
+}
+
+.discover-cover__bg-image {
+  top: 0;
+  left: 0;
+  transform: scale(1);
+  transition: transform 160ms linear;
+  will-change: transform;
+}
+
+.discover-cover-hover-overlay {
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  color: @color-white;
+  border-radius: inherit;
+}
+
+.discover-cover-svg-wrapper {
+  width: 19%;
+  height: 0;
+  padding-bottom: 19%;
+  margin: 5% auto 0;
+
+  > svg {
+    top: 0;
+    left: 0;
+    fill: @color-white;
+    opacity: .6;
+    transition: opacity 300ms;
+  }
+}
+
+.discover-cover-text {
+  font-size: 14px;
+  line-height: 19px;
+  margin-top: 12px;
+}

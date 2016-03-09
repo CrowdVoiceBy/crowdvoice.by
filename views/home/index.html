@@ -1,0 +1,112 @@
+<main role="main" class="cv-main-content -rel">
+  <section class="homepage-intro -rel">
+    <div class="top-voice -full-height -full-width">
+    </div>
+
+    <div class="homepage-intro__logo -text-center -rel">
+      <h1 class="hi__logo-heading -color-white">CrowdVoice.by</h1>
+      <h2 class="hi__logo-subheading -font-light -color-white">
+        <span class="hi__logo-subheading-inner">Create&nbsp;&nbsp;•&nbsp&nbsp;Curate&nbsp&nbsp;•&nbsp;&nbsp;Amplify</span>
+      </h2>
+    </div>
+
+    <div class="homepage-intro__links -abs">
+      <a class="hi__links-link -font-bold" href="/signup">Sign up</a>
+      <a class="hi__links-link hi__links-login -color-white" href="/login">Login</a>
+    </div>
+  </section>
+
+  <section class="homepage-signup -text-center">
+    <h3 class="homepage-signup__text -font-light -color-white -mt0">Organize information about the causes that matter to you. Strengthen movements by collecting and crowdsourcing links, images, videos or create your own content.</h3>
+    <div>
+      <a class="cv-button primary -mr2 -font-semi-bold" href="/signup">Sign Up and Start Curating!</a>
+      <a class="cv-button -ghost white -mr2 -font-semi-bold" href="/page/about">Learn More</a>
+    </div>
+  </section>
+
+  <section class="homepage-featured-voices">
+    <div class="homepage-heading-wrapper">
+      <div class="-row">
+        <div class="-float-left">
+          <h2 class="homepage-heading -font-light">Featured Voices</h2>
+        </div>
+        <div class="arrows-wrapper -mr2 -float-right -clearfix">
+          <div class="heading-right -float-left">
+            <a href="/discover/browse/" class="cv-button tiny">Explore All</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="homepage-featured-voices-container -rel -nw">
+      <div class="-overflow-hidden">
+        <div class="slider-list"></div>
+      </div>
+      <div class="dots-wrapper -mt3 -text-center"></div>
+    </div>
+  </section><!-- @homepage-featured-voices -->
+
+  <section class="home-stats">
+    <p class="statsTitle -font-light -color-white -text-center">Harness the Power of the Crowd!</p>
+    <!-- Stats -->
+    <div class="stats">
+    </div>
+  </section>
+
+  <a href="/signup" class="cv-button large primary betweenDivs -text-center -font-semi-bold">Sign Up Now!</a>
+
+  <section class="homepage-category-list home-section-padding">
+    <h2 class="homepage-category-list-heading -font-light -text-center">
+      Contribute and participate in Voices created to spread and amplify issues on&hellip;
+    </h2>
+    <div class="homepage-category-list-row -row"></div>
+  </section><!-- @homepage-category-list -->
+
+  <section class="homepage-organization-cards">
+    <div class="homepage-heading-wrapper">
+      <div class="-row">
+        <div class="-float-left">
+          <h2 class="homepage-heading -font-light -float-left">Most Active Users & Organizations</h2>
+        </div>
+        <div class="arrows-wrapper -float-right -mr2 -clearfix">
+          <div class="heading-right -float-left">
+            <a href="/discover/browse/" class="cv-button tiny">Explore All</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="-row homepage-organization-cards-holder -nw -rel">
+      <div class="-overflow-hidden">
+        <div class="slider-list"></div>
+      </div>
+      <div class="dots-wrapper -mt3 -text-center"></div>
+    </div>
+  </section><!-- @homepage-organization-cards -->
+</main>
+
+<%= renderPartial('shared/footer.html') %>
+
+<script>
+  var App = new CV.App().setup();
+  App.addInteractiveSidebar();
+  App.socketStart();
+
+  App.appendChild(new CV.Views.Home({
+    name: 'homeView',
+    topVoiceData: <%= JSON.stringify(topVoice) %>,
+    featuredVoicesData: <%= JSON.stringify(featuredVoices) %>,
+    organizationsData: <%= JSON.stringify(mostActiveOrganizations) %>,
+    categoriesData: <%= JSON.stringify(topics) %>,
+    ENV: "<%= CONFIG.environment %>"
+  }));
+
+  window.stats = new HomepageStats({
+      name : 'stats',
+      data : {
+          cities : 0,
+          organizations : 0,
+          voices : 0,
+          posts : 0
+      }
+  });
+</script>

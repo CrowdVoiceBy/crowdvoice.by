@@ -1,0 +1,144 @@
+.cv-form-create-voice {
+  .twitter-help-bubble {
+    color: @color-neutral-mid;
+    text-decoration: underline;
+  }
+
+  .twitter-help-bubble:hover {
+    color: darken(@color-neutral-mid, 10%);
+    .ui-popover {display: block;}
+  }
+  .cv-detect-location {
+    position: absolute;
+    top: 0;
+    left: 100px;
+  }
+
+  .twitter-help-popover {
+    z-index: 1;
+    width: 633px;
+    font-style: initial;
+    text-decoration: initial;
+    color: @color-neutral-x-dark;
+
+    .line {
+      width: 100%;
+      background: #ccc;
+      height: 1px;
+    }
+
+    .twitter-help-description {
+      padding: 0px 20px;
+      padding-bottom: 15px;
+      margin-top: -10px;
+    }
+
+    .list-containers {
+      padding: 15px 20px 0;
+      ul {
+        list-style: none;
+        font-size: 12px;
+        li {
+          margin-bottom: 5px;
+        }
+      }
+
+      .operators-row {
+        width: 572px;
+        margin: 0 auto;
+        margin-bottom: 25px;
+
+        div:first-child {
+          width: 50px;
+        }
+
+        span {
+          color: @color-neutral-mid;
+        }
+
+        div{
+          width: 500px;
+        }
+      }
+    }
+  }
+
+  .form-create-voice__bottom-help-text {
+    font-size: 12px;
+    color: @color-neutral-xx-mid;
+  }
+}
+
+.cv-form-publish-voice {
+  .form-publish-voice__text,
+  .form-publish-voice__bottom-help-text {
+    color: @color-neutral-xx-mid;
+  }
+}
+
+.voice-form__status-wrapper {
+  .voice-form__status-item {
+    label {
+      padding-bottom: 0;
+      border: 1px solid @color-neutral-light;
+      padding: 1em;
+      border-radius: 3px;
+    }
+
+    &.active label {
+      border-color: @color-primary;
+    }
+  }
+
+  .voice-form__status-item-desc {
+    margin-top: 5px;
+    color: @color-neutral-x-mid;
+  }
+
+  &.-is-error {
+    .voice-form__status-item label {
+      border: 1px solid @color-negative;
+      background-color: fade(@color-negative-light, 5%);
+    }
+  }
+}
+
+.cv-form-publish-voice {
+  .form-publish-voice__text,
+  .form-publish-voice__bottom-help-text {
+    color: @color-neutral-xx-mid;
+  }
+}
+
+.voice-form__status-wrapper {
+  .voice-form__status-item {
+    label {
+      padding-bottom: 0;
+      border: 1px solid @color-neutral-light;
+      padding: 1em;
+      border-radius: 3px;
+    }
+
+    &.active label {
+      border-color: @color-primary;
+    }
+  }
+
+  .voice-form__status-item-desc {
+    margin-top: 5px;
+    color: @color-neutral-x-mid;
+  }
+
+  &.-is-error {
+    .voice-form__status-item label {
+      border: 1px solid @color-negative;
+      background-color: fade(@color-negative-light, 5%);
+    }
+  }
+}
+
+.cv-form-create-organization {
+  .cv-detect-location {
+    margin-top: 36px;
+  }
+}

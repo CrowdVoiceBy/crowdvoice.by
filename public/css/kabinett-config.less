@@ -1,0 +1,239 @@
+
+@kabinet-path: "../../lib/kabinett/source/less";
+
+@import '@{kabinet-path}/core/_variables';
+
+/* =========================================================================== *
+ *  global base variables
+ * =========================================================================== */
+@root-font-size: 13px;
+@root-font-family: 'Open Sans', sans-serif;
+@root-text-color: @color-neutral-x-dark;
+
+@headings-color: @color-neutral-xx-dark;
+
+/* =========================================================================== *
+ *  kabinett buttons variables
+ * =========================================================================== */
+@btn-default-font-size: 12px;
+@btn-default-height: 34px;
+@btn-default-radius: 3px;
+
+@btn-sm-font-size: 11px;
+@btn-sm-height: 26px;
+@btn-sm-radius: 3px;
+
+@btn-md-font-size: @btn-default-font-size;
+@btn-md-height: @btn-default-height;
+@btn-md-radius: 3px;
+
+@btn-lg-font-size: 14px;
+@btn-lg-height: 46px;
+@btn-lg-radius: 3px;
+
+@btn-xl-font-size: 16px;
+@btn-xl-height: 58px;
+@btn-xl-radius: 3px;
+
+@tooltip-font-size: .9rem;
+@tooltip-background-color: @color-grey-dark;
+@tooltip-text-color: @root-background-color;
+
+// kabinett base
+@import '@{kabinet-path}/core/base';
+
+// kabinett modules
+@import '@{kabinet-path}/modules/typography';
+@import '@{kabinet-path}/modules/layout/grid';
+@import '@{kabinet-path}/modules/animations';
+
+// kabinett components
+@import '@{kabinet-path}/components/button';
+@import '@{kabinet-path}/components/input';
+@import '@{kabinet-path}/components/select';
+@import '@{kabinet-path}/components/checkbox';
+@import '@{kabinet-path}/components/radio';
+@import '@{kabinet-path}/components/tooltip';
+@import '@{kabinet-path}/components/popover';
+@import '@{kabinet-path}/components/lists';
+
+// kabinett utilities
+@import '@{kabinet-path}/core/utilities';
+@import '@{kabinet-path}/utilities/elements';
+@import '@{kabinet-path}/utilities/layout';
+@import '@{kabinet-path}/utilities/presentation';
+@import '@{kabinet-path}/utilities/typography';
+@import '@{kabinet-path}/utilities/colors/base';
+
+
+
+/* =========================================================================== *
+  overrides :: button
+ * =========================================================================== */
+// Button States Creation
+// @author Noel Delgado
+// @param {Color} @bg-color
+// @param {Color} @text-color
+// @param {Color} @border-color
+.mixin-kabinett-button(@bg-color, @text-color, @border-color) {
+  background-color: @bg-color;
+  color: @text-color;
+  fill: @text-color;
+  border-color: @border-color;
+}
+
+@{ns}-btn {
+  .mixin-kabinett-button(@color-white, @color-neutral-dark, @color-neutral-light);
+  box-shadow: inset 0px -3px 0px @color-inner-shadow;
+
+  &:hover:enabled {
+    color: @color-neutral-x-dark;
+    fill: @color-neutral-x-dark;
+    border-color: @color-primary-dark;
+  }
+
+  &.-primary {
+    .mixin-kabinett-button(@color-primary, @color-white, @color-primary-dark);
+
+    &:hover:enabled{
+      color: @color-white;
+      background-color: @color-primary-light;
+      box-shadow: inset 0 -3px 0 @color-inner-shadow-primary;
+    }
+  }
+
+  &.-outline {border-color: currentColor}
+
+  &.-overlay {
+    .mixin-kabinett-button(fade(@color-black, 50%), @color-white, @color-grey);
+    border-width: 2px;
+  }
+}
+
+/******************************************************************
+  overrides :: input + textarea
+ *****************************************************************/
+@{ns}-input,
+@{ns}-textarea {
+  background-color: @color-white;
+  color: @color-neutral-x-dark;
+  border-color: @color-neutral-light;
+  box-shadow: inset 0 2px 0 fade(@color-black, 5);
+
+  &:focus,
+  &.-is-focus {border-color: @color-primary-dark}
+
+  &:disabled {
+    opacity: .5;
+  }
+
+  &.-is-error,
+  @{ns}-input-wrapper.-is-error & {
+    background-color: tint(@color-negative, 97.5);
+    border-color: @color-negative;
+
+    + @{ns}-input-svg {
+      display: block;
+      fill: @color-negative;
+    }
+  }
+
+  &.-is-success,
+  @{ns}-input-wrapper.-is-success & {
+    border-color: @color-positive;
+    background-color: tint(@color-positive, 97.5);
+
+    + @{ns}-input-svg {
+      display: block;
+      fill: @color-positive;
+    }
+  }
+}
+
+@{ns}-form-field {
+  margin-bottom: 15px;
+
+  label {
+    font-size: 11px;
+    padding-bottom: 5px;
+    .cv-caption {
+      margin-left: 5px;
+      color: @color-neutral-light;
+    }
+  }
+
+  .ui-input__label {
+    font-size: 11px;
+    color: @color-neutral-dark;
+  }
+}
+
+@{ns}-input-wrapper {
+  @{ns}-input-svg {
+    position: absolute;
+    top: 50%;
+    right: 1em;
+    transform: translateY(-50%);
+  }
+}
+
+/******************************************************************
+  overrides :: popover
+ *****************************************************************/
+@{ns}-popover {
+  border-color: rgba(0,0,0,.2);
+}
+
+/* =========================================================================== *
+  overrides :: checkbox
+ * =========================================================================== */
+@{ns}-checkbox {
+  &-checkbox:checked + @{ns}-checkbox-element {
+    border-color: @color-primary-dark;
+    background-color: @color-primary;
+    > svg {
+      stroke: @color-white;
+      fill: @color-white;
+    }
+  }
+
+  &.disable {
+    opacity: .5;
+  }
+
+  &-element {
+    border-color: @color-neutral-light;
+    background-color: @color-neutral-xx-light;
+    box-shadow: inset 0 2px 0 rgba(0,0,0,0.05);
+  }
+
+  > label:hover {
+    @{ns}-checkbox-element {
+      border-color: @color-primary;
+    }
+  }
+}
+
+/* =========================================================================== *
+  overrides :: radio
+ * =========================================================================== */
+@{ns}-radio {
+  &-radio:checked + @{ns}-radio-element {
+    > svg {
+      stroke: @color-primary-dark;
+      fill: @color-primary;
+    }
+  }
+
+  &-element {
+    border-color: @color-neutral-light;
+    background-color: @color-neutral-xx-light;
+    box-shadow: inset 0 2px 0 rgba(0,0,0,0.05);
+  }
+
+  > label:hover {
+    @{ns}-radio-element {
+      border-color: @color-primary;
+    }
+  }
+}

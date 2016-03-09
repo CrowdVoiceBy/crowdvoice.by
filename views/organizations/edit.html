@@ -1,0 +1,18 @@
+<main role="main" class="cv-main-content -rel">
+  <section class="page-heading">
+      <h1 class="page-heading__title -mt0">Manage Organization</h1>
+      <div class="profile-menu -row -rel"></div>
+  </section>
+
+  <section class="profile-body profile-menu-content -rel"></section>
+</main>
+
+<script type="text/javascript">
+  var App = new CV.App().setup();
+  App.addInteractiveSidebar();
+
+  var OrganizationProfileEdit = new CV.Views.OrganizationProfileEdit({
+    entity : <%= JSON.stringify(organization) %>,
+    notificationSettings : <%= JSON.stringify(notificationSettings) %>
+  });
+</script>

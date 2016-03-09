@@ -1,0 +1,78 @@
+/**
+  Kabinett – Module Utilities Presentation
+*/
+
+// text
+.-upper {text-transform: uppercase}
+.-lower {text-transform: lowercase}
+
+.-text-left {text-align: left}
+.-text-center {text-align: center}
+.-text-right {text-align: right}
+.-tdn {text-decoration: none}
+.-tdlt {text-decoration: line-through}
+// general
+.-muted {opacity: .5}
+
+// border-radius
+.-rounded {border-radius: 50%}
+.-br0 {border-radius: 0}
+.-br1 {border-radius: 1em}
+.-br2 {border-radius: 2em}
+.-br3 {border-radius: 3em}
+.-br4 {border-radius: 4em}
+.-br5 {border-radius: 5em}
+.-br1px {border-radius: 1px}
+.-br2px {border-radius: 2px}
+.-br3px {border-radius: 3px}
+.-br4px {border-radius: 4px}
+.-br5px {border-radius: 5px}
+
+.-btlr0 {border-top-left-radius: 0!important}
+.-btrr0 {border-top-right-radius: 0!important}
+.-bblr0 {border-bottom-left-radius: 0!important}
+.-bbrr0 {border-bottom-right-radius: 0!important}
+
+.-line-through {
+  position: relative;
+  background-color: @color-white;
+
+  &:before {
+    content: '';
+    height: 1px;
+    right: 0;
+    position: absolute;
+    background-color: @color-neutral-x-light;
+    top: 50%;
+    left: 0;
+  }
+}
+
+.-line-through-label {
+  position: relative;
+  background-color: inherit;
+  padding: 0 .5em;
+}
+
+// images
+.-img-cover,
+.-img-contain {background-position: 50% 50%}
+
+.-img-cover {background-size: cover}
+.-img-contain {background-size: contain}
+
+.-inner-shadow-t {
+  box-shadow: inset 0 2px 0 fade(#000, 10);
+}
+
+.-inner-shadow-b {
+  box-shadow: 0 -2px 0 0 fade(#000, 10) inset;
+
+  &.active,
+  &:active {
+    box-shadow: inset 0 2px 0 0 fade(#000, 10);
+  }
+}
+
+// lists
+.-list-clean {list-style: none}

@@ -1,0 +1,80 @@
+/**
+  Kabinett – Module Core Variables
+*/
+
+// namespace for elements
+@ns: ~".ui";
+// namespace for utilities
+@-: ~".-";
+
+// root
+@root-font-family: "Avenir Next", "Proxima Nova", sans-serif;
+@root-font-monospace-family: "Ubuntu Mono", "Source Code Pro", Consolas, monospace;
+@root-font-size: 14px;
+@root-line-height: 1.618; // golden-ratio
+@root-text-color: black;
+@root-background-color: white;
+
+@headings-color: inherit;
+
+// colors base + brand
+@color-white: #fff;
+@color-black: #000;
+@color-primary: #0074D9;
+@color-secondary: #8899a6;
+
+// colors basic
+@color-danger: #e74c3c; // #d0112b;
+@color-info: #3498db; //#0086e6;
+@color-success: #2ecc71;
+@color-warning: #f1c40f;
+
+// colors shades
+@color-grey: #7D7D8E;
+@color-grey-dark: shade(@color-grey, 45%);
+@color-grey-light: tint(@color-grey, 45%);
+@color-grey-lighter: tint(@color-grey, 90%);
+
+// colors social
+@color-facebook: #3e5c9a;
+@color-twitter: #55acee;
+@color-google-plus: #dd4b39;
+@color-youtube: #D22222;
+
+
+// elements buttons
+@btn-default-font-size: @root-font-size - 2;
+@btn-default-height: 28px;
+@btn-default-radius: 3px;
+// sm
+@btn-sm-font-size: @btn-default-font-size - 1;
+@btn-sm-height: 22px;
+@btn-sm-radius: @btn-default-radius;
+// md
+@btn-md-font-size: @btn-default-font-size;
+@btn-md-height: 32px;
+@btn-md-radius: @btn-default-radius + 1;
+// lg
+@btn-lg-font-size: @btn-md-radius + 2;
+@btn-lg-height: 38px;
+@btn-lg-radius: @btn-md-radius + 1;
+// xl
+@btn-xl-font-size: @btn-lg-font-size + 1;
+@btn-xl-height: 44px;
+@btn-xl-radius: @btn-lg-radius + 1;
+
+// elements checkbox
+@checkbox-size: 14px;
+
+// elements radio
+@radio-size: @checkbox-size;
+
+// elements tooltip
+@tooltip-font-size: .75rem;
+@tooltip-radius: 3px;
+@tooltip-arrow-size: 5px;
+@tooltip-background-color: @root-text-color;
+@tooltip-text-color: @root-background-color;
+
+// elements popover
+@popover-arrow-size: 10px;

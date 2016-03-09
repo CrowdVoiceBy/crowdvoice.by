@@ -1,0 +1,74 @@
+
+<div class="notifications">
+
+</div>
+
+<div class="admin-users-list">
+
+	<% organizations.forEach(function(org){ %>
+
+		<% if (!org.deleted) { %>
+
+			<div class="admin-user ">
+
+					<div class="admin-info">
+						<article role="article" class="card-mini has-meta">
+							<a href="/<%= org.profileName %>" class="-float-left" data-author-anchor="" title="cersei-lannisters’s profile">
+								<img class="card-mini-avatar -rounded" alt="cersei-lannisters’s avatar image" width="36" height="36" src="<%= org.images.small.url %>">
+							</a>
+							<div class="card-mini-info">
+								<div>
+									<a href="/<%= org.profileName %>" class="card-mini-fullname -font-semi-bold -tdn" data-author-anchor="" title="cersei-lannisters’s profile"><%= org.name %></a>
+									<p class="card-mini-username"> · @<%= org.profileName %></p>
+								</div>
+								<div class="card-info-meta">
+									<span data="location"><%= org.location %> · </span>
+									<span data="joined-at">Joined on <%= moment(org.createdAt).format('MMM, YYYY') %></span>
+								</div>
+							</div>
+						</article>
+					</div>
+
+					<div class="admin-actions">
+
+						<a href="/<%= org.profileName %>" target="_blank"><button class="cv-button small">Show</button></a>
+						<a href="organizations/<%= org.id %>/edit"><button class="cv-button small">Edit</button></a>
+						<a >
+							<form class="form-profile" action="/admin/organizations/<%= org.id %>?_method=DELETE" method="POST" enctype="multipart/form-data">
+	      						<input type="hidden" name="_csrf" value="<%= csrfToken %>">
+								<button class="cv-button small">Delete</button>
+							</form>
+						</a>
+
+					</div>
+
+			</div>
+
+		<% } %>
+
+	<% }); %>
+
+
+</div>
+
+<script>
+	var organizations = <%= JSON.stringify(organizations) %>;
+
+	var headerEl = document.querySelector('header .header-actions');
+	headerEl.innerHTML = '<h2>Organization List</h2>';
+
+	var flash = <%= JSON.stringify(flash) %>;
+	console.log(flash);
+
+  	if (flash.success){
+
+  		var nEl= document.querySelector('.notifications');
+		nEl.innerHTML = '<p>' + flash.success + '</p>';
+
+  		nEl.style.display = 'block';
+  		setTimeout(function(){
+  			$(nEl).fadeOut(500);
+  		}, 2000);
+	}
+
+</script>

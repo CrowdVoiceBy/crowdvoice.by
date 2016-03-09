@@ -1,0 +1,254 @@
+
+<div class="notifications">
+
+</div>
+
+<div class="add-voices">
+</div>
+<br class="-clear-after">
+
+<div class="admin-voices-list" id="pos-container">
+
+	<% featuredVoices.forEach(function(featuredVoice){ %>
+
+		<%
+		var voice = featuredVoice.voice;
+		if (!voice.deleted) { %>
+
+			<div class="admin-user " id="<%= voice.id %>" data-position="<%= featuredVoice.position %>">
+
+					<div class="admin-info">
+						<article class="cv-voice-cover mini -clearfix widget" role="article">
+							<a href="/<%= voice.owner.profileName %>/<%= voice.slug %>/" class="-float-left voice-image" data-voice-anchor="" title="Battle of Castle Black voice">
+								<img class="voice-cover" width="36" height="36" src="<%= voice.images.small.url %>">
+							</a>
+							<div class="voice-content">
+								<a href="/<%= voice.owner.profileName %>/<%= voice.slug %>/" class="voice-cover-title voice-cover-title-anchor -font-semi-bold -tdn" data-voice-anchor="" title="Battle of Castle Black voice"><%= voice.title %></a>
+								<div class="meta">
+									<div class="author -inline-block">By
+										<a class="author-anchor" href="/<%= voice.owner.profileName %>" title="<%= voice.owner.profileName %> profile">
+											<span class="author-username"><%= voice.owner.name %></span>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="action"></div>
+						</article>
+					</div>
+
+					<div class="admin-actions">
+
+						<a href="/<%= voice.owner.profileName %>/<%= voice.slug %>/" target="_blank"><button class="cv-button action-profile drag-reorder small">Reorder</button></a>
+						<a >
+							<form class="form-profile" action="/admin/featured/voices/<%= voice.id %>?_method=DELETE" method="POST" enctype="multipart/form-data">
+	      						<input type="hidden" name="_csrf" value="<%= csrfToken %>">
+	      						<input type="hidden" name="voiceId" class="voiceId" value="<%= voice.id %>">
+								<button class="cv-button small">Remove from featured</button>
+							</form>
+						</a>
+
+					</div>
+
+			</div>
+
+		<% } %>
+
+	<% }); %>
+
+
+</div>
+
+<script>
+
+	var voices = <%= JSON.stringify(featuredVoices) %>;
+
+	var selectedVoice;
+	var voiceElBase = $('<div class="person" id=""></div>');
+
+	var headerEl = document.querySelector('header .header-actions');
+	headerEl.innerHTML = '<h2>Featured Voices</h2>';
+
+	var flash = <%= JSON.stringify(flash) %>;
+	if (flash.success){
+
+	  	var nEl= document.querySelector('.notifications');
+			nEl.innerHTML = '<p>' + flash.success + '</p>';
+
+	  	nEl.style.display = 'block';
+	  	setTimeout(function(){
+	  		$(nEl).fadeOut(500);
+	  	}, 2000);
+	}
+
+	dragula([document.querySelector('.admin-voices-list')])
+		.on('drag', function (el) {
+		    el.querySelector('.admin-actions').style.display = "none";
+		})
+		.on('drop', function (el) {
+		    el.querySelector('.admin-actions').style.display = "inherit";
+			reorder();
+	 	});
+
+	// Add search widget
+	var searchInput = new CV.InputButton({
+		style     : 'primary',
+		placeholder : 'Search voices...',
+		title     : "Add featured voices",
+		buttonLabel : "Add"
+	}).render($('.add-voices'));
+	searchInput.disableButton();
+
+	// Search event
+	searchInput.inputEl.find('input').on('keyup', function(e){
+
+		if (e.keyCode == 27) {
+			searchInput.reset();
+		}
+
+	    var searchStr = $(this).val().toLowerCase();
+	    var inputSearch = $(this);
+
+	    if (searchStr == ""){
+	      searchInput.element.find('.search-results').hide();
+	      return false;
+	    }
+
+	    $.ajax({
+	      type: "POST",
+	      url:'/admin/featured/voices/search',
+	      headers: { 'csrf-token': $('meta[name="csrf-token"]').attr('content') },
+	      data : {query : searchStr},
+	      success: function(data) {
+
+	        if (data['voices'].length > 0){
+
+	          searchInput.element.find('.search-results').show();
+	          showUsers(data['voices']);
+
+	        } else {
+
+	          searchInput.element.find('.search-results').hide();
+	          if ( inputSearch.val() != "" ){
+	            searchInput.disableButton();
+	          }
+
+	        }
+          }
+	    });
+
+	});
+
+	// Invite event
+	searchInput.buttonEl.on('click', function(){
+
+		$.ajax({
+			type: "POST",
+            url : '/admin/featured/voices/new',
+			headers: { 'csrf-token': $('meta[name="csrf-token"]').attr('content') },
+			data : {
+				voiceId : selectedVoice.id
+			},
+		  	success : function success(data) {
+
+			    var newEnt = $('.admin-user:first-child').clone();
+
+			    var oName = selectedVoice.owner.name;
+
+			    newEnt.appendTo($('.admin-voices-list'));
+
+			    newEnt.attr('id', selectedVoice.id);
+
+			    newEnt.find('.voice-image').attr('href', '/'+selectedVoice.owner.profileName+'/'+selectedVoice.slug);
+			    newEnt.find('.voice-image img').attr('src',  selectedVoice.images.small.url );
+			    newEnt.find('.admin-actions form').attr('action', '/admin/featured/voices/' + selectedVoice.id + '?_method=DELETE');
+			    newEnt.find('.admin-actions form .voiceId').val(selectedVoice.id);
+			    newEnt.find('.voice-cover-title').text(selectedVoice.title);
+			    newEnt.find('.voice-cover-title').attr('href', '/'+selectedVoice.owner.profileName+'/'+selectedVoice.slug);
+
+			    newEnt.find('.author-username').text(oName);
+			    newEnt.find('.author-anchor').attr('href', '/'+selectedVoice.owner.profileName);
+
+
+			    reorder();
+
+			},
+			error : function error(err) {
+			    console.log(err);
+			}
+		});
+
+	});
+
+	// Display users on search dropdown
+	function showUsers(persons){
+
+	    searchInput.element.find('.search-results').empty();
+
+		var entityIds = getFeaturedIds();
+
+	    persons.forEach(function(person){
+
+
+			if(entityIds.indexOf(person.id) != -1){
+				return false;
+			}
+
+	      	var voiceEl = voiceElBase.clone();
+	      	voiceEl.attr('id', person.id);
+
+	  		voiceEl.text(person.title);
+
+	     	voiceEl.on('click', function(){
+	        	setselectedVoice(person);
+	      	});
+
+	      	searchInput.element.find('.search-results').append(voiceEl);
+
+	    });
+
+	}
+
+	function setselectedVoice(voice){
+		searchInput.enableButton();
+		selectedVoice = voice;
+		searchInput.inputEl.find('input').val( searchInput.element.find('.search-results').find('#'+selectedVoice.id).text() );
+		searchInput.element.find('.search-results').empty();
+		searchInput.element.find('.search-results').hide();
+	}
+
+	function reorder(){
+
+		var voiceIds = getFeaturedIds();
+
+	 	$.ajax({
+            type : 'POST',
+            url : '/admin/featured/voices/updatePositions',
+            headers : {'csrf-token' : $('meta[name="csrf-token"]').attr('content')},
+            data : {voiceIds : voiceIds},
+            dataType : 'json',
+            success : function success(data) {
+
+                console.log('reorder success');
+            },
+            error : function error(err) {
+
+                console.log('error');
+                console.log(err);
+
+            }
+        });
+
+	}
+
+	function getFeaturedIds () {
+		var nodes = document.querySelectorAll('.admin-user:not(.gu-mirror)');
+		var voiceIds = [];
+
+		Array.prototype.forEach.call(nodes, function( node ){
+			voiceIds.push(node.id);
+		});
+
+		return voiceIds;
+	}
+
+</script>

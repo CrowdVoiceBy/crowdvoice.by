@@ -1,0 +1,113 @@
+/* ============================================================================
+ * Write Article
+ * ========================================================================= */
+ .post-creator-write-article{
+  .input-error-message {
+    top: 70px;
+  }
+ }
+.write-article-title-wrapper {
+  padding: 1.3em 0 0 1em;
+}
+
+.write-article-title {
+  font-size: 18px;
+}
+
+.write-article-post-date-wrapper {
+  padding: 1.3em 1em 0 0;
+  .date-label{
+    vertical-align: sub;
+    margin-right: 5px;
+  }
+}
+
+.write-article-post-date-wrapper .cv-input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.write-article-post-date-wrapper .post-date-picker-button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Editor */
+.write-article-editor {
+  overflow: auto;
+  background-color: @color-white;
+  border-radius: 6px 6px 0 0;
+}
+
+.write-article-editor-header {
+  padding: 120px 0 45px;
+  border-bottom: 1px solid @color-grey-light;
+  border-radius: inherit;
+
+  .editor-title {
+    font-size: 48px;
+    width: 606px;
+    margin: 0 auto;
+    outline: none;
+    color: @color-neutral-xx-dark;
+  }
+  .editor-title-bg{
+    text-shadow: black 3px 3px;
+    color: white;
+  }
+
+  .editor-add-cover {
+    top: 1.6rem;
+    left: 1.3rem;
+  }
+}
+
+.write-article-editor-body {
+  font-size: 14px;
+  color: @color-neutral-xx-dark;
+  height: 100%;
+  width: 606px;
+  margin: 50px auto;
+
+  .write-article-body-editable {
+    outline: none;
+    height: 100%;
+    cursor: text;
+    font-size: 16px;
+    color: #666666;
+  }
+  p{
+    font-family: 'Merriweather', serif;
+  }
+  
+  u{
+    text-decoration: underline;
+  }
+  h2{
+    font-size: 36px;
+    font-weight: bold;
+    color: #000;
+  }
+
+  h3{
+    font-size: 26px;
+    font-weight: bold;
+    color: #808080;
+  }
+
+  blockquote{
+    font-size: 22px;
+    text-align: center;
+    font-weight: lighter;
+    font-style: italic;
+    color: #595959;
+  }
+
+  blockquote:before{
+    content: '“';
+  }
+
+  blockquote:after{
+    content:'”';
+  }
+}

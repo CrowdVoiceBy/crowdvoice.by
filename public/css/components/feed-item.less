@@ -1,0 +1,47 @@
+.cv-feed-item__info-main {
+  position: relative;
+  min-height: 28px;
+
+  .main-avatar,
+  .main-text {
+    display: inline-block;
+  }
+
+  .main-avatar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 28px;
+    height: 28px;
+  }
+
+  .main-text {
+    margin: 3px 0 0 38px;
+    > a {
+      color: inherit;
+      opacity: 1;
+      &:extend(.-tdn);
+      &:extend(.-font-semi-bold);
+      &:hover {color: @color-primary}
+    }
+  }
+}
+
+.cv-feed-item__info-extra {
+  margin: 10px 0 0 38px;
+  &:empty {margin: 0;}
+}
+
+.cv-feed-item__time {
+  margin-top: 5px;
+  font-style: italic;
+  color: #B3B3B3;
+}
+
+/* message */
+.cv-feed-item.message .cv-feed-item__info-extra {
+  color: @color-neutral-mid;
+
+  &:before {content: '“'}
+  &:after {content: '”'}
+}

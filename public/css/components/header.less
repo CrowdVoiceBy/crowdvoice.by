@@ -1,0 +1,114 @@
+/* =========================================================================== *
+ *  inner pages
+ * =========================================================================== */
+.page-inner .cv-main-header .cv-main-logo-type {
+  padding-left: 32px;
+  transform: translateX(0);
+  transition: transform 500ms @ease-out;
+  will-change: transform;
+}
+.app-wrapper.-is-paused .cv-main-header .cv-main-logo-type {
+  transform: translateX(-28px);
+}
+
+.page-inner .cv-main-sidebar .cv-main-logo-type {
+  transform: translateX(28px);
+  transition: transform 500ms @ease-out;
+  will-change: transform;
+}
+.page-inner .cv-main-sidebar.-is-expanded .cv-main-logo-type {
+  transform: translateX(0);
+}
+
+/* =========================================================================== *
+ *  voice page
+ * =========================================================================== */
+.page-voice .cv-main-header {
+  transform: translateY(1px) translateZ(0);
+  transition: transform 200ms @ease;
+
+  &.hide {
+    transform: translateY(-@cv-header-height) translateZ(0);
+    .voice-footer {background-color: @color-white}
+  }
+}
+
+/* =========================================================================== *
+ *  globally shared
+ * =========================================================================== */
+.cv-main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  height: @cv-header-height;
+  border-bottom: 1px solid rgba(0,0,0,.10);
+  background-clip: padding-box;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.10), 0 -1px 0 0 @color-white;
+  will-change: transform;
+}
+
+.header-login-actions {
+  padding: 15px 2rem 0 15px;
+
+  .login-actions {
+    &__list {
+      font-size: 15px;
+      padding-top: 3px;
+    }
+  }
+}
+
+.header-actions  {
+  display: inline-block;
+  padding-top: 14px;
+  padding-right: 10px;
+}
+
+.header-actions-button.cv-button {
+  margin: 0 10px;
+  fill: @color-neutral-light;
+
+  &:hover:enabled {
+    fill: @color-neutral-x-mid;
+  }
+
+  &:active,
+  &.active {
+    background-color: @color-primary-dark;
+    border-color: @color-primary-super-dark;
+    box-shadow: inset 0 3px 0 rgba(0,0,0,0.05);
+
+    .header-actions-svg {
+      fill: @color-white;
+    }
+  }
+}
+
+.header-notification-button {
+  .ui-badge {
+    top: -7px;
+    right: 0;
+    transform: translateX(50%) scale(0);
+    transition: transform 200ms;
+  }
+
+  &.has-new-notifications {
+    fill: @color-primary;
+
+    .ui-badge {
+      transform: translateX(50%) scale(1);
+      transition: transform 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+  }
+}
+
+.actions-wrapper {
+  padding: 15px 10px 0;
+}
+
+.actions-dropdown-svg {
+  width: 9px;
+  height: 6px;
+}

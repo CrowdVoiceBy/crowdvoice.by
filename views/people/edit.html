@@ -1,0 +1,19 @@
+<main role="main" class="cv-main-profile-edit -rel">
+  <section class="page-heading">
+      <h1 class="page-heading__title -mt0">Manage My Account</h1>
+      <div class="profile-menu -row -rel"></div>
+  </section>
+
+  <section class="user-profile-edit-tabs-content profile-menu-content -rel"></section>
+</main>
+
+<script>
+  var App = new CV.App().setup();
+  App.addInteractiveSidebar();
+
+  var UserProfileEdit = new CV.Views.UserProfileEdit({
+    _e : <%= JSON.stringify(currentUser.email) %>,
+    backgroundImage : <%= JSON.stringify(currentPerson.background.url('card')) %>,
+    notificationSettings : <%= JSON.stringify(notificationSettings) %>
+  });
+</script>

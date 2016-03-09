@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>icon (twitter)</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="rgb(0,0,0)" fill-rule="evenodd" sketch:type="MSPage">
+        <g sketch:type="MSArtboardGroup" transform="translate(-856.000000, -4121.000000)">
+            <g sketch:type="MSLayerGroup" transform="translate(200.000000, 4082.000000)">
+                <g transform="translate(601.000000, 33.000000)" sketch:type="MSShapeGroup">
+                    <path d="M67,6 C60.383,6 55,11.383 55,18 C55,24.617 60.383,30 67,30 C73.617,30 79,24.617 79,18 C79,11.383 73.617,6 67,6 L67,6 Z M72.262,15.385 L72.27,15.725 C72.27,19.203 69.623,23.214 64.782,23.214 C63.296,23.214 61.912,22.777 60.747,22.03 C62.121,22.191 63.518,21.823 64.643,20.941 C63.492,20.919 62.52,20.158 62.185,19.112 C62.581,19.187 62.988,19.173 63.373,19.066 C62.169,18.826 61.262,17.761 61.262,16.487 L61.262,16.452 C61.617,16.649 62.024,16.767 62.454,16.782 C61.748,16.309 61.283,15.505 61.283,14.592 C61.283,14.11 61.413,13.658 61.639,13.268 C62.937,14.861 64.876,15.91 67.064,16.018 C67.019,15.827 66.996,15.624 66.996,15.419 C66.996,13.965 68.175,12.787 69.629,12.787 C70.386,12.787 71.069,13.106 71.55,13.619 C72.15,13.5 73.5,13.353 73.5,13.353 C73.147,13.882 72.776,15.013 72.262,15.385 L72.262,15.385 Z"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

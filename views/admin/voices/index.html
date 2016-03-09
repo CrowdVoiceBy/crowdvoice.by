@@ -1,0 +1,73 @@
+<div class="notifications">
+
+</div>
+<div class="admin-users-list">
+
+	<% voices.forEach(function(voice){ %>
+
+		<% if (!voice.deleted) { %>
+
+			<div class="admin-user ">
+
+					<div class="admin-info">
+						<article class="cv-voice-cover mini -clearfix widget" role="article">
+							<a href="/<%= voice.owner.profileName %>/<%= voice.slug %>/" class="-float-left" data-voice-anchor="" title="Battle of Castle Black voice">
+                <% if (voice.images && voice.images.small) { %>
+  								<img class="voice-cover" width="36" height="36" src="<%= voice.images.small.url %>">
+                <% } %>
+							</a>
+							<div class="voice-content">
+								<a href="/<%= voice.owner.profileName %>/<%= voice.slug %>/" class="voice-cover-title voice-cover-title-anchor -font-semi-bold -tdn" data-voice-anchor="" title="Battle of Castle Black voice"><%= voice.title %></a>
+								<div class="meta">
+									<div class="author -inline-block">By
+										<a class="author-anchor" href="/<%= voice.owner.profileName %>" title="<%= voice.owner.profileName %> profile">
+											<span class="author-username"><%= voice.owner.name %></span>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="action"></div>
+						</article>
+					</div>
+
+					<div class="admin-actions">
+
+						<a href="/<%= voice.owner.profileName %>/<%= voice.slug %>/" target="_blank"><button class="cv-button small">Show</button></a>
+						<a href="/admin/voices/<%= voice.id %>/edit"><button class="cv-button small">Edit</button></a>
+						<a >
+							<form class="form-profile" action="/admin/voices/<%= voice.id %>?_method=DELETE" method="POST" enctype="multipart/form-data">
+	      						<input type="hidden" name="_csrf" value="<%= csrfToken %>">
+								<button class="cv-button small">Delete</button>
+							</form>
+						</a>
+
+					</div>
+
+			</div>
+
+		<% } %>
+
+	<% }); %>
+
+
+</div>
+
+<script>
+	var voices = <%= JSON.stringify(voices) %>;
+	console.log(voices);
+	var headerEl = document.querySelector('header .header-actions');
+	headerEl.innerHTML = '<h2>Topics List</h2>';
+
+	var flash = <%= JSON.stringify(flash) %>;
+	if (flash.success){
+
+	  	var nEl= document.querySelector('.notifications');
+			nEl.innerHTML = '<p>' + flash.success + '</p>';
+
+	  	nEl.style.display = 'block';
+	  	setTimeout(function(){
+	  		$(nEl).fadeOut(500);
+	  	}, 2000);
+	}
+
+</script>

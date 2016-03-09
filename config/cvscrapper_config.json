@@ -1,0 +1,21 @@
+{
+  "downloaders": [
+    "imgur",
+    "youtube",
+    "vimeo",
+    "flickr",
+    "image",
+    "html"
+  ],
+  "scrappers": [
+    "imgur",
+    "youtube",
+    "vimeo",
+    "flickr",
+    "image",
+    "html"
+  ],
+  "ImageDownloader" : {
+    "downloadPath": "{app_path}/public/posts_images"
+  }
+}

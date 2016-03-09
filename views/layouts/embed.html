@@ -1,0 +1,58 @@
+<!--
+    Version : <%= CONFIG.gitRevision %>
+-->
+<!DOCTYPE html>
+<html lang="en" class="theme_<%= params.theme %> theme_bg-<%= params.background %>">
+<head>
+  <meta charset="UTF-8">
+  <meta content="authenticity_token" name="csrf-param" />
+  <meta content="<%= csrfToken %>" name="csrf-token" />
+  <title>CrowdVoice.by — <%= voice.title %></title>
+  <meta name="description" content="<%= voice.description %>">
+  <%= renderPartial('shared/favicon.html') %>
+  <script type="text/javascript">
+    window.currentPerson = <%= JSON.stringify(currentPerson) %>;
+  </script>
+  <script src="/socket.io/socket.io.js?version=<%= CONFIG.gitRevision %>"></script>
+  <script src="/dist/embed.js?version=<%= CONFIG.gitRevision %>"></script>
+</head>
+<body>
+  <%= renderPartial('shared/sprite-logo.svg') %>
+  <%= renderPartial('shared/svg-embed/sprite-embed.svg') %>
+  <%= yield %>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+    <!-- Start of StatCounter Code for Default Guide -->
+    <script type="text/javascript">
+    var sc_project=10825689;
+    var sc_invisible=1;
+    var sc_security="8ec62beb";
+    var scJsHost = (("https:" == document.location.protocol) ?
+    "https://secure." : "http://www.");
+    document.write("<sc"+"ript type='text/javascript' src='" +
+    scJsHost+
+    "statcounter.com/counter/counter.js'></"+"script>");
+    </script>
+    <noscript><div class="statcounter"><a title="website
+    statistics" href="http://statcounter.com/free-web-stats/"
+    target="_blank"><img class="statcounter"
+    src="http://c.statcounter.com/10825689/0/8ec62beb/1/"
+    alt="website statistics"></a></div></noscript>
+    <!-- End of StatCounter Code for Default Guide -->
+</body>
+</html>

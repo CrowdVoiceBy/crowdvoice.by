@@ -1,0 +1,48 @@
+.theme_dark {
+  background-color: @embed_dark_bg;
+
+  .Loading {
+    background-color: @embed_dark_bg;
+    color: @embed_light_bg;
+  }
+
+  .main-header {
+    background: black;
+    box-shadow: 0 -1px 0 0 black;
+  }
+
+  .voice-title {
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,.35);
+  }
+
+  .voice-background-cover {
+    &::after {
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, @embed_dark_bg);
+    }
+  }
+
+  .header-meta {
+    &::before {background-image: linear-gradient(#000 20%, rgba(0,0,0,0));}
+    &::after {background-image: linear-gradient(rgba(0,0,0,0), #000 80%);}
+  }
+
+  .header-meta-voice-title {
+    color: #fff;
+  }
+
+  .header-switch-view-cards-button {
+    stroke: @color-white;
+  }
+
+  .header-open-voice-button-container {
+    border-color: @color-neutral-xx-dark;
+  }
+
+  .cv-post-detail__header {
+    background: black;
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  .ui-close-button__svg { fill: #fff; }
+  .pd-header__title { color: #fff; }
+}

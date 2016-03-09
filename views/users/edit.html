@@ -1,0 +1,8 @@
+<form action="/user/<%= user.id %>" method="POST" accept-charset="utf-8">
+    <p>
+    <span>Email: </span> <input type="text" name="email" value="<%= user.email %>">
+    </p>
+
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    <p><input type="submit" value="Continue &rarr;"></p>
+</form>

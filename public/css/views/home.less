@@ -1,0 +1,334 @@
+.home-section-padding {
+  padding: 0 40px 0 40px;
+}
+
+.homepage-heading-wrapper {
+  margin-bottom: 30px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid @color-neutral-x-light;
+
+  .homepage-heading {
+    font-size: 30px;
+    margin: 0;
+    &:extend(.-font-bold);
+  }
+}
+
+/******************************************************************************
+ INTRO
+ *****************************************************************************/
+.homepage-intro {
+  height: 70vh;
+  min-height: 600px;
+  background: #000;
+
+  .top-voice {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.homepage-intro__logo {
+  padding-top: 40px;
+}
+
+.hi__logo-heading {
+  font-size: 72px;
+  line-height: 98px;
+  letter-spacing: -3px;
+  margin: 0;
+}
+
+.hi__logo-subheading {
+  font-size: 21px;
+  line-height: 38px;
+  margin: 0;
+}
+
+.hi__logo-subheading-inner {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 1px;
+    margin-top: 1px;
+    background-color: @color-white;
+    opacity: .5;
+  }
+
+  &::before {left: -50px;}
+  &::after {right: -50px;}
+}
+
+.homepage-intro .top-voice {
+  top: 0;
+  left: 0;
+}
+
+.homepage-intro__links {
+  font-size: 14px;
+  top: 40px;
+  right: 40px;
+  z-index: 0;
+}
+
+.hi__links-link:hover {opacity: 0.8;}
+
+.hi__links-login {margin-left: 20px;}
+
+.homepage-signup {
+  padding: 60px 40px;
+  background-color: @color-neutral-xx-dark;
+}
+
+.homepage-signup__text {
+  font-size: 23px;
+  line-height: 37px;
+  max-width: 920px;
+  margin: 0 auto 45px;
+}
+
+/* =========================================================================== *
+ *  featured voices
+ * =========================================================================== */
+.homepage-featured-voices {
+  padding: 60px 0 120px 40px;
+
+  .arrows-wrapper {
+    position: relative;
+    top: 13px;
+  }
+
+  .slider-arrow {
+    width: 50px;
+    height: 40px;
+    padding: 5px 20px 15px;
+  }
+
+  .slider-arrow-wrapper {
+    float: left;
+
+    &.-prev {
+      border-right: 1px solid @color-neutral-x-light;
+    }
+  }
+
+  .homepage-featured-voices-container {
+    margin-left: -20px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 10px;
+      bottom: 0;
+      z-index: 1;
+      background-image: linear-gradient(to right, @color-white, rgba(0,0,0,0));
+    }
+
+    .dots-wrapper {
+      margin-right: 20px;
+    }
+  }
+
+  .cv-voice-cover {
+    display: inline-block;
+    width: 340px;
+    padding: 0 20px;
+  }
+
+  .heading-right {
+    margin: 2px 20px 0 10px;
+  }
+}
+/* =========================================================================== *
+ *  Stats
+ * =========================================================================== */
+.home-stats {
+  background-color: @color-neutral-xx-dark;
+  background-image: url("/img/page-home/wave-bottom-left.jpg"), url("/img/page-home/wave-top-right.jpg");
+  background-position: left bottom, right top;
+  background-repeat: no-repeat;
+  background-size: 149px 159px, 114px 80px;
+  padding: 60px 20px 110px;
+
+  .statsTitle,
+  .stats-number {
+    font-size: 48px;
+  }
+
+  .stats-number {
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+
+  .stats {
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .stats-col {
+    padding: 20px 50px;
+  }
+
+  .stats-col:not(:last-child) {
+    border-right: 1px solid #454B4D;
+  }
+
+  .stats-label {
+    color: #8A9699;
+    font-size: 14px;
+    font-weight: bold;
+  }
+}
+
+.betweenDivs {
+  position: absolute;
+  width: 240px;
+  left: 50%;
+  margin-top: -30px;
+  margin-left: -120px;
+}
+
+/* =========================================================================== *
+ *  category list
+ * =========================================================================== */
+.homepage-category-list {
+  padding-top: 100px;
+  padding-bottom: 50px;
+  background-color: @color-neutral-xx-light;
+
+  .homepage-category-list-row {
+    max-width: 1000px;
+    margin:auto;
+
+    .topic-card {
+      padding: 0 25px 50px;
+    }
+  }
+}
+
+.homepage-category-list-heading {
+  font-size: 48px;
+  line-height: 65px;
+  margin: 0px auto 50px;
+  max-width: 1000px;
+}
+
+.homepage-category-list-item {
+  float: left;
+  width: 33.333%;
+  text-align: center;
+
+
+  .categories_link {
+    display: inline-block;
+    color: @color-neutral-xx-dark;
+  }
+
+  .homepage-category-cover {
+    width: 96px;
+    height: 96px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+
+  .categories_link-wrapper {
+    padding-top: 35px;
+  }
+
+  .categories_title {
+    font-size: 18px;
+    &:extend(.-text-center);
+  }
+}
+
+.homepage-category-list-cta {
+  .cv-button {
+    display: inline-block;
+    padding-top: 16px;
+   }
+}
+/* =========================================================================== *
+ *  organization cards
+ * =========================================================================== */
+.homepage-organization-cards {
+  padding: 80px 0 80px 40px;
+
+  .heading-right{
+    margin: 2px 20px 0 10px;
+  }
+
+  .homepage-organization-cards-holder {
+    margin-left: -10px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 10px;
+      bottom: 0;
+      z-index: 1;
+      background-image: linear-gradient(to right, @color-white, rgba(0,0,0,0));
+    }
+
+    .dots-wrapper {
+      margin-right: 30px;
+    }
+  }
+
+  .arrows-wrapper {
+    position: relative;
+    top: 13px;
+  }
+
+  .slider-arrow {
+    width: 50px;
+    height: 40px;
+    padding: 5px 20px 15px;
+  }
+
+  .slider-arrow-wrapper {
+    float: left;
+
+    &.-prev {
+      border-right: 1px solid @color-neutral-x-light;
+    }
+  }
+
+  .widget-card {
+    display: inline-block;
+    width: 320px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+/* =========================================================================== *
+ *  Media queries - Home Stats
+ * =========================================================================== */
+@media only screen and (max-width: 870px){
+  .home-stats .stats-col {
+    width: 40%;
+    border-right:0 !important;
+    margin: 0px 10px;
+
+    &:nth-child(-n+2){
+      border-bottom:1px solid #454B4D;
+      padding: 10px 0px;
+    }
+  }
+}
+
+@media only screen and (max-width: 480px){
+  .home-stats .stats .stats-col {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

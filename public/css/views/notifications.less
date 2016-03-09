@@ -1,0 +1,26 @@
+.notifications-page {
+  min-height: 100vh;
+  width: 80%;
+}
+
+.cv-notification-page-item {
+  padding: 20px 15px;
+  border: 1px solid @color-neutral-x-light;
+  &:hover {background-color: fadeout(@color-primary, 98%);}
+  &.-is-unread {
+    border-color: @color-primary;
+  }
+}
+
+.cv-notification-page-item-mark-as-read {
+  position: absolute;
+  bottom: 20px;
+  right: 15px;
+  font-style: italic;
+}
+
+@media only screen and (max-width: 1200px) {
+  .notifications-page {
+    width: 100%;
+  }
+}

@@ -1,0 +1,18 @@
+<% if (errors) { %>
+    <%= errors %>
+<% } %>
+<form action="/organization" method="post" accept-charset="utf-8">
+    <p>
+        <span>Organization Name: </span> <input type="text" name="name" value="org1">
+    </p>
+    <p>
+        <span>Profile Name: </span> <input type="text" name="profileName" value="org1">
+    </p>
+
+    <p>
+        <span>Is it Anonymous?: </span> <input type="checkbox" name="isAnonymous" value="true">
+    </p>
+
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    <p><input type="submit" value="Continue &rarr;"></p>
+</form>

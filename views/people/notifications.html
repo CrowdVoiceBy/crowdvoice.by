@@ -1,0 +1,16 @@
+<main role="main" class="cv-main-content notifications-page -rel">
+  <section class="page-heading cv-items-list -clearfix">
+    <h1 class="page-heading__title -m0 -float-left">Notifications View</h1>
+    <a class="-float-right -mt1 -ml1" href="/<%= currentPerson.profileName %>/edit/#notifications" title="Manage Notification Settings">Notifications Settings</a>
+  </section>
+  <section class="profile-body -rel"></section>
+</main>
+
+<script>
+  var App = new CV.App().setup();
+  App.addInteractiveSidebar();
+
+  var NotificationsView = new CV.Views.Notifications({
+    el : document.querySelector('.cv-main-content'),
+  }).setup();
+</script>

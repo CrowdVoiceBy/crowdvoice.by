@@ -1,0 +1,28 @@
+<style>
+  body {
+    background: url(/img/system-status/naranja-3.jpg);
+    background-repeat: no-repeat;
+    background-position: 100% -30px;
+    background-size: 145px 301px;
+  }
+</style>
+
+<div class="message-wrapper">
+  <h1 class="message__title">403</h1>
+
+  <% if (message) { %>
+    <h2 class="message__text"><%= message %></h2>
+  <% } else { %>
+    <h2 class="message__text">Forbidden!</h2>
+  <% } %>
+
+  <hr/>
+
+  <p class="message__text-small">
+    Looks like you followed a bad link or something went wrong.
+  </p>
+
+  <div class="links">
+    <a href="<%= CONFIG.siteUrl[application.env] %>/" class="cv-button">Go to Homepage</a>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<% if (errors) { %>
+    <div class="controller-errors">
+
+
+    </div>
+
+    <script>
+        var formErrors = <%= JSON.stringify(errors) %>;
+        //console.log(formErrors);
+
+        formErrors.forEach(function(error){
+            for (key in error) {
+                var node = document.createElement("P");
+                var textnode = document.createTextNode(error[key]);
+                node.appendChild(textnode);
+                document.querySelector('.controller-errors').appendChild(node);
+            }
+        });
+
+    </script>
+
+<% } %>
+
+<div class="login-container"></div>
+
+<script>
+
+    new CV.Login({
+        formType : 'signup',
+        formAction  : '/user',
+        formToken   : '<%= csrfToken %>'
+    }).render($('.login-container'));
+
+</script>

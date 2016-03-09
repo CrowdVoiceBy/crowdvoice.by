@@ -1,0 +1,18 @@
+
+<div class="login-container"></div>
+
+<script>
+
+	var loginError = null;
+	<% if (typeof flash !== "undefined") { %>
+    loginError = <%= JSON.stringify(flash) %>;
+  <% } %>
+
+	new CV.Login({
+    formType 	: 'login',
+    formAction  : '/session',
+    formToken 	: '<%= csrfToken %>',
+    loginError 	: loginError
+  }).render($('.login-container'));
+
+</script>

@@ -1,0 +1,16 @@
+<main role="main" class="cv-main-content discover-page -rel">
+  <section class="page-heading">
+    <h1 class="page-heading__title -m0 -inline-block">Recommended</h1>
+  </section>
+  <section class="profile-body -rel"></section>
+</main>
+
+<script>
+  var App = new CV.App().setup();
+  App.addInteractiveSidebar();
+
+  var DiscoverRecommended = new CV.Views.DiscoverRecommended({
+    el : document.querySelector('.cv-main-content'),
+    data : <%= JSON.stringify(recommended) %>
+  });
+</script>

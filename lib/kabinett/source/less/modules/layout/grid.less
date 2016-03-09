@@ -1,0 +1,34 @@
+/*
+  @TODO: Make it responsive
+
+  Kabinett – Grid Module
+*/
+
+.-row:after {
+  content: '';
+  clear: both;
+  display: table;
+}
+
+.-col {
+  float: left;
+  min-height: 1px;
+}
+
+// [class^="-col-"] {
+//   &:first-child:not(:last-child) {padding-left: 0}
+//   &:last-child:not(:first-child) {padding-right: 0}
+// }
+
+@{-}col-1  {&:extend(.-col); width: unit(1 * 100 / 12, %)}
+@{-}col-2  {&:extend(.-col); width: unit(2 * 100 / 12, %)}
+@{-}col-3  {&:extend(.-col); width: unit(3 * 100 / 12, %)}
+@{-}col-4  {&:extend(.-col); width: unit(4 * 100 / 12, %)}
+@{-}col-5  {&:extend(.-col); width: unit(5 * 100 / 12, %)}
+@{-}col-6  {&:extend(.-col); width: unit(6 * 100 / 12, %)}
+@{-}col-7  {&:extend(.-col); width: unit(7 * 100 / 12, %)}
+@{-}col-8  {&:extend(.-col); width: unit(8 * 100 / 12, %)}
+@{-}col-9  {&:extend(.-col); width: unit(9 * 100 / 12, %)}
+@{-}col-10 {&:extend(.-col); width: unit(10 * 100 / 12, %)}
+@{-}col-11 {&:extend(.-col); width: unit(11 * 100 / 12, %)}
+@{-}col-12 {&:extend(.-col); width: unit(12 * 100 / 12, %)}

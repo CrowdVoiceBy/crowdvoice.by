@@ -1,0 +1,67 @@
+<script>
+	var topic = <%= JSON.stringify(topic) %>;
+	console.log(topic);
+	var headerEl = document.querySelector('header .header-actions');
+	headerEl.innerHTML = '<h2>Edit Topic</h2>';
+</script>
+
+<h3>Currently editing the <strong><a href="/topic/<%= topic.slug %>" target="_blank"><%= topic.name %></a></strong> topic.</h3>
+<hr>
+<div class="form-container">
+   <div class="form-notifications-profile"></div>
+   <form class="form-profile" action="/admin/topics/<%= topic.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+      <div class="placeholder-images">
+         <div class="form-field -inline-block">
+            <label>Image</label>
+            <div class="form-profile-image">
+               <div class="image-align">
+                  <img src="<%= topic.images.icon.url %>">
+               </div>
+            </div>
+         </div>
+         <div class="form-field -inline-block -rel form-field-image">
+            <p class="image-input-label">Replace</p>
+            <input type="file" name="image" class="image-input image-upload image-upload-profile cv-button tiny" \="">
+            <label><span>JPG, GIF or PNG</span></label>
+         </div>
+      </div>
+      <br><br>
+      <div class="-width-50">
+         <div class="-col-12 placeholder-main">
+            <div class="form-field">
+               <label>Name<span></span></label>
+               <div class="cv-input small -w-50 form-name">
+                  <input type="text" name="name" value="<%= topic.name %>">
+               </div>
+            </div>
+            <div class="form-field">
+               <label>Slug<span></span></label>
+               <div class="cv-input small -w-50 form-lastname">
+                  <input type="text" name="slug" value="<%= topic.slug %>">
+               </div>
+            </div>
+         </div>
+      </div>
+      <br>
+      <div class="-col-12 placeholder-send"><button class="cv-button primary small">Save Changes</button></div>
+      <br>
+   </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

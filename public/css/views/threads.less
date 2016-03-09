@@ -1,0 +1,286 @@
+.page-threads {
+  height: 100%;
+
+  body,
+  .app-wrapper,
+  .yield {
+    height: 100%;
+  }
+}
+
+.threads-page.-is-empty-state {
+  .messages-sidebar {display: none;}
+  .messages-body {padding-left: 0;}
+}
+
+.empty-threads-element-message {
+  max-width: 650px;
+  margin: 0px auto;
+  padding: 0px 5rem;
+}
+
+/******************************************************************************
+ * SIDEBAR
+ *****************************************************************************/
+.messages-sidebar {
+  z-index: 0;
+  width: 340px;
+  border-right: 1px solid @color-menu-border;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 25px;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  &::before {
+    top: 54px;
+    background-image: linear-gradient(to bottom, white, transparent);
+  }
+
+  &::after {
+    bottom: 0;
+    background-image: linear-gradient(to top, white, transparent);
+  }
+}
+
+.messages-sidebar-header {
+  height: 54px;
+  padding: 20px 20px 0px 20px;
+
+  .form-field {margin: 0;}
+}
+
+.messages-sidebar-header__new-conversation-btn.cv-button {
+  padding: 0 8px;
+}
+
+.new-message-dropdown {
+  .ui-dropdown-label {
+    padding-top: 7px;
+    height: 100%;
+  }
+  .ui-dropdown__body {
+    min-width: 150px;
+  }
+}
+
+.messages-list {
+  z-index: 0;
+  height: e('calc(100% - 54px)');
+  overflow-y: auto;
+  &__inner {
+    padding: 20px 0;
+  }
+}
+
+/******************************************************************************
+ * Sidebar:ThreadItem
+ *****************************************************************************/
+.thread-list-item {
+  min-height: 58px;
+	border-bottom: 1px solid @color-neutral-x-light;
+	padding: 10px 30px 10px 20px;
+
+  .message-info {
+		float: left;
+    margin-left: 43px;
+    width: 220px;
+	}
+
+  &.active{
+		background: @color-message-active;
+	}
+}
+
+.thread-list-item__partner-name {
+  font-size: 13px;
+  line-height: 18px;
+  margin-right: 6px;
+  color: @color-neutral-x-dark;
+}
+
+.thread-list-item__as {
+  font-size: 11px;
+}
+
+.thread-list-item__last-message {
+  font-size: 12px;
+  line-height: 14px;
+  padding-top: 2px;
+  color: @color-neutral-mid;
+}
+
+.thread-list-item__avatar-partner {
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  top: 10px;
+  left: 20px;
+}
+
+.thread-list-item__avatar-sender {
+  top: 32px;
+  left: 39px;
+  width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  border: 1px solid @color-white;
+}
+
+/******************************************************************************
+ * BODY
+ *****************************************************************************/
+.messages-body {
+  padding-left: 340px;
+}
+
+/******************************************************************************
+ * Selected (active) thread
+ *****************************************************************************/
+.selected-thread-element__header {
+  height: 54px;
+  padding: 10px 40px 0;
+  border-bottom: 1px solid @color-neutral-x-light;
+}
+
+.selected-thread-element__header__conversation-title {
+  padding: 7px 20px 0 0;
+}
+
+.selected-thread-element__header__delete-action-icon {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  cursor: pointer;
+
+  .delete-thread-popover.ui-popover {
+    transform: translate(23px, 12px);
+  }
+}
+.delete-thread-popover {
+  width: 160px;
+}
+
+.selected-thread-element__header__delete-thread-svg {
+  fill: @color-neutral-x-mid;
+}
+
+.selected-thread-element__footer {
+  bottom: 0;
+  height: 90px;
+  left: 0;
+  right: 0;
+  padding: 15px 40px 40px;
+}
+.selected-thread-element__messages-list-wrapper {
+  top: 54px;
+  left: 0;
+  right: 0;
+  bottom: 90px;
+}
+.selected-thread-element__messages-list-scroll {
+  overflow: auto;
+  // &.allowscroll {min-height: 101%}
+}
+.selected-thread-element__messages-list {
+  padding: 0 40px;
+  min-height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+/******************************************************************************
+ * COMPOSE NEW THREAD
+ *****************************************************************************/
+.new-thread-message-element {
+  background-color: @color-neutral-xx-light;
+}
+
+.new-thread-message-element__header {
+  display: flex;
+  &:extend(.selected-thread-element__header);
+  &__label {padding: 7px 10px 0 0}
+}
+
+.new-thread-message-element__header__search-input {
+  flex: 1;
+  .ui-input {
+    border: none;
+    box-shadow: none;
+  }
+}
+.new-thread-message-element__footer {
+  bottom: 0;
+  height: 90px;
+  left: 0;
+  right: 0;
+  padding: 15px 40px 40px;
+}
+
+/******************************************************************************
+ * THREAD MESSAGE
+ *****************************************************************************/
+.message-text{
+	padding: 18px 0px 18px 0px;
+	img{
+		width: 28px;
+		height: 28px;
+    position: absolute;
+    top: 0;
+    left: 0;
+		border-radius: 14px;
+	}
+  .message-data {
+    margin-left: 43px;
+  }
+	h3{
+		font-size: 12px;
+		color: @color-neutral-x-dark;
+		margin: 0;
+		line-height: 17px;
+		display: inline-block;
+		margin-right: 4px;
+		span{
+			font-size: 11px;
+			opacity: .5;
+		}
+	}
+	p{
+		font-size: 13px;
+		line-height: 22px;
+		color: @color-message-text;
+	}
+	.data-message-date{
+		font-size: 11px;
+		color: @color-neutral-mid;
+	}
+	.message-data{
+	}
+	.message-notification{
+		border-left: 4px solid @color-menu-border;
+		margin-top: 10px;
+		padding-left: 15px;
+		font-size: 11px;
+		margin-left: 17px;
+		p{
+			color: @color-neutral-mid;
+			font-size: 11px;
+			line-height: 19px;
+		}
+    a {
+			color: @color-neutral-mid;
+    }
+		.message-notification-actions{
+			margin-top: 15px;
+		}
+	}
+}

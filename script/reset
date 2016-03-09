@@ -1,0 +1,5 @@
+knex migrate:rollback
+knex migrate:latest
+
+knex seed:run
+node bin/generate_posts.js 10

@@ -1,0 +1,42 @@
+/* =========================================================================== *
+ *  globally shared
+ * =========================================================================== */
+.cv-main-footer {
+  padding: 33px 0 25px;
+  background: @color-neutral-xx-light;
+  color: @color-neutral-mid;
+
+  .footer-menu {
+    a {
+      padding: 0px 10px;
+
+      &.side {
+        margin-top: 8px;
+        display: inline-block;
+
+        svg {
+          width: 24px;
+          height: 24px;
+          fill: @color-neutral-xx-mid;
+        }
+
+        &:hover > svg {
+          fill: @color-neutral-dark;
+        }
+      }
+
+      &.logo {
+        svg {
+          width: 32px;
+          height: 36px;
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
+
+.footer-copy {
+  font-size: 12px;
+  margin-top: 18px;
+}

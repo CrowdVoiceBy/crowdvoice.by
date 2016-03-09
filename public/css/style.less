@@ -1,0 +1,282 @@
+/* =========================================================================== *
+ *  vendor :: sanitize.css - render elements consistently across browsers
+ * =========================================================================== */
+@import (inline) "../../node_modules/sanitize.css/dist/sanitize.css";
+
+/* =========================================================================== *
+ *  vendor :: gemini-scrollbar :: Custom overlay-scrollbars with native scrolling mechanism.
+ * =========================================================================== */
+@import (inline) "../../node_modules/gemini-scrollbar/gemini-scrollbar.css";
+
+/* =========================================================================== *
+ *  lib :: kabinett
+ * =========================================================================== */
+@import "kabinett-config";
+
+@import "../../node_modules/dragula/dist/dragula.css";
+
+/* =========================================================================== *
+ * cv globals / general styles
+ * =========================================================================== */
+ @import "../../node_modules/jquery-colpick/css/colpick.css";
+
+/* =========================================================================== *
+ * color palette
+ * =========================================================================== */
+@import 'variables';
+
+// Color Utilities : .mixin-color (color, name) : creates the following class selectors.
+// + .-color-{name} [color, fill]
+// + .-color-bg-{name} [background-color]
+// + .-color-border-{name} [border-color]
+.mixin-color(@color-neutral-x-light, neutral-x-light);
+.mixin-color(@color-neutral-mid, neutral-mid);
+.mixin-color(@color-negative, negative);
+.mixin-color(@color-positive, positive);
+
+:root {
+  -webkit-font-smoothing: antialiased;
+}
+
+header{
+  &.-is-admin{
+    .header-actions{
+      h2{
+        margin: 0px;
+        padding-right: 20px;
+      }
+    }
+  }
+}
+
+.topvoice-container{
+  p{
+    margin-top: 14px;
+  }
+}
+
+.yield{
+  &.-is-admin{
+    padding-top: 64px;
+    padding-left: 205px !important;
+  }
+  .admin-container{
+    padding: 20px;
+    .form-container{
+      padding: 20px;
+    }
+    .notifications{
+        display: none;
+        text-align: center;
+        background: #ffe760;
+        border: 1px solid #d3bc44;
+        padding: 10px 40px;
+        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
+        font-size: 12px;
+        color: #333333;
+        margin: 0 auto;
+        position: absolute;
+        left: 225px;
+        margin-left: 0;
+        opacity: .95;
+        top: 10px;
+        z-index: 1;
+      p{
+        max-width: 300px;
+      }
+    }
+  }
+  .admin-user{
+    &:first-child{
+      border-top: 1px solid #d8d8d8;
+    }
+
+    padding: 15px;
+    margin-bottom: 0px;
+    border-bottom: 1px solid #d8d8d8;
+
+    .admin-info{
+      display: inline-block;
+    }
+
+    .admin-actions{
+      float: right;
+      opacity: 0;
+      transition: opacity 250ms;
+      form{
+        display: inline-block;
+      }
+    }
+    .admin-username{
+      min-width: 100px;
+      display: inline-block;
+      border-right: 1px solid #cccccc;
+      margin-right: 20px;
+    }
+    &:hover{
+      .admin-actions{
+        opacity: 100;
+      }
+    }
+  }
+}
+
+.app-wrapper::after {
+  z-index: 2;
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  visibility: hidden;
+  opacity: 0;
+  background: fade(@color-black, 20%);
+  transition-property: opacity, visibility;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+
+.app-wrapper.-is-paused::after {
+  visibility: visible;
+  opacity: 1;
+}
+
+a {
+  cursor: pointer;
+  color: @color-primary;
+  text-decoration: underline;
+}
+
+.yield {
+  padding-left: @cv-sidebar-collapsed-width;
+}
+
+.dark-background,
+.dark-background--inverted {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.dark-background::before {
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.5));
+}
+
+.dark-background--inverted::before {
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0));
+}
+
+.controller-errors{
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+  top: 0;
+  left: 0;
+  text-align: center;
+  background: #ffe760;
+  border-bottom: 1px solid #d3bc44;
+  padding: 10px;
+  box-shadow: 0px 2px 8px rgba(0,0,0, .2);
+  font-size: 18px;
+  color: #333;
+}
+
+.cv-items-list {
+  padding: 10px 0;
+  border-bottom: 1px solid @color-neutral-x-light;
+}
+
+.drag-reorder{
+  cursor: ns-resize !important;
+}
+
+/* =========================================================================== *
+ * cv components
+ * =========================================================================== */
+@import './components/search';
+@import './components/feed-item';
+@import './components/notifications';
+@import './components/alert';
+@import './components/loading';
+@import './components/header';
+@import './components/sidebar';
+@import './components/footer';
+@import './components/logo';
+@import './components/tags';
+@import './components/voice-cover';
+@import './components/topic-card';
+@import './components/card';
+@import './components/slider';
+@import './components/responsive-slider';
+@import './components/post';
+@import './components/date-picker';
+@import './components/dropdown';
+@import './components/dropdowns/voice-types';
+@import './components/dropdowns/account-dropdown-menu';
+@import './components/dropdowns/topics';
+@import './components/dropdowns/entities-checkboxes';
+@import './components/dropdowns/voice-ownership';
+@import './components/captions';
+@import './components/badge';
+@import './components/badge-follows';
+@import './components/colored-backgrounds';
+@import './components/custom-text-underline';
+@import './components/detect-location';
+@import './components/widgets';
+@import './components/upload-image';
+@import './components/forms';
+@import './components/popovers';
+@import './components/ui/modal';
+@import './components/ui/close-button';
+@import './components/ui/tabs';
+@import './components/list-results';
+@import './components/empty-state';
+@import './components/help-desk-overlay';
+@import './components/discover-cover';
+
+@import './components/voice-posts-layer';
+@import './components/voice-add-content';
+@import './components/input-clearable';
+@import './components/post-creators/post-creator';
+@import './components/post-creators/from-url/post-creator-from-url';
+@import './components/post-creators/from-sources/post-creator-from-sources';
+@import './components/post-creators/from-sources/source-twitter';
+@import './components/post-creators/from-sources/source-youtube';
+@import './components/post-creators/from-sources/source-google-news';
+@import './components/post-creators/upload-file/post-creator-upload-file';
+@import './components/post-creators/write-article/post-creator-write-article';
+@import './components/post-details/post-detail';
+@import './components/post-edit';
+
+@import './components/related-voices/related-voices.less';
+@import './components/voice-contributors/voice-contributors.less';
+@import './components/embed-overlay.less';
+@import './components/top-voice';
+/* =========================================================================== *
+ * cv views
+ * =========================================================================== */
+@import './views/home';
+@import './views/inner';
+@import './views/voice';
+@import './views/profile';
+@import './views/about';
+@import './views/login';
+@import './views/threads';
+@import './views/search';
+@import './views/saved-posts';
+@import './views/my-voices';
+@import './views/edit-profile';
+@import './views/edit-organization';
+@import './views/feed';
+@import './views/discover-recommended';
+@import './views/discover-browse';
+@import './views/notifications';
+@import './views/people-feed';

@@ -1,0 +1,29 @@
+.cv-related-voices {}
+
+.voice-related-voices-bubble .ui-popover__body-wrapper {
+  width: 480px;
+  padding: 0 2em 1em;
+}
+
+.cv-related-voices__list {
+  max-height: 400px;
+  min-height: 50px;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  .gm-scroll-view {
+    overflow-x: hidden;
+  }
+}
+
+.cv-related-voices-list {
+  &:empty::after {
+    content : 'No related voices';
+    font-style: italic;
+  }
+}
+
+.cv-related-voices__list-item {
+  border-bottom: 1px solid @color-neutral-x-light;
+  padding: 10px 0;
+}

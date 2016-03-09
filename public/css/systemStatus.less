@@ -1,0 +1,77 @@
+@import (inline) "../../node_modules/sanitize.css/dist/sanitize.css";
+
+@import 'variables';
+@import './components/logo';
+
+@max-width: 500px;
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.cv-main-logo-type {
+  line-height: 37px;
+}
+
+hr {
+  height: 1px;
+  margin: 20px -60px 20px 0;
+  background-color: @color-neutral-light;
+}
+
+.view { padding: 60px; }
+
+.cv-button {
+  border: 1px solid @color-neutral-light;
+  background-color: @color-white;
+  color: @color-neutral-dark;
+  fill: @color-neutral-dark;
+  box-shadow: inset 0px -3px 0px @color-inner-shadow;
+  border-radius: 4px;
+  height: 46px;
+  line-height: 46px;
+  font-size: 14px;
+  padding: 0px 25px;
+  display: inline-block;
+  vertical-align: top;
+  cursor: pointer;
+  outline: none;
+  margin-right: 10px;
+
+  &:hover {
+    color: @color-neutral-x-dark;
+    fill: @color-neutral-x-dark;
+    border: 1px solid @color-primary-dark;
+  }
+}
+
+.message-wrapper {
+  padding-top: 60px;
+}
+
+.message__title {
+  font-size: 112px;
+  line-height: 153px;
+  letter-spacing: -4px;
+  font-weight: bold;
+  color: @color-neutral-x-light;
+}
+
+.message__text {
+  font-size: 40px;
+  line-height: 55px;
+  max-width: @max-width;
+  font-weight: 100;
+  color: @color-neutral-xx-dark;
+}
+
+.message__text-small {
+  font-size: 18px;
+  line-height: 30px;
+  max-width: @max-width;
+  color: @color-neutral-x-dark;
+}
+
+.links {
+  padding-top: 30px;
+}

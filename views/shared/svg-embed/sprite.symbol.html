@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+		<script src="https://rawgit.com/jonathantneal/svg4everybody/master/svg4everybody.js"></script>
+		<title>SVG &lt;symbol&gt; sprite preview | svg-sprite</title>
+		<style>@charset "UTF-8";body{padding:0;margin:0;color:#666;background:#fafafa;font-family:Arial,Helvetica,sans-serif;font-size:1em;line-height:1.4}header{display:block;padding:3em 3em 2em 3em;background-color:#fff}header p{margin:2em 0 0 0}section{border-top:1px solid #eee;padding:2em 3em 0 3em}section ul{margin:0;padding:0}section li{display:inline;display:inline-block;background-color:#fff;position:relative;margin:0 2em 2em 0;vertical-align:top;border:1px solid #ccc;padding:1em 1em 3em 1em;cursor:default}.icon-box{margin:0;width:144px;height:144px;position:relative;background:#ccc url(data:image/gif;base64,R0lGODlhDAAMAIAAAMzMzP///yH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozQjk4OTI0MUY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozQjk4OTI0MkY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjNCOTg5MjNGRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjNCOTg5MjQwRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAAAwADAAAAhaEH6mHmmzcgzJAUG/NVGrfOZ8YLlABADs=) top left repeat;border:1px solid #ccc;display:table-cell;vertical-align:middle;text-align:center}.icon{display:inline;display:inline-block}h1{margin-top:0}h2{margin:0;padding:0;font-size:1em;font-weight:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:absolute;left:1em;right:1em;bottom:1em}footer{display:block;margin:0;padding:0 3em 3em 3em}footer p{margin:0;font-size:.7em}footer a{color:#0f7595;margin-left:0}</style>
+		
+<!--
+	
+Sprite shape dimensions
+====================================================================================================
+You will need to set the sprite shape dimensions via CSS when you use them as inline SVG, otherwise
+they would become a huge 100% in size. You may use the following dimension classes for doing so.
+They might well be outsourced to an external stylesheet of course.
+
+-->
+
+<style type="text/css">
+	..svg-svg-add-dims { width: 14px; height: 14px; }
+	..svg-svg-arrow-down-dims { width: 10px; height: 6px; }
+	..svg-svg-arrow-left-dims { width: 11px; height: 21px; }
+	..svg-svg-arrow-right-dims { width: 11px; height: 21px; }
+	..svg-svg-article-dims { width: 13px; height: 16px; }
+	..svg-svg-cards-dims { width: 16px; height: 15px; }
+	..svg-svg-checkmark-dims { width: 14px; height: 10px; }
+	..svg-svg-close-dims { width: 15px; height: 15px; }
+	..svg-svg-email-square-dims { width: 19px; height: 19px; }
+	..svg-svg-facebook-square-dims { width: 19px; height: 19px; }
+	..svg-svg-gplus-square-dims { width: 19px; height: 19px; }
+	..svg-svg-image-dims { width: 16px; height: 16px; }
+	..svg-svg-link-dims { width: 16px; height: 16px; }
+	..svg-svg-list-dims { width: 14px; height: 9px; }
+	..svg-svg-magnifier-dims { width: 48px; height: 48px; }
+	..svg-svg-play-dims { width: 32px; height: 40px; }
+	..svg-svg-save-dims { width: 11px; height: 16px; }
+	..svg-svg-save-outline-dims { width: 11px; height: 16px; }
+	..svg-svg-saved-posts-dims { width: 10px; height: 16px; }
+	..svg-svg-share-dims { width: 19px; height: 16px; }
+	..svg-svg-twitter-bird-dims { width: 38px; height: 30px; }
+	..svg-svg-twitter-square-dims { width: 19px; height: 19px; }
+	..svg-svg-video-dims { width: 16px; height: 16px; }
+</style>
+<!--
+====================================================================================================
+-->
+
+	</head>
+	<body>
+	
+<!--
+	
+Inline <symbol> SVG sprite
+====================================================================================================
+This is an inlined version of the generated SVG sprite. The single images may be <use>d everywhere
+below within this document. Please see https://github.com/jkphl/svg-sprite#inline-embedding for
+further details on how to create this embeddable sprite variant.
+
+-->
+
+<svg width="0" height="0" style="position:absolute">
+		<symbol viewBox="0 0 14 14" id="svg-add"><title>icon (add)</title><path d="M6 6H0v2h6v6h2V8h6V6H8V0H6v6z" fill-rule="evenodd"/></symbol>
+		<symbol viewBox="0 0 10 6" id="svg-arrow-down"><title>icon (arrow down)</title><path d="M9.883.117C9.805.04 9.71 0 9.603 0c-.11 0-.202.04-.28.117L5 4.83.677.118C.6.04.507 0 .397 0 .29 0 .195.04.117.117.04.195 0 .29 0 .397c0 .11.04.202.117.28l.716.788c.478.525 1 1.102 1.57 1.732.568.63 1.093 1.204 1.575 1.725.482.52.723.785.723.794.044.044.092.074.144.09.052.02.104.027.156.027.052 0 .104-.008.156-.026.052-.017.1-.047.143-.09 0-.01.238-.274.716-.795.477-.52 1.002-1.096 1.575-1.725l1.577-1.732.716-.788C9.96.6 10 .507 10 .397c0-.108-.04-.202-.117-.28z" fill-rule="evenodd"/></symbol>
+		<symbol viewBox="0 0 11 21" id="svg-arrow-left"><title>icon (arrow left)</title><path d="M10.5 1.294c0 .217-.067.404-.2.56L2.22 10.5l8.08 8.646c.133.156.2.343.2.56 0 .217-.067.403-.2.56-.135.156-.295.234-.48.234-.187 0-.347-.078-.48-.234l-1.35-1.433c-.9-.955-1.89-2-2.97-3.138-1.08-1.137-2.065-2.187-2.958-3.15-.892-.964-1.346-1.446-1.36-1.446-.076-.088-.128-.183-.157-.288C.515 10.708.5 10.604.5 10.5c0-.104.015-.208.045-.312.03-.105.08-.2.156-.287.016 0 .47-.476 1.362-1.43.893-.956 1.88-2.006 2.958-3.152l2.97-3.15L9.34.733C9.472.578 9.632.5 9.82.5c.185 0 .345.078.48.234.133.157.2.343.2.56z" fill-rule="evenodd"/></symbol>
+		<symbol viewBox="0 0 11 21" id="svg-arrow-right"><title>icon (arrow right)</title><path d="M.7.734c-.133.157-.2.343-.2.56 0 .217.067.404.2.56L8.78 10.5.7 19.146c-.133.156-.2.343-.2.56 0 .217.067.403.2.56.135.156.295.234.48.234.187 0 .347-.078.48-.234l1.35-1.433c.9-.955 1.89-2 2.97-3.138 1.08-1.137 2.065-2.187 2.958-3.15.892-.964 1.346-1.446 1.36-1.446.076-.088.128-.183.157-.287.03-.105.045-.21.045-.313 0-.104-.015-.208-.045-.313-.03-.104-.08-.2-.156-.286-.016 0-.47-.476-1.362-1.43-.893-.956-1.88-2.006-2.958-3.152l-2.97-3.15L1.66.733C1.528.578 1.368.5 1.18.5.996.5.836.578.7.734z" fill-rule="evenodd"/></symbol>
+		<symbol viewBox="0 0 13 16" id="svg-article"><title>icon-article</title><path d="M9.5 11h-6c-.135 0-.253.05-.352.148-.1.1-.148.217-.148.352 0 .135.05.253.148.352.1.1.217.148.352.148h6c.135 0 .253-.05.352-.148.1-.1.148-.217.148-.352 0-.135-.05-.253-.148-.352-.1-.1-.217-.148-.352-.148zM3 8.5c0 .135.05.253.148.352.1.1.217.148.352.148h6c.135 0 .253-.05.352-.148.1-.1.148-.217.148-.352 0-.135-.05-.253-.148-.352-.1-.1-.217-.148-.352-.148h-6c-.135 0-.253.05-.352.148-.1.1-.148.217-.148.352zM9 0H.5C.365 0 .247.05.148.148.048.248 0 .365 0 .5v15c0 .135.05.253.148.352.1.1.217.148.352.148h12c.135 0 .253-.05.352-.148.1-.1.148-.217.148-.352V4L9 0zm0 1.813L11.187 4H9V1.813zM12 14.5c0 .135-.05.253-.148.352-.1.1-.217.148-.352.148h-10c-.135 0-.253-.05-.352-.148-.1-.1-.148-.217-.148-.352v-13c0-.135.05-.253.148-.352.1-.1.217-.148.352-.148H8v4h4v9.5z" fill-rule="evenodd"/></symbol>
+		<symbol viewBox="0 0 16 15" id="svg-cards"><title>Group</title><g transform="translate(0 1)" fill="none" fill-rule="evenodd"><path d="M8.583 5.582h5.95v7.81H8.41l.173-7.81zM8.516.544h6.086v3.01H8.516V.544zM.604.467h5.973V8.6H.604V.468zM.527 10.568H6.49v2.92H.527v-2.92z"/></g></symbol>
+		<symbol viewBox="0 0 14 10" id="svg-checkmark"><title>icon (checkmark)</title><path d="M13.877.123C13.794.04 13.694 0 13.575 0c-.12 0-.224.04-.315.123L4.8 8.583.74 4.54c-.082-.084-.185-.125-.308-.125s-.226.04-.31.124c-.08.08-.122.184-.122.307 0 .124.04.226.123.31L4.47 9.5v.007c0 .004.005.006.014.006.082.082.183.124.302.124.118 0 .223-.042.315-.124L13.878.74C13.96.65 14 .544 14 .425c0-.12-.04-.22-.123-.302z" fill-rule="evenodd"/></symbol>
+		<symbol viewBox="0 0 15 15" id="svg-close"><title>icon (close)</title><path d="M8.253 7.5L14.85.904c.1-.112.15-.24.15-.385 0-.146-.05-.27-.15-.37-.1-.1-.224-.15-.37-.15-.144 0-.267.05-.367.15L7.5 6.764.887.15C.787.05.664 0 .52 0 .373 0 .25.05.15.15.05.25 0 .375 0 .52 0 .663.05.79.15.903L6.748 7.5.15 14.113c-.1.1-.15.223-.15.368 0 .146.05.27.15.37.1.1.224.15.37.15.144 0 .272-.05.384-.15L7.5 8.252l6.596 6.596c.112.1.24.15.385.15.146 0 .27-.05.37-.15.1-.1.15-.224.15-.37 0-.144-.05-.267-.15-.367L8.252 7.5z" fill-rule="evenodd"/></symbol>
+		<symbol viewBox="0 0 19 19" id="svg-email-square"><title>icon (share via email)</title><path d="M15.438 0H3.562C1.596 0 0 1.596 0 3.563v11.874C0 17.404 1.596 19 3.562 19h11.876C17.404 19 19 17.404 19 15.437V3.563C19 1.595 17.404 0 15.438 0zm.395 13.063c0 .655-.532 1.187-1.187 1.187H4.354c-.655 0-1.187-.532-1.187-1.188V7.67c.284.21.507.482.79.667 1.152.792 2.364 1.497 3.514 2.29.583.407 1.3.852 2.03.852.73 0 1.447-.446 2.03-.854 1.15-.792 2.35-1.51 3.512-2.276.297-.186.556-.42.79-.68v5.393zm0-7.088c0 .618-.73 1.36-1.212 1.682-1.1.73-2.2 1.435-3.302 2.152-.47.308-1.25.877-1.818.877-.57 0-1.348-.57-1.818-.878-1.09-.718-2.215-1.4-3.303-2.128-.52-.347-1.213-1.077-1.213-1.745 0-.655.532-1.187 1.187-1.187h10.292c.693 0 1.187.557 1.187 1.225z" fill="#FF9400" fill-rule="evenodd"/></symbol>
+		<symbol viewBox="0 0 19 19" id="svg-facebook-square"><title>icon (share on facebook)</title><path d="M15.438 0H3.562C1.596 0 0 1.596 0 3.562v11.876C0 17.404 1.596 19 3.562 19h6.58v-7.36H7.67V8.77h2.473V6.655c0-2.45 1.51-3.785 3.7-3.785 1.038 0 1.94.074 2.2.11v2.562l-1.508.012c-1.2 0-1.423.557-1.423 1.385v1.83h2.833l-.37 2.87H13.11V19h2.326C17.404 19 19 17.404 19 15.438V3.562C19 1.596 17.404 0 15.438 0z" fill="#3D57BB" fill-rule="evenodd"/></symbol>
+		<symbol viewBox="0 0 19 19" id="svg-gplus-square"><title>icon (share on gplus)</title><path d="M10.255 13.483c0-1.064-1.052-1.707-1.806-2.25-.138-.026-.26-.026-.385-.026-1.286 0-3.18.408-3.18 2.03 0 1.533 1.646 2.09 2.92 2.09 1.175 0 2.45-.483 2.45-1.844zm-.916-6.74c0-1.164-.68-3.13-2.09-3.13-1.053 0-1.535.89-1.535 1.817 0 1.175.668 3.03 2.078 3.03 1.014 0 1.546-.778 1.546-1.718zm1.31-3.18H9.624c.705.717 1.175 1.26 1.175 2.35 0 2.04-1.857 2.288-1.857 3.29 0 1.027 2.425 1.423 2.425 3.612 0 2.264-2.462 3.23-4.367 3.23-1.495 0-3.586-.607-3.586-2.45 0-.88.557-1.62 1.287-2.08.916-.568 2.116-.704 3.18-.778-.285-.36-.495-.693-.495-1.163 0-.235.062-.445.16-.668-.173.025-.358.037-.53.037-1.535 0-2.76-1.113-2.76-2.672 0-2.25 2.165-3.5 4.206-3.5h3.28l-1.09.792zm3.6 5.54v1.98h-.792v-1.98h-1.583v-.79h1.583V6.728h.792V8.31h1.583v.792H14.25zM19 3.564C19 1.595 17.404 0 15.438 0H3.562C1.596 0 0 1.596 0 3.562v11.876C0 17.404 1.596 19 3.562 19h11.876C17.404 19 19 17.404 19 15.438V3.562z" fill="#E72010" fill-rule="evenodd"/></symbol>
+		<symbol viewBox="0 0 16 16" id="svg-image"><title>icon-image</title><path d="M15 0H1C.73 0 .495.1.297.297.1.495 0 .73 0 1v14c0 .28.1.518.297.71.198.194.432.29.703.29h14c.28 0 .518-.096.71-.29.194-.192.29-.43.29-.71V1c0-.27-.096-.505-.29-.703C15.52.1 15.28 0 15 0zM1.5 15c-.135 0-.253-.05-.352-.148-.1-.1-.148-.217-.148-.352v-1.687l4.39-3.58L10.376 15H1.5zm13.5-.5c0 .135-.05.253-.148.352-.1.1-.217.148-.352.148h-2.72L8.08 10.703l4.375-3.578 2.53 2.734H15v4.64zm0-6.172l-2.03-2.203c-.064-.052-.134-.086-.212-.102-.078-.015-.16-.018-.242-.007-.073-.01-.146-.006-.22.015-.072.022-.14.053-.202.095L7.422 9.953 5.875 8.156c-.062-.062-.13-.107-.203-.133-.073-.026-.146-.033-.22-.023-.02 0-.04.003-.06.008-.022.005-.043.013-.064.023h-.015c-.01 0-.02.006-.032.017l-.132.03c-.046.012-.09.032-.132.064L1 11.423V1.5c0-.135.05-.253.148-.352.1-.1.217-.148.352-.148h13c.135 0 .253.05.352.148.1.1.148.217.148.352v6.828zM4 2c-.552 0-1.023.195-1.414.586C2.196 2.976 2 3.448 2 4c0 .552.195 1.023.586 1.414.39.39.862.586 1.414.586.552 0 1.023-.195 1.414-.586C5.804 5.024 6 4.552 6 4c0-.552-.195-1.023-.586-1.414C5.024 2.196 4.552 2 4 2zm0 3c-.27 0-.505-.096-.703-.29C3.1 4.52 3 4.28 3 4c0-.27.1-.505.297-.703C3.495 3.1 3.73 3 4 3c.27 0 .505.1.703.297C4.9 3.495 5 3.73 5 4c0 .28-.1.518-.297.71C4.505 4.905 4.27 5 4 5z" fill-rule="evenodd"/></symbol>
+		<symbol viewBox="0 0 16 16" id="svg-link"><title>icon-link</title><path d="M6.562 13.063L5.11 14.516c-.303.302-.667.453-1.094.453-.428 0-.787-.152-1.08-.454l-1.452-1.453c-.302-.292-.453-.65-.453-1.08 0-.426.152-.79.454-1.092l4.72-4.718c.3-.302.663-.453 1.085-.453.42 0 .783.15 1.085.452L9.47 7.266c.05.04.108.075.17.1.063.027.125.04.188.04.073 0 .14-.013.203-.04.064-.025.116-.06.157-.1.104-.104.157-.227.157-.367 0-.142-.053-.264-.157-.37L9.11 5.44c-.5-.5-1.108-.75-1.82-.75-.715 0-1.32.25-1.82.75L.75 10.156c-.5.51-.75 1.12-.75 1.828 0 .71.25 1.313.75 1.813l1.453 1.453c.5.5 1.104.75 1.813.75.708 0 1.317-.25 1.828-.75l.36-.36 1.077-1.093c.105-.104.157-.227.157-.367 0-.14-.052-.263-.156-.367-.093-.094-.21-.14-.35-.14-.14 0-.263.046-.368.14zM15.218 2.11L13.89.782c-.51-.51-1.132-.77-1.867-.782-.734-.01-1.346.235-1.836.735L8.734 2.172c-.094.104-.14.227-.14.367 0 .14.046.262.14.367.052.04.11.075.172.1.063.027.13.04.203.04.062 0 .124-.013.187-.04.062-.025.12-.06.172-.1l1.436-1.454c.302-.29.677-.432 1.125-.42.45.01.824.165 1.126.467L14.5 2.844c.302.302.458.68.468 1.133.01.453-.13.825-.42 1.117L10 9.64c-.313.303-.722.467-1.227.493-.505.026-.898-.102-1.18-.383l-.61-.625c-.01 0-.017-.008-.022-.023-.004-.016-.012-.03-.023-.04l-.015.016-.36-.36c-.104-.103-.226-.155-.367-.155-.14 0-.258.052-.35.156-.106.093-.158.21-.158.35 0 .14.052.263.157.368l1.078 1.093c.02.012.04.022.054.033.016.01.03.02.04.03.48.397 1.06.587 1.742.57.682-.014 1.278-.23 1.79-.647l.014.015c.01-.02.024-.04.04-.06.015-.022.033-.038.054-.048l.03-.03.033-.033 4.545-4.547c.5-.49.745-1.102.735-1.836-.01-.735-.27-1.357-.782-1.867z" fill-rule="evenodd"/></symbol>
+		<symbol viewBox="0 0 14 9" id="svg-list"><title>icon (list)</title><path d="M3 9h11V8H3v1zM0 9h1V8H0v1zm3-4h11V4H3v1zM0 5h1V4H0v1zm3-5v1h11V0H3zM0 1h1V0H0v1z" fill-rule="evenodd"/></symbol>
+		<symbol viewBox="0 0 48 48" id="svg-magnifier"><path d="M28.5 18H21v-7.5c0-.406-.148-.758-.445-1.055C20.258 9.148 19.905 9 19.5 9c-.406 0-.758.148-1.055.445-.297.297-.445.65-.445 1.055V18h-7.5c-.406 0-.758.148-1.055.445-.297.297-.445.65-.445 1.055 0 .406.148.758.445 1.055.297.297.65.445 1.055.445H18v7.5c0 .406.148.758.445 1.055.297.297.65.445 1.055.445.406 0 .758-.148 1.055-.445.297-.297.445-.65.445-1.055V21h7.5c.406 0 .758-.148 1.055-.445.297-.297.445-.65.445-1.055 0-.406-.148-.758-.445-1.055-.297-.297-.65-.445-1.055-.445zm19.078 27.562l-13.36-13.36c1.47-1.718 2.634-3.655 3.493-5.81.86-2.158 1.29-4.454 1.29-6.892 0-2.688-.508-5.22-1.523-7.594-1.016-2.375-2.407-4.445-4.172-6.21-1.766-1.766-3.836-3.157-6.21-4.173C24.718.508 22.187 0 19.5 0c-2.688 0-5.22.508-7.594 1.523C9.53 2.54 7.46 3.93 5.696 5.695 3.93 7.46 2.538 9.53 1.522 11.905.508 14.282 0 16.813 0 19.5c0 2.688.508 5.22 1.523 7.594 1.016 2.375 2.407 4.445 4.172 6.21 1.766 1.766 3.836 3.157 6.21 4.173C14.282 38.492 16.813 39 19.5 39c2.438 0 4.734-.43 6.89-1.29 2.157-.858 4.094-2.022 5.813-3.49l13.36 13.358c.28.28.617.422 1.007.422.39 0 .727-.14 1.008-.422.28-.28.422-.617.422-1.008 0-.39-.14-.726-.422-1.008zM19.5 36c-2.28 0-4.422-.43-6.422-1.29-2-.858-3.75-2.038-5.25-3.538s-2.68-3.25-3.54-5.25C3.43 23.922 3 21.782 3 19.5c0-2.28.43-4.422 1.29-6.422.858-2 2.038-3.75 3.538-5.25s3.25-2.68 5.25-3.54C15.078 3.43 17.218 3 19.5 3c2.28 0 4.422.43 6.422 1.29 2 .858 3.75 2.038 5.25 3.538s2.68 3.25 3.54 5.25c.858 2 1.288 4.14 1.288 6.422 0 2.28-.43 4.422-1.29 6.422-.858 2-2.038 3.75-3.538 5.25s-3.25 2.68-5.25 3.54c-2 .858-4.14 1.288-6.422 1.288z" fill-rule="evenodd"/></symbol>
+		<symbol viewBox="0 0 32 40" id="svg-play"><title>icon (play)</title><path d="M0 0v40l32-20L0 0z" fill-rule="evenodd"/></symbol>
+		<symbol viewBox="0 0 11 16" id="svg-save"><title>icon (save)</title><path d="M0 0v16l5.5-3 5.5 3V0H0zm6 4H5v2H3v1h2v2h1V7h2V6H6V4zm4 10l-4.5-2.5L1 14V1h9v13z" fill-rule="evenodd"/></symbol>
+		<symbol viewBox="0 0 11 16" id="svg-save-outline"><title>icon (save)</title><path d="M0 0v16l5.5-3 5.5 3V0H0zm10 14l-4.5-2.5L1 14V1h9v13z" fill-rule="evenodd"/></symbol>
+		<symbol viewBox="0 0 10 16" id="svg-saved-posts"><title>icon (saved posts)</title><path d="M0 0v16l5-3 5 3V0H0z" fill-rule="evenodd"/></symbol>
+		<symbol viewBox="0 0 19 16" id="svg-share"><title>icon (share)</title><path d="M14.857 9.143c-.655 0-1.25.17-1.786.51-.534.338-.945.782-1.23 1.33l-5.072-2.25c.036-.12.06-.24.07-.358.013-.12.02-.244.02-.375 0-.083-.007-.167-.02-.25-.01-.083-.023-.16-.034-.232l5.142-2.286c.31.488.718.88 1.224 1.18.506.296 1.068.445 1.687.445.94 0 1.747-.333 2.42-1 .672-.667 1.01-1.476 1.01-2.428 0-.942-.338-1.748-1.01-2.42C16.604.335 15.797 0 14.857 0s-1.747.336-2.42 1.01c-.672.672-1.008 1.478-1.008 2.42 0 .13.005.255.016.374.012.12.03.238.054.357L6.446 6.41c-.285-.547-.696-.99-1.232-1.33-.535-.34-1.13-.51-1.785-.51-.954 0-1.763.338-2.43 1.01C.333 6.253 0 7.06 0 8c0 .952.333 1.762 1 2.43.667.665 1.476 1 2.43 1 .618 0 1.18-.15 1.686-.448.506-.297.914-.69 1.223-1.178l5.142 2.285c-.012.07-.024.148-.036.23-.01.085-.017.168-.017.25 0 .954.335 1.763 1.008 2.43.672.667 1.48 1 2.42 1s1.746-.333 2.42-1c.67-.667 1.008-1.476 1.008-2.43 0-.94-.337-1.746-1.01-2.418-.672-.673-1.478-1.01-2.42-1.01zm0-8c.63 0 1.17.223 1.616.67.447.446.67.985.67 1.616 0 .63-.223 1.168-.67 1.615-.446.446-.985.67-1.616.67-.63 0-1.17-.224-1.616-.67-.445-.447-.67-.985-.67-1.616 0-.632.225-1.17.67-1.617.447-.447.986-.67 1.617-.67zM3.43 10.286c-.632 0-1.17-.223-1.618-.67-.446-.446-.67-.985-.67-1.616 0-.63.224-1.17.67-1.616.447-.447.986-.67 1.617-.67.63 0 1.168.223 1.615.67.446.446.67.985.67 1.616 0 .63-.224 1.17-.67 1.616-.447.447-.985.67-1.616.67zm11.427 4.57c-.63 0-1.17-.222-1.616-.67-.445-.445-.67-.984-.67-1.615 0-.63.225-1.168.67-1.615.447-.446.986-.67 1.617-.67.63 0 1.17.224 1.616.67.447.447.67.985.67 1.616 0 .632-.223 1.17-.67 1.617-.446.447-.985.67-1.616.67z" fill-rule="evenodd"/></symbol>
+		<symbol viewBox="0 0 38 30" id="svg-twitter-bird"><path fill-rule="evenodd" d="M38.01 3.56c-1.4.6-2.91 1.01-4.48 1.19 1.61-.93 2.84-2.42 3.43-4.19-1.51.87-3.18 1.5-4.96 1.84C30.58.93 28.55.01 26.31.01c-4.31 0-7.8 3.39-7.8 7.57 0 .59.07 1.17.21 1.72-6.49-.31-12.23-3.32-16.08-7.9-.67 1.12-1.05 2.42-1.05 3.8 0 2.63 1.37 4.95 3.46 6.3-1.27-.04-2.48-.38-3.53-.95v.1c0 3.67 2.69 6.73 6.26 7.42-.66.17-1.35.27-2.06.27-.5 0-.99-.05-1.46-.14.99 3.01 3.87 5.2 7.28 5.26-2.67 2.03-6.03 3.24-9.68 3.24-.63 0-1.25-.04-1.86-.11 3.45 2.15 7.55 3.4 11.95 3.4 14.34 0 22.19-11.53 22.19-21.53 0-.33-.01-.66-.03-.98 1.53-1.07 2.85-2.4 3.9-3.92z"/></symbol>
+		<symbol viewBox="0 0 19 19" id="svg-twitter-square"><title>icon (share on twitter)</title><path d="M15.833 5.962c-.346.532-.79.99-1.298 1.35.012.11.012.22.012.333 0 3.438-2.623 7.397-7.397 7.397-1.472 0-2.833-.433-3.983-1.163.198.024.408.036.618.036 1.225 0 2.338-.42 3.23-1.113-1.14-.025-2.092-.78-2.426-1.806.16.024.32.05.482.05.235 0 .408-.038.63-.1-1.187-.235-2.14-1.286-2.14-2.548v-.026c.396.186.805.31 1.237.322-.706-.47-1.126-1.262-1.126-2.165 0-.47.136-.926.36-1.31C5.318 6.803 7.235 7.83 9.4 7.94c-.048-.184-.06-.394-.06-.592 0-1.435 1.162-2.598 2.597-2.598.742 0 1.422.31 1.892.816.593-.11 1.15-.334 1.657-.63-.198.606-.606 1.125-1.15 1.447.53-.074 1.026-.21 1.496-.42zM19 3.562C19 1.596 17.404 0 15.438 0H3.562C1.596 0 0 1.596 0 3.562v11.876C0 17.404 1.596 19 3.562 19h11.876C17.404 19 19 17.404 19 15.438V3.562z" fill="#45B0E6" fill-rule="evenodd"/></symbol>
+		<symbol viewBox="0 0 16 16" id="svg-video"><title>icon-video</title><path d="M15 0H1C.73 0 .495.1.297.297.1.495 0 .73 0 1v14c0 .28.1.518.297.71.198.194.432.29.703.29h14c.28 0 .518-.096.71-.29.194-.192.29-.43.29-.71V1c0-.27-.096-.505-.29-.703C15.52.1 15.28 0 15 0zM3 15H1.5c-.135 0-.253-.05-.352-.148-.1-.1-.148-.217-.148-.352V13h2v2zm0-3H1v-2h2v2zm0-4v1H1V7h2v1zm0-2H1V4h2v2zm0-3H1V1.5c0-.135.05-.253.148-.352.1-.1.217-.148.352-.148H3v2zm9 7v5H4V9h8v1zm0-7v5H4V1h8v2zm3 11.5c0 .135-.05.253-.148.352-.1.1-.217.148-.352.148H13v-2h2v1.5zm0-2.5h-2v-2h2v2zm0-3h-2V7h2v2zm0-3h-2V4h2v2zm0-3h-2V1h1.5c.135 0 .253.05.352.148.1.1.148.217.148.352V3z" fill-rule="evenodd"/></symbol>
+</svg>
+
+<!--
+====================================================================================================
+-->
+		
+		<header>
+			<h1>SVG <code>&lt;symbol&gt;</code> sprite preview</h1>
+			<p>This preview features two methods of using the generated sprite in conjunction with inline SVG. Please have a look at the HTML source for further details and be aware of the following constraints:</p>
+			<ul>
+				<li>Your browser has to <a href="http://caniuse.com/#feat=svg-html5" target="_blank">support inline SVG</a> for these techniques to work.</li>
+				<li>The embedded sprite (A) slightly differs from the generated external one. Please <a href="https://github.com/jkphl/svg-sprite#inline-embedding" target="_blank">see the documentation</a> for details on how to create such an embeddable sprite.</li>
+				<li>Internet Explorer up to version 11 doesn't support external sprites for use with inline SVG. For IE 9-11, you may polyfill this functionality with <a href="https://github.com/jonathantneal/svg4everybody" target="_blank">SVG for Everybody</a>.</li>
+			</ul>
+		</header>
+		<section>
+
+<!--
+	
+A) Inline SVG with embedded sprite
+====================================================================================================
+These SVG images make use of fragment identifiers (IDs) and are extracted out of the inline sprite
+embedded above. They may be styled via CSS.
+
+-->
+
+			<h3>A) Inline SVG with embedded sprite</h3>
+			<ul>
+
+				<li title="svg-add">
+					<div class="icon-box">
+						
+						<!-- svg-add -->
+						<svg class="svg-svg-add-dims">
+							<use xlink:href="#svg-add"></use>
+						</svg>
+						
+					</div>
+					<h2>svg-add</h2>
+				</li>
+				<li title="svg-arrow-down">
+					<div class="icon-box">
+						
+						<!-- svg-arrow-down -->
+						<svg class="svg-svg-arrow-down-dims">
+							<use xlink:href="#svg-arrow-down"></use>
+						</svg>
+						
+					</div>
+					<h2>svg-arrow-down</h2>
+				</li>
+				<li title="svg-arrow-left">
+					<div class="icon-box">
+						
+						<!-- svg-arrow-left -->
+						<svg class="svg-svg-arrow-left-dims">
+							<use xlink:href="#svg-arrow-left"></use>
+						</svg>
+						
+					</div>
+					<h2>svg-arrow-left</h2>
+				</li>
+				<li title="svg-arrow-right">
+					<div class="icon-box">
+						
+						<!-- svg-arrow-right -->
+						<svg class="svg-svg-arrow-right-dims">
+							<use xlink:href="#svg-arrow-right"></use>
+						</svg>
+						
+					</div>
+					<h2>svg-arrow-right</h2>
+				</li>
+				<li title="svg-article">
+					<div class="icon-box">
+						
+						<!-- svg-article -->
+						<svg class="svg-svg-article-dims">
+							<use xlink:href="#svg-article"></use>
+						</svg>
+						
+					</div>
+					<h2>svg-article</h2>
+				</li>
+				<li title="svg-cards">
+					<div class="icon-box">
+						
+						<!-- svg-cards -->
+						<svg class="svg-svg-cards-dims">
+							<use xlink:href="#svg-cards"></use>
+						</svg>
+						
+					</div>
+					<h2>svg-cards</h2>
+				</li>
+				<li title="svg-checkmark">
+					<div class="icon-box">
+						
+						<!-- svg-checkmark -->
+						<svg class="svg-svg-checkmark-dims">
+							<use xlink:href="#svg-checkmark"></use>
+						</svg>
+						
+					</div>
+					<h2>svg-checkmark</h2>
+				</li>
+				<li title="svg-close">
+					<div class="icon-box">
+						
+						<!-- svg-close -->
+						<svg class="svg-svg-close-dims">
+							<use xlink:href="#svg-close"></use>
+						</svg>
+						
+					</div>
+					<h2>svg-close</h2>
+				</li>
+				<li title="svg-email-square">
+					<div class="icon-box">
+						
+						<!-- svg-email-square -->
+						<svg class="svg-svg-email-square-dims">
+							<use xlink:href="#svg-email-square"></use>
+						</svg>
+						
+					</div>
+					<h2>svg-email-square</h2>
+				</li>
+				<li title="svg-facebook-square">
+					<div class="icon-box">
+						
+						<!-- svg-facebook-square -->
+						<svg class="svg-svg-facebook-square-dims">
+							<use xlink:href="#svg-facebook-square"></use>
+						</svg>
+						
+					</div>
+					<h2>svg-facebook-square</h2>
+				</li>
+				<li title="svg-gplus-square">
+					<div class="icon-box">
+						
+						<!-- svg-gplus-square -->
+						<svg class="svg-svg-gplus-square-dims">
+							<use xlink:href="#svg-gplus-square"></use>
+						</svg>
+						
+					</div>
+					<h2>svg-gplus-square</h2>
+				</li>
+				<li title="svg-image">
+					<div class="icon-box">
+						
+						<!-- svg-image -->
+						<svg class="svg-svg-image-dims">
+							<use xlink:href="#svg-image"></use>
+						</svg>
+						
+					</div>
+					<h2>svg-image</h2>
+				</li>
+				<li title="svg-link">
+					<div class="icon-box">
+						
+						<!-- svg-link -->
+						<svg class="svg-svg-link-dims">
+							<use xlink:href="#svg-link"></use>
+						</svg>
+						
+					</div>
+					<h2>svg-link</h2>
+				</li>
+				<li title="svg-list">
+					<div class="icon-box">
+						
+						<!-- svg-list -->
+						<svg class="svg-svg-list-dims">
+							<use xlink:href="#svg-list"></use>
+						</svg>
+						
+					</div>
+					<h2>svg-list</h2>
+				</li>
+				<li title="svg-magnifier">
+					<div class="icon-box">
+						
+						<!-- svg-magnifier -->
+						<svg class="svg-svg-magnifier-dims">
+							<use xlink:href="#svg-magnifier"></use>
+						</svg>
+						
+					</div>
+					<h2>svg-magnifier</h2>
+				</li>
+				<li title="svg-play">
+					<div class="icon-box">
+						
+						<!-- svg-play -->
+						<svg class="svg-svg-play-dims">
+							<use xlink:href="#svg-play"></use>
+						</svg>
+						
+					</div>
+					<h2>svg-play</h2>
+				</li>
+				<li title="svg-save">
+					<div class="icon-box">
+						
+						<!-- svg-save -->
+						<svg class="svg-svg-save-dims">
+							<use xlink:href="#svg-save"></use>
+						</svg>
+						
+					</div>
+					<h2>svg-save</h2>
+				</li>
+				<li title="svg-save-outline">
+					<div class="icon-box">
+						
+						<!-- svg-save-outline -->
+						<svg class="svg-svg-save-outline-dims">
+							<use xlink:href="#svg-save-outline"></use>
+						</svg>
+						
+					</div>
+					<h2>svg-save-outline</h2>
+				</li>
+				<li title="svg-saved-posts">
+					<div class="icon-box">
+						
+						<!-- svg-saved-posts -->
+						<svg class="svg-svg-saved-posts-dims">
+							<use xlink:href="#svg-saved-posts"></use>
+						</svg>
+						
+					</div>
+					<h2>svg-saved-posts</h2>
+				</li>
+				<li title="svg-share">
+					<div class="icon-box">
+						
+						<!-- svg-share -->
+						<svg class="svg-svg-share-dims">
+							<use xlink:href="#svg-share"></use>
+						</svg>
+						
+					</div>
+					<h2>svg-share</h2>
+				</li>
+				<li title="svg-twitter-bird">
+					<div class="icon-box">
+						
+						<!-- svg-twitter-bird -->
+						<svg class="svg-svg-twitter-bird-dims">
+							<use xlink:href="#svg-twitter-bird"></use>
+						</svg>
+						
+					</div>
+					<h2>svg-twitter-bird</h2>
+				</li>
+				<li title="svg-twitter-square">
+					<div class="icon-box">
+						
+						<!-- svg-twitter-square -->
+						<svg class="svg-svg-twitter-square-dims">
+							<use xlink:href="#svg-twitter-square"></use>
+						</svg>
+						
+					</div>
+					<h2>svg-twitter-square</h2>
+				</li>
+				<li title="svg-video">
+					<div class="icon-box">
+						
+						<!-- svg-video -->
+						<svg class="svg-svg-video-dims">
+							<use xlink:href="#svg-video"></use>
+						</svg>
+						
+					</div>
+					<h2>svg-video</h2>
+				</li>
+			</ul>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<section>
+
+<!--
+	
+B) Inline SVG with external sprite (IE 9-11 with polyfill only)
+====================================================================================================
+These SVG images make use of an URL + fragment identifiers (IDs) and refer to the regular external
+SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
+
+-->
+
+			<h3>B) Inline SVG with external sprite (IE 9-11 with polyfill only)</h3>
+			<p>Please set the <code>inline</code> option to <code>FALSE</code> in order to preview this method.</p>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<footer>
+			<p>Generated at Mon, 01 Feb 2016 17:55:31 GMT by <a href="https://github.com/jkphl/svg-sprite" target="_blank">svg-sprite</a>.</p>
+		</footer>
+	</body>
+</html>
